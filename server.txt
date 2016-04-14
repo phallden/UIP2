@@ -1,0 +1,7 @@
+Ensure that Node is installed. Download it from https://nodejs.org/en/download/.
+Move to the project directory and install the project dependencies
+
+2. sh npm install 
+3. Run the local server:
+
+4. sh node server.js
