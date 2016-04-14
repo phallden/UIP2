@@ -1,0 +1,16 @@
+Weekly report 2015-04-04 2015-04-10
+Leader : Pontus Hallden
+	We met once this week with deciding on a project, we settled on a educational game. Some tools such as trello, git, toggl, IDE's was set up to get everything up and running. A preliminary project plan was also written as a basis for the meeting with Lars scheduled for Thursday. The project plan was then finalized and sent in. 
+
+HAN VA FÖR SLAPP FÖR ATT LEDA!!
+
+Weekly report 2015-04-10 2015-04-17
+Leader : Adam Ulander
+    This weeks plan was to create a basic start up, and to get a good understanding about the project.
+    The consumed time was about learning canvas, canvas will be used to create the desired animation that the website will have.
+    Also the server was setup, so that each individual person can test the site, this was done with the help of Node js, and a package
+    called http-server. Next week the plan is to start doing some basic programming, creating the structure for the site and deciding
+    how we want the framework to look.
+
+Weekly report 2015-04-17 2015-04-24
+Leader : Mikael Holmberg
