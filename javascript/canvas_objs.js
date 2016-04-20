@@ -2,20 +2,29 @@ var i = 0
 var objects = [];
 $(document).ready( function(){
 
-  var cloud1 = new Cloud("respondCanvas", '../images/Cloud.png', 0.1, 1.1)
+  var cloud1 = new Cloud("respondCanvas", '../images/Cloud.png', 0.1, 1.1, 500, 100)
+  var cloud2 = new Cloud("respondCanvas", '../images/Cloud.png', 0.15, 1.1, 100, 0)
+  var cloud3 = new Cloud("respondCanvas", '../images/Cloud.png', 0.08, 1.1, 0, 0)
   objects[i] = cloud1;
   i++;
+  objects[i] = cloud2;
+  i++;
+  objects[i] = cloud3;
+  i++;
   cloud1.start();
-  console.log("Image drawned?")
   var loopBG = setInterval(function(){
     // do your thing
-    cloud1.clear();
-    cloud1.tick();
-    cloud1.draw();
+      for (k = 0; k < objects.length; ++k) {
+    objects[k].clear();
+  }
+    for (k = 0; k < objects.length; ++k) {
+    objects[k].tick();
+    objects[k].draw();
+  }
   }, 20);
 });
 
-var Cloud = function(canvasElem, imageName, widthFact, heightFact) {
+var Cloud = function(canvasElem, imageName, widthFact, heightFact,x ,y) {
 
     // console.log("Ball created");
 
@@ -32,15 +41,14 @@ var Cloud = function(canvasElem, imageName, widthFact, heightFact) {
    // var height = width * heightFact;
     this.canvas.attr('width', $(this.container).width()); //max width
   //  this.canvas.attr('height', height); //max width
-  this.x = 0;
-  this.y = 0;
-  this.vx = 5;
+  this.x = x;
+  this.y = y;
+  this.vx = 1;
   this.vy = 0;
 };
 
 Cloud.prototype.start = function () {
   $this = this;
-  console.log(this.canvas.width() + ", " + this.canvas.height())
  // this.ctx.fillStyle = "#FFF"
  // this.ctx.fillRect( 0, 0, this.canvas.width(), this.canvas.height()); //fill the canvas     
 //ct.drawImage(logoImage, 0, 0, c.width(), c.height());
@@ -51,7 +59,6 @@ this.cloudImage.onload = function() {
 };
 
 Cloud.prototype.draw = function () {
-  console.log(this.canvas.width() + ", " + this.canvas.height())
  // this.ctx.fillStyle = "#FFF"
  // this.ctx.fillRect( 0, 0, this.canvas.width(), this.canvas.height()); //fill the canvas     
 //ct.drawImage(logoImage, 0, 0, c.width(), c.height());
@@ -69,6 +76,7 @@ Cloud.prototype.tick = function() {
 
     if (this.x + this.vx > this.canvas.width() || this.x + this.vx < 0) {
       this.vx = -this.vx;
+      this.x = 0;
     }
   };
 
