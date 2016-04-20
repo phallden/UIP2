@@ -1,16 +1,16 @@
 /**
  * createObject
- * create object obj with id = idobject, class (if wanted) objclass
- * @param
- *      element = parentElement
+ * create object obj with id = objId, class (if wanted) objClass
+ * @param element,obj,odObject,objClass
+ *      pElement = parentElement
  *      obj = what kind of element, CANVAS, div, etc...
- *      idObject = wanted object ID
+ *      objId = wanted object ID
  *      objClass = (alternativ) wanted object class
  * **/
-function createObject(element,obj,idObject,objClass) {
-    var object = document.getElementById(element);
+function createObject(pElement,obj,objId,objClass) {
+    var object = document.getElementById(pElement);
     var x = object.createElement(obj);
-    x.id = idObject;
+    x.id = objId;
     if(objClass != null){
         x.className = objClass;
     }
