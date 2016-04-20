@@ -1,28 +1,4 @@
-var i = 0
-var objects = [];
-$(document).ready( function(){
 
-  var cloud1 = new Cloud("respondCanvas", '../images/Cloud.png', 0.1, 1.1, 500, 100)
-  var cloud2 = new Cloud("respondCanvas", '../images/Cloud.png', 0.15, 1.1, 100, 0)
-  var cloud3 = new Cloud("respondCanvas", '../images/Cloud.png', 0.08, 1.1, 0, 0)
-  objects[i] = cloud1;
-  i++;
-  objects[i] = cloud2;
-  i++;
-  objects[i] = cloud3;
-  i++;
-  cloud1.start();
-  var loopBG = setInterval(function(){
-    // do your thing
-      for (k = 0; k < objects.length; ++k) {
-    objects[k].clear();
-  }
-    for (k = 0; k < objects.length; ++k) {
-    objects[k].tick();
-    objects[k].draw();
-  }
-  }, 20);
-});
 
 var Cloud = function(canvasElem, imageName, widthFact, heightFact,x ,y) {
 
