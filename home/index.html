@@ -5,22 +5,26 @@
 	<title>Home</title>
 	<link rel="stylesheet" href="../css/default.css">
 	<script src="../jquery/jquery-1.12.0.min.js"></script>
+	<script src="../javascript/main.js"></script>
 	<script type="text/javascript" charset="utf-8" src="../javascript/helpFunctions.js"></script>
 	<script src="../javascript/canvas_objs.js"></script>
-    <script src="../javascript/main.js"></script>
+
 
 </head>
-<body onload="init">
-<div class="bg-layer" >
-<div class=" col-12">
-<canvas id="respondCanvas" width="0" height="500">
-		</canvas>
-</div>
-<div class=" col-12">
-<canvas id="respondCanvas2" width="0" height="500">
-		</canvas>
-</div>
-</div>
+<body>
+	<div class="main-wrapper">
+		<div class="bg-layer" >
+			<div class="row">
+			<div class=" col-12">
+					<canvas id="respondCanvas" width="0" height="500">
+					</canvas>
+				</div>
+				<div class=" col-6">
+					<canvas id="respondCanvas" width="0" height="500">
+					</canvas>
+				</div>
+			</div>
+		</div>
 
 <!--
 <div class="obj-layer">
