@@ -1,36 +1,58 @@
 
 $(document).ready( function(){
  
-var cloud1 = new Cloud("respondCanvas", '../images/Cloud.png')
-cloud1.draw();
-
+var cloud1 = new Cloud("respondCanvas", '../images/Cloud.png', 0.1, 1.1)
+cloud1.start();
+console.log("Image drawned?")
+var loopBG = setInterval(function(){
+    // do your thing
+       // clear();
+       cloud1.tick();
+        cloud1.draw();
+}, 200);
 });
 
-var Cloud = function(canvasElem, imageName) {
+var Cloud = function(canvasElem, imageName, widthFact, heightFact) {
 
     // console.log("Ball created");
 
     // Initial values
     //
-
+    
     this.cloudImage = new Image();
     this.cloudImage.src = imageName;
     this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
-    this.canvas.attr('width', $(this.container).width() ); //max width
+    var width = $(this.container).width() * widthFact;
+    var height = width * heightFact;
+    this.canvas.attr('width', width); //max width
+    this.canvas.attr('height', height); //max width
     this.x = 0;
     this.y = 0;
     this.vx = 5;
     this.vy = 0;
 };
 
+Cloud.prototype.start = function () {
+  $this = this;
+  console.log(this.canvas.width() + ", " + this.canvas.height())
+ // this.ctx.fillStyle = "#FFF"
+ // this.ctx.fillRect( 0, 0, this.canvas.width(), this.canvas.height()); //fill the canvas     
+//ct.drawImage(logoImage, 0, 0, c.width(), c.height());
+this.cloudImage.onload = function() {
+  $this.ctx.drawImage( $this.cloudImage, $this.x, $this.y, $this.canvas.width(), $this.canvas.height())  
+};
+ // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())  
+};
+
 Cloud.prototype.draw = function () {
   console.log(this.canvas.width() + ", " + this.canvas.height())
-  this.ctx.fillStyle = "#FFF"
-  this.ctx.fillRect( 0, 0, this.canvas.width(), this.canvas.height()); //fill the canvas     
+ // this.ctx.fillStyle = "#FFF"
+ // this.ctx.fillRect( 0, 0, this.canvas.width(), this.canvas.height()); //fill the canvas     
 //ct.drawImage(logoImage, 0, 0, c.width(), c.height());
-  this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())  
+  this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height()) 
+ // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())  
 };
 
 // Adding the tick function. The tick is used to move things (or to provide for other animations).
@@ -41,7 +63,7 @@ Cloud.prototype.tick = function() {
     // Detection of the walls. This is not perfect, so it is left as an exercise to improve it.
     //
 
-    if (this.x + this.vx > canvas.width || this.x + this.vx < 0) {
+    if (this.x + this.vx > this.canvas.width || this.x + this.vx < 0) {
         this.vx = -this.vx;
     }
 };
