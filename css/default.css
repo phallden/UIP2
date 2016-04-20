@@ -1,0 +1,8 @@
+
+		body {
+			background-image: url("../images/background.png");
+			background-size: 100% 2000%;
+			background-color: #cccccc;
+			overflow: auto;
+		}
+	
