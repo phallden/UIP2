@@ -1,15 +1,18 @@
-
+var i = 0
+var objects = [];
 $(document).ready( function(){
- 
-var cloud1 = new Cloud("respondCanvas", '../images/Cloud.png', 0.1, 1.1)
-cloud1.start();
-console.log("Image drawned?")
-var loopBG = setInterval(function(){
+
+  var cloud1 = new Cloud("respondCanvas", '../images/Cloud.png', 0.1, 1.1)
+  objects[i] = cloud1;
+  i++;
+  cloud1.start();
+  console.log("Image drawned?")
+  var loopBG = setInterval(function(){
     // do your thing
-       cloud1.clear();
-       cloud1.tick();
-        cloud1.draw();
-}, 20);
+    cloud1.clear();
+    cloud1.tick();
+    cloud1.draw();
+  }, 20);
 });
 
 var Cloud = function(canvasElem, imageName, widthFact, heightFact) {
@@ -29,10 +32,10 @@ var Cloud = function(canvasElem, imageName, widthFact, heightFact) {
    // var height = width * heightFact;
     this.canvas.attr('width', $(this.container).width()); //max width
   //  this.canvas.attr('height', height); //max width
-    this.x = 0;
-    this.y = 0;
-    this.vx = 5;
-    this.vy = 0;
+  this.x = 0;
+  this.y = 0;
+  this.vx = 5;
+  this.vy = 0;
 };
 
 Cloud.prototype.start = function () {
@@ -52,26 +55,35 @@ Cloud.prototype.draw = function () {
  // this.ctx.fillStyle = "#FFF"
  // this.ctx.fillRect( 0, 0, this.canvas.width(), this.canvas.height()); //fill the canvas     
 //ct.drawImage(logoImage, 0, 0, c.width(), c.height());
-  this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
  // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())  
 };
 
 // Adding the tick function. The tick is used to move things (or to provide for other animations).
 //
 Cloud.prototype.tick = function() {
-    this.x += this.vx;
+  this.x += this.vx;
 
     // Detection of the walls. This is not perfect, so it is left as an exercise to improve it.
     //
 
     if (this.x + this.vx > this.canvas.width() || this.x + this.vx < 0) {
-        this.vx = -this.vx;
+      this.vx = -this.vx;
     }
-};
+  };
 
-Cloud.prototype.clear = function(){
-  this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());
-}
+  Cloud.prototype.clear = function(){
+    this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());
+  }
+
+  $(window).resize( respondCanvas );
+  function respondCanvas(){ 
+    for (k = 0; k < objects.length; ++k) {
+      console.log(objects[k]);
+      objects[k].canvas.attr('width', $(objects[k].container).width() ); //max width
+       objects[k].canvas.attr('height', $(objects[k].container).height() ); //max height
+     }
+   };
 
 /**$(document).ready( function(){
     //Get the canvas & context
