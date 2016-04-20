@@ -6,10 +6,10 @@ cloud1.start();
 console.log("Image drawned?")
 var loopBG = setInterval(function(){
     // do your thing
-       // clear();
+       cloud1.clear();
        cloud1.tick();
         cloud1.draw();
-}, 200);
+}, 20);
 });
 
 var Cloud = function(canvasElem, imageName, widthFact, heightFact) {
@@ -18,16 +18,17 @@ var Cloud = function(canvasElem, imageName, widthFact, heightFact) {
 
     // Initial values
     //
-    
+    this.widthFact = widthFact;
+    this.heightFact = heightFact;
     this.cloudImage = new Image();
     this.cloudImage.src = imageName;
     this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
-    var width = $(this.container).width() * widthFact;
-    var height = width * heightFact;
-    this.canvas.attr('width', width); //max width
-    this.canvas.attr('height', height); //max width
+  ///  var width = $(this.container).width() * widthFact;
+   // var height = width * heightFact;
+    this.canvas.attr('width', $(this.container).width()); //max width
+  //  this.canvas.attr('height', height); //max width
     this.x = 0;
     this.y = 0;
     this.vx = 5;
@@ -41,7 +42,7 @@ Cloud.prototype.start = function () {
  // this.ctx.fillRect( 0, 0, this.canvas.width(), this.canvas.height()); //fill the canvas     
 //ct.drawImage(logoImage, 0, 0, c.width(), c.height());
 this.cloudImage.onload = function() {
-  $this.ctx.drawImage( $this.cloudImage, $this.x, $this.y, $this.canvas.width(), $this.canvas.height())  
+  $this.ctx.drawImage( $this.cloudImage, $this.x, $this.y, $this.canvas.width() * $this.widthFact, $this.canvas.width() * $this.widthFact * $this.heightFact)  
 };
  // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())  
 };
@@ -51,7 +52,7 @@ Cloud.prototype.draw = function () {
  // this.ctx.fillStyle = "#FFF"
  // this.ctx.fillRect( 0, 0, this.canvas.width(), this.canvas.height()); //fill the canvas     
 //ct.drawImage(logoImage, 0, 0, c.width(), c.height());
-  this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height()) 
+  this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
  // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())  
 };
 
@@ -63,11 +64,14 @@ Cloud.prototype.tick = function() {
     // Detection of the walls. This is not perfect, so it is left as an exercise to improve it.
     //
 
-    if (this.x + this.vx > this.canvas.width || this.x + this.vx < 0) {
+    if (this.x + this.vx > this.canvas.width() || this.x + this.vx < 0) {
         this.vx = -this.vx;
     }
 };
 
+Cloud.prototype.clear = function(){
+  this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());
+}
 
 /**$(document).ready( function(){
     //Get the canvas & context
