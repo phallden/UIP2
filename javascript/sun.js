@@ -1,4 +1,4 @@
-var Sun = function(canvasElem, imageName, widthFact, heightFact,x ,y) {
+ var Sun = function(canvasElem, imageName, widthFact, heightFact,x ,y) {
 
     // console.log("Ball created");
 
