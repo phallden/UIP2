@@ -1,3 +1,4 @@
+
 var Sun = function(canvasElem, image, widthFact, heightFact, xFactor, y) {
 
     // Initial values
