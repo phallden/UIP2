@@ -50,11 +50,11 @@ Cloud.prototype.tick = function() {
 
   $(window).resize( respondCanvas );
   function respondCanvas(){ 
-    for (k = 0; k < objects.length; ++k) {
+  /*  for (k = 0; k < objects.length; ++k) {
       objects[k].x = objects[k].canvas.width() * objects[k].xFactor;
       objects[k].canvas.attr('width', $(objects[k].container).width() ); //max width
        objects[k].canvas.attr('height', $(objects[k].container).height() ); //max height
 
-     }
+     } */
   };
 
