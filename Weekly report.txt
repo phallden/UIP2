@@ -14,3 +14,5 @@ Leader : Adam Ulander
 
 Weekly report 2015-04-17 2015-04-24
 Leader : Mikael Holmberg
+	We have started on creating the canvas and as a start we use canvas element in html and creates canvas object with the associated html element. 
+	The objects is created from a constructor with related parameters (i.e velocity, size factor to parent element etc.). The objects has a draw function that is defined for the desired outcome. We have also made the canvases responsive by the use of a parent container to each canvas, these means that the canvases width is not defined in that element, instead it is defined on the parent container. In this way we can use procentage as an attribute for width.
