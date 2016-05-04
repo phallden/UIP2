@@ -4,7 +4,8 @@ var pigs = [];
 var sources = {
 	Pig: '../images/pig.png',
 	Cloud: '../images/Cloud.png',
-	Sun: '../images/sun.png'
+	Sun: '../images/sun.png',
+	Sun2: '../images/chicken.png'
 };
 var sunObj;
 function loadImages(sources, callback) {
@@ -37,7 +38,7 @@ function init(){
 		clouds[0] =  new Cloud("cloudCanvas", images.Cloud, 0.1, 1.1, 0.25, 10)
 		clouds[1] =  new Cloud("cloudCanvas", images.Cloud, 0.05, 1.1, 0.1 , 40)
 		clouds[2] =  new Cloud("cloudCanvas", images.Cloud, 0.08, 1.1, 0.4 , 30)
-		sunObj = new Sun("cloudCanvas", images.Sun,0.1, 1.1, 0.85, 20);
+		sunObj = new Sun("cloudCanvas", images.Sun, images.Sun2, 0.1, 1.1, 0.85, 20);
 		sunObj.draw();
 		for(k=0; k < pigs.length; k++){
 			pigs[k].draw();

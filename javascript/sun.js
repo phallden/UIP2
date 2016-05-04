@@ -1,10 +1,13 @@
-var Sun = function(canvasElem, image, widthFact, heightFact, xFactor, y) {
+var Sun = function(canvasElem, image, image2, widthFact, heightFact, xFactor, y) {
 
     // Initial values
     //
+    $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;
     this.sunImage = image;
+    this.sunImage2 = image2;
+    this.imageChoice = 1;
     this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
@@ -13,8 +16,34 @@ var Sun = function(canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.y = y;
     this.vx = 1;
     this.vy = 0;
+    this.raf = null;
+    this.nameCanvas = "Sky"
+    $(this.canvas).on( "mousemove", function(e) { console.log("mousein"); 
+        console.log("Object: " + $this.x + " - " + $this.x + $this.canvas.width() * $this.widthFact + ", Compare: " +  e.clientX)
+        if(e.clientX > $this.x && e.clientX < ($this.x + ($this.canvas.width() * $this.widthFact)))
+            $this.imageChoice = 2;
+        else
+            $this.imageChoice = 1;
+            
+    }); 
+    $(this.canvas).on( "mouseout", function(e) { console.log("mouesout"); 
+        $this.imageChoice = 1;
+    }); 
+
 };
 
 Sun.prototype.draw = function () {
-    this.ctx.drawImage( this.sunImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+    if(this.imageChoice == 1)
+        this.ctx.drawImage( this.sunImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+    else
+        this.ctx.drawImage( this.sunImage2, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
+
+Sun.prototype.animate = function () {
+    console.log("TEST")
+    this.ctx.drawImage( this.sunImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+
+
+};
+
+
