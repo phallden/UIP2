@@ -4,15 +4,18 @@ var windmill = function (canvasElem, image, image2, image3, image4, widthFact, h
     $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;
-    this.windmill = image;
+    this.windmillMain = image;
     this.wind1 = image2;
     this.wind2 = image3;
     this.wind3 = image4;
-    this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
-    this.canvas.attr('width', $(this.container).width()); //max width
+    this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);    
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
+    this.canvas.attr('width', $(this.container).width()); //max width
     this.running = false;
+    this.raf = null;
+    this.printImage = image2;
+    this.imageCount = 1;
     this.x = this.canvas.width() * xFactor;
     this.y = y;
     this.vx = 0;
@@ -20,12 +23,22 @@ var windmill = function (canvasElem, image, image2, image3, image4, widthFact, h
     this.nameCanvas = "Sky";
 }
 
-
-var imageCount = 1;
 var interVall;
 var printImage;
-windmill.prototype.spin = function () {
-    function change(i) {
+
+windmill.prototype.draw = function (img) {
+    if(img == null)
+        this.ctx.drawImage( this.wind1, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+    else
+        this.ctx.drawImage( img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+
+};
+
+windmill.prototype.clearWindmill = function() {
+    this.ctx.clearRect(this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+};
+
+windmill.prototype.change = function(i) {
         if (i == 1) {
             printImage = this.wind1;
         } else if (i == 2) {
@@ -35,18 +48,21 @@ windmill.prototype.spin = function () {
         }
     }
 
-    if (imageCount == 4) {
-        imageCount = 1;
+windmill.prototype.spin = function () {
+    if (this.imageCount == 4) {
+        this.imageCount = 1;
     }
     //console.log(imageCount);
-    change(imageCount);
-    imageCount = imageCount + 1;
-    this.ctx.clearRect(this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
-    this.ctx.drawImage(printImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
-    interVall = window.requestAnimationFrame(windObj.spin);
+    this.change(this.imageCount);
+    this.imageCount = this.imageCount + 1;
+    //this.ctx.clearRect(this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+    this.clearWindmill();
+    //this.ctx.drawImage(printImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+    this.draw(printImage);
+    //this.raf = window.requestAnimationFrame(this.spin());
 }
 
-
+/*
 this.addEventListener('mouseover', function () {
         if (this.running == false) {
             this.running = true;
@@ -54,7 +70,7 @@ this.addEventListener('mouseover', function () {
             interVall = window.requestAnimationFrame(windObj.spin);
         }
     }
-    , false);
+    , false); 
 
 this.canvas.on("mouseout", function (e) {
     console.log("mouesout");
@@ -62,6 +78,8 @@ this.canvas.on("mouseout", function (e) {
     this.running = false;
     console.log(this.running);
 });
+
+*/
 
 
 

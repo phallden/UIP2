@@ -39,7 +39,7 @@ function loadImages(sources, callback) {
 
 function init(){
 	loadImages(sources, function(images) {
-		windObj = new windmill("pigCanvas",images.windmill1,images.snurra,images.snurra1,images.snurra2,0.2, 1.1, 0.7, 100);
+		windObj = new windmill("pigCanvas", images.windmill1, images.snurra, images.snurra1, images.snurra2, 0.1, 1.1, 0.85, 20);
 		pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 200);
 		pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 100);
 		pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.20, 150);
@@ -53,17 +53,19 @@ function init(){
 			pigs[k].draw();
 		//	objects[k].draw();
 	}
-		for(k=0; k < horse.length; k++){
-			horse[k].draw();
-		}
+	for(k=0; k < horse.length; k++){
+		horse[k].draw();
+	}
 	var loopBG = setInterval(function(){
 		clouds[0].clear();
 		sunObj.draw();
+		
 		for (k = 0; k < clouds.length; ++k) {
 			clouds[k].tick();
 			clouds[k].draw();
 		}
 	}, 20);
+	windObj.draw();
 });
 }
 window.onload = function() {
