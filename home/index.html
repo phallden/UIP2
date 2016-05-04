@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home</title>
-	<link rel="stylesheet" href="../css/default.css">
 	<link rel="stylesheet" type="text/css" title="Farm" href="../css/default.css">
+	<link rel="stylesheet" href="../css/modal.css">
 	<link rel="alternate stylesheet" type="text/css" title="Savannah" href="../css/savannah.css">
 	<script src="../jquery/jquery-1.12.0.min.js"></script>
 	<script src="../javascript/main.js"></script>
@@ -15,6 +15,8 @@
 	<script src="../javascript/windmill_canvas.js"></script>
 	<script src="../javascript/horse.js"></script>
 	<script src="../javascript/switch_style.js"></script>
+	<script src="../javascript/canvas-events.js"></script>
+
 
 
 </head>
@@ -47,16 +49,14 @@
 		</div>
 	</div>
 </div>
-
-	<!--
-    <div class="obj-layer">
-    <div class="col-offset-3 col-6" style="border-color:blue">
-
-    </div>
-    <div class="col-offset-1 col-12" style="border-color:blue">
-    <canvas id="respondCanvas2" width="100" height="100">
-            </canvas>
-    </div>
-</div> -->
+<div id="id01" class="w3-modal">
+	<div class="w3-modal-content">
+		<div class="w3-container">
+			<span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn">&times;</span>
+			<p>Some text. Some text. Some text.</p>
+			<p>Some text. Some text. Some text.</p>
+		</div>
+	</div>
+</div>
 </body>
 </html>
