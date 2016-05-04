@@ -10,7 +10,7 @@ var sources = {
 	windmill1: '../images/windmill.png',
 	snurra: '../images/snurra.png',
 	snurra1: '../images/snurra1.png',
-	snurra2: '../images/snurra2.png'
+	snurra2: '../images/snurra2.png',
 	Horse: '../images/horse2.jpg'
 };
 var sunObj;
