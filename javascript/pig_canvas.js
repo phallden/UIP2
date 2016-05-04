@@ -4,6 +4,7 @@ var Pig = function(canvasElem, image, widthFact, heightFact,xFactor ,y) {
 
     // Initial values
     //
+    $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;
     this.pigImage = image;
@@ -17,7 +18,6 @@ var Pig = function(canvasElem, image, widthFact, heightFact,xFactor ,y) {
     this.vx = 1;
     this.vy = 0;
     this.nameCanvas = "Pig";
-    $(this.canvas).on( "click", function(e) { console.log(e.clientX + ", " + e.clientY + ": PIG")});
 };
 
 Pig.prototype.start = function () {
