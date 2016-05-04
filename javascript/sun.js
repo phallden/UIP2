@@ -1,5 +1,5 @@
-var Sun = function(canvasElem, image, image2, widthFact, heightFact, xFactor, y) {
 
+var Sun = function(canvasElem, image, image2, widthFact, heightFact, xFactor, y) {
     // Initial values
     //
     $this = this;

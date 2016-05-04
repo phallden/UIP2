@@ -28,7 +28,7 @@
         };
 }());
 
-(function () {
+function initMill (canvasElement, imgsrc, sizeh,sizew, frames) {
 
     var coin,
         coinImage,
@@ -95,9 +95,10 @@
     }
 
     // Get canvas
-    canvas = document.getElementById("coinAnimation");
-    canvas.width = 100;
-    canvas.height = 100;
+    canvas = document.getElementById(canvasElement);
+    console.log(canvas);
+    //canvas.width = 100;
+    //canvas.height = 100;
 
     // Create sprite sheet
     coinImage = new Image();
@@ -105,15 +106,15 @@
     // Create sprite
     coin = sprite({
         context: canvas.getContext("2d"),
-        width: 1000, //size of all added images, change this to our for windmill
-        height: 100, //change this for windmill
+        width: sizew, //size of all added images, change this to our for windmill
+        height: sizeh, //change this for windmill
         image: coinImage,
-        numberOfFrames: 10, // amount of images in a row.
+        numberOfFrames: 5, // amount of images in a row.
         ticksPerFrame: 4
     });
 
     // Load sprite sheet
     coinImage.addEventListener("load", gameLoop);
-    coinImage.src = "images/coin-sprite-animation.png"; //change source to windmill
+    coinImage.src = imgsrc; //change source to windmill
 
-} ());
+};

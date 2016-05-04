@@ -43,7 +43,7 @@ function init(){
 		for(k=0; k < pigs.length; k++){
 			pigs[k].draw();
 		//	objects[k].draw();
-	} 
+	}
 	var loopBG = setInterval(function(){
 		clouds[0].clear();
 		sunObj.draw();
@@ -51,7 +51,7 @@ function init(){
 			clouds[k].tick();
 			clouds[k].draw();
 		}
-	}, 20); 
+	}, 20);
 });
 }
 window.onload = function() {
