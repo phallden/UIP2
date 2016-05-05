@@ -27,12 +27,15 @@ var interVall;
 var printImage;
 
 windmill.prototype.draw = function (img) {
-    if(img == null)
-        this.ctx.drawImage( this.wind1, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
-    else
-        this.ctx.drawImage( img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+    if(img == null) {
+        this.ctx.drawImage(this.windmillMain, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+        this.ctx.drawImage(this.wind1, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
 
-};
+    }else{
+        this.ctx.drawImage( this.windmillMain, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+        this.ctx.drawImage( img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+
+}};
 
 windmill.prototype.clearWindmill = function() {
     this.ctx.clearRect(this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);

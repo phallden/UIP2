@@ -39,7 +39,7 @@ function loadImages(sources, callback) {
 
 function init(){
 	loadImages(sources, function(images) {
-		windObj = new windmill("pigCanvas", images.windmill1, images.snurra, images.snurra1, images.snurra2, 0.1, 1.1, 0.85, 20);
+		windObj = new windmill("pigCanvas", images.windmill1, images.snurra, images.snurra1, images.snurra2, 0.25, 1.1, 0.70, 20);
 		pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 200);
 		pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 100);
 		pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.20, 150);
