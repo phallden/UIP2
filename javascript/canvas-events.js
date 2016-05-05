@@ -40,16 +40,17 @@ $( document ).ready(function() {
 		else
 			sunObj.imageChoice = 1;
 	}); 
+
 });
 
-function animateWindmill(){
-	windObj.spin();
+function animateWindmill() {
+    windObj.spin();
 }
 
 function getMousePos(canvas, evt) {
-	var rect = canvas.getBoundingClientRect();
-	return {
-		x: evt.clientX - rect.left,
-		y: evt.clientY - rect.top
-	};
+    var rect = canvas.getBoundingClientRect();
+    return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+    };
 }

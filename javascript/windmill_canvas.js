@@ -27,26 +27,30 @@ var interVall;
 var printImage;
 
 windmill.prototype.draw = function (img) {
-    if(img == null)
-        this.ctx.drawImage( this.wind1, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
-    else
-        this.ctx.drawImage( img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+    if (img == null) {
+        this.ctx.drawImage(this.windmillMain, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+        this.ctx.drawImage(this.wind1, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
 
+    } else {
+        this.ctx.drawImage(this.windmillMain, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+        this.ctx.drawImage(img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+
+    }
 };
 
-windmill.prototype.clearWindmill = function() {
+windmill.prototype.clearWindmill = function () {
     this.ctx.clearRect(this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
 };
 
-windmill.prototype.change = function(i) {
-        if (i == 1) {
-            printImage = this.wind1;
-        } else if (i == 2) {
-            printImage = this.wind2;
-        } else {
-            printImage = this.wind3;
-        }
+windmill.prototype.change = function (i) {
+    if (i == 1) {
+        printImage = this.wind1;
+    } else if (i == 2) {
+        printImage = this.wind2;
+    } else {
+        printImage = this.wind3;
     }
+}
 
 windmill.prototype.spin = function () {
     if (this.imageCount == 4) {
@@ -63,23 +67,23 @@ windmill.prototype.spin = function () {
 }
 
 /*
-this.addEventListener('mouseover', function () {
-        if (this.running == false) {
-            this.running = true;
-            console.log(this.running);
-            interVall = window.requestAnimationFrame(windObj.spin);
-        }
-    }
-    , false); 
+ this.addEventListener('mouseover', function () {
+ if (this.running == false) {
+ this.running = true;
+ console.log(this.running);
+ interVall = window.requestAnimationFrame(windObj.spin);
+ }
+ }
+ , false);
 
-this.canvas.on("mouseout", function (e) {
-    console.log("mouesout");
-    window.cancelAnimationFrame(interVall);
-    this.running = false;
-    console.log(this.running);
-});
+ this.canvas.on("mouseout", function (e) {
+ console.log("mouesout");
+ window.cancelAnimationFrame(interVall);
+ this.running = false;
+ console.log(this.running);
+ });
 
-*/
+ */
 
 
 
