@@ -1,6 +1,7 @@
 var i = 0
 var windObj;
 var farmerObj;
+var birdObj;
 var clouds = [];
 var pigs = [];
 var horse = [];
@@ -14,7 +15,8 @@ var sources = {
     snurra1: '../images/snurra1.png',
     snurra2: '../images/snurra2.png',
     Horse: '../images/horse3.png',
-    Farmer: '../images/farmer.png'
+    Farmer: '../images/farmer.png',
+    birdPic: '../images/birdtest.png'
 };
 var sunObj;
 function loadImages(sources, callback) {
@@ -39,13 +41,12 @@ function loadImages(sources, callback) {
 
 function init() {
     loadImages(sources, function (images) {
-
-        windObj = new windmill("pigCanvas", images.windmill1, images.snurra, images.snurra1, images.snurra2, 0.15, 1.1, 0.70, 20);
-        pigs[0] = new Pig("pigCanvas", images.Pig, 0.04, 1.1, 0.25, 200);
-        pigs[1] = new Pig("pigCanvas", images.Pig, 0.04, 1.1, 0.10, 100);
-        pigs[2] = new Pig("pigCanvas", images.Pig, 0.04, 1.1, 0.20, 150);
+        windObj = new windmill("pigCanvas", images.windmill1, images.snurra, images.snurra1, images.snurra2, 0.25, 1.1, 0.70, 20);
+        birdObj = new bird("cloudCanvas", images.birdPic, 0.1, 0.1, 0.2, 5);
+        pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 200);
+        pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 100);
+        pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.20, 150);
         horse[0] = new Horse("horseCanvas", images.Horse, 0.25, 0.8, 0.50, 30);
-
         clouds[0] = new Cloud("cloudCanvas", images.Cloud, 0.1, 1.1, 0.25, 10);
         clouds[1] = new Cloud("cloudCanvas", images.Cloud, 0.05, 1.1, 0.1, 40);
         clouds[2] = new Cloud("cloudCanvas", images.Cloud, 0.08, 1.1, 0.4, 30);
