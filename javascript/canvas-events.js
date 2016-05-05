@@ -9,7 +9,7 @@ $( document ).ready(function() {
 		var mousePos = getMousePos(pigCanvas,e)
 		pigs.forEach(function(pig) {       
 			if(mousePos.x > pig.x && mousePos.x < parseInt(pig.x + pig.canvas.width() * pig.widthFact) && mousePos.y > pig.y && mousePos.y < parseInt(pig.y + (pig.canvas.width() * pig.widthFact * pig.heightFact))){
-				
+				pigSound.play();
 				document.getElementById('animal').style.display='block';
 			}
 		}); 
