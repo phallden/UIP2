@@ -1,5 +1,6 @@
 var i = 0
 var windObj;
+var farmerObj;
 var clouds = [];
 var pigs = [];
 var horse = [];
@@ -12,7 +13,8 @@ var sources = {
 	snurra: '../images/snurra.png',
 	snurra1: '../images/snurra1.png',
 	snurra2: '../images/snurra2.png',
-	Horse: '../images/horse2.jpg'
+	Horse: '../images/horse2.jpg',
+	Farmer: '../images/farmer.png'
 };
 var sunObj;
 function loadImages(sources, callback) {
@@ -49,6 +51,8 @@ function init(){
 		clouds[2] =  new Cloud("cloudCanvas", images.Cloud, 0.08, 1.1, 0.4 , 30);
 		sunObj = new Sun("cloudCanvas", images.Sun, images.Sun2, 0.1, 1.1, 0.85, 20);
 		sunObj.draw();
+		farmerObj = new Farmer("farmerCanvas", images.Farmer, 0.5, 1.2, 0.20, 20);
+		farmerObj.draw()
 		for(k=0; k < pigs.length; k++){
 			pigs[k].draw();
 		//	objects[k].draw();

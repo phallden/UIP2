@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="../css/default.css">
 	<link rel="stylesheet" type="text/css" title="Farm" href="../css/default.css">
 	<link rel="stylesheet" href="../css/modal.css">
 	<link rel="alternate stylesheet" type="text/css" title="Savannah" href="../css/savannah.css">
@@ -14,8 +15,13 @@
 	<script src="../javascript/sun.js"></script>
 	<script src="../javascript/windmill_canvas.js"></script>
 	<script src="../javascript/horse.js"></script>
+	<script src="../javascript/farmer.js"></script>
 	<script src="../javascript/switch_style.js"></script>
 	<script src="../javascript/canvas-events.js"></script>
+	<script src="../javascript/modal-events.js"></script>
+
+	
+
 
 
 
@@ -46,17 +52,50 @@
 					</canvas>
 				</div>
 			</div>
+			<div class=" col-3" style="top:200px;">
+				<canvas id="farmerCanvas" width="0" height="300">
+				</canvas>
+			</div>
 		</div>
 	</div>
 </div>
-<div id="id01" class="w3-modal">
-	<div class="w3-modal-content">
-		<div class="w3-container">
-			<span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn">&times;</span>
-			<p>Some text. Some text. Some text.</p>
-			<p>Some text. Some text. Some text.</p>
+
+<div id="animal" class="modal">
+	<div class="modal-content">
+		<div class="modal-container">
+			<div class="row">
+				<div class="col-12">
+					<span onclick="document.getElementById('animal').style.display='none'" class="modal-closebtn">&times;</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<p>Some text. Some text. Some text.</p>
+					<p>Some text. Some text. Some text.</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+
+<div id="farmer" class="modal">
+	<div class="modal-content">
+		<div class="modal-container">
+			<div class="row">
+				<div class="col-3">
+					<span onclick="document.getElementById('farmer').style.display='none'" class="modal-closebtn">&times;</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<p>Some text. Some text. Some text.</p>
+					<p>Some text. Some text. Some text.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 </body>
 </html>
