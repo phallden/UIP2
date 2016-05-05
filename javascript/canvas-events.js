@@ -1,10 +1,22 @@
 var spinIt;
 $( document ).ready(function() {
-
+	var farmerTipOrg = $("#farmertip").clone();
 	var pigCanvas = document.getElementById('pigCanvas');
 	var skyCanvas = document.getElementById('cloudCanvas');
 	var farmerCanvas = document.getElementById('farmerCanvas')
-
+	$( "#farmertip" ).tooltip({
+		position: {
+			using: function( position, feedback ) {
+				$( this ).css( position );
+				$( "<div>" )
+				.addClass( "arrow" )
+				.addClass( feedback.vertical )
+				.addClass( feedback.horizontal )
+				.appendTo( this );
+			}
+		}
+	});
+	$("#farmertip").parent().css({position: 'relative'});
 	pigCanvas.addEventListener('click', function(e) {
 		console.log(pigs)
 		var mousePos = getMousePos(pigCanvas,e)
@@ -37,20 +49,7 @@ $( document ).ready(function() {
 		var mousePos = getMousePos(farmerCanvas,e)    
 		if(mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))){
 			
- $( "#farmertip" ).tooltip({
-      position: {
-        using: function( position, feedback ) {
-          $( this ).css( position );
-          $( "<div>" )
-            .addClass( "arrow" )
-            .addClass( feedback.vertical )
-            .addClass( feedback.horizontal )
-            .appendTo( this );
-        }
-      }
-    });
 
-			$("#farmertip").parent().css({position: 'relative'});
 			$("#farmertip").css({top: farmerObj.y - 70, left: farmerObj.x + 50, position:'absolute'});			
 			$("#farmertip").tooltip({ items: "#farmertip", content: "Hello my name is BOB, it stands for 'Big Ordinary Bob'"});
 			$("#farmertip").tooltip("open");
