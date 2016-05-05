@@ -40,10 +40,10 @@ function loadImages(sources, callback) {
 function init() {
     loadImages(sources, function (images) {
 
-        windObj = new windmill("pigCanvas", images.windmill1, images.snurra, images.snurra1, images.snurra2, 0.25, 1.1, 0.70, 20);
-        pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 200);
-        pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 100);
-        pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.20, 150);
+        windObj = new windmill("pigCanvas", images.windmill1, images.snurra, images.snurra1, images.snurra2, 0.15, 1.1, 0.70, 20);
+        pigs[0] = new Pig("pigCanvas", images.Pig, 0.04, 1.1, 0.25, 200);
+        pigs[1] = new Pig("pigCanvas", images.Pig, 0.04, 1.1, 0.10, 100);
+        pigs[2] = new Pig("pigCanvas", images.Pig, 0.04, 1.1, 0.20, 150);
         horse[0] = new Horse("horseCanvas", images.Horse, 0.25, 0.8, 0.50, 30);
 
         clouds[0] = new Cloud("cloudCanvas", images.Cloud, 0.1, 1.1, 0.25, 10);
