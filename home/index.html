@@ -1,99 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="../css/default.css">
-	<link rel="stylesheet" type="text/css" title="Farm" href="../css/default.css">
-	<link rel="stylesheet" href="../css/modal.css">
-	<link rel="alternate stylesheet" type="text/css" title="Savannah" href="../css/savannah.css">
-	<script src="../jquery/jquery-1.12.0.min.js"></script>
-	<script src="../javascript/main.js"></script>
-	<script type="text/javasscript" charset="utf-8" src="../javascript/helpFunctions.js"></script>
-	<script src="../javascript/canvas_objs.js"></script>
-	<script src="../javascript/pig_canvas.js"></script>
-	<script src="../javascript/sun.js"></script>
-	<script src="../javascript/windmill_canvas.js"></script>
-	<script src="../javascript/horse.js"></script>
-	<script src="../javascript/farmer.js"></script>
-	<script src="../javascript/switch_style.js"></script>
-	<script src="../javascript/canvas-events.js"></script>
-	<script src="../javascript/modal-events.js"></script>
-
-	
-
-
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <link rel="stylesheet" type="text/css" title="Farm" href="../css/default.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="alternate stylesheet" type="text/css" title="Savannah" href="../css/savannah.css">
+    <script src="../jquery/jquery-1.12.0.min.js"></script>
+    <script src="../javascript/main.js"></script>
+    <script type="text/javasscript" charset="utf-8" src="../javascript/helpFunctions.js"></script>
+    <script src="../javascript/canvas_objs.js"></script>
+    <script src="../javascript/pig_canvas.js"></script>
+    <script src="../javascript/sun.js"></script>
+    <script src="../javascript/windmill_canvas.js"></script>
+    <script src="../javascript/horse.js"></script>
+    <script src="../javascript/farmer.js"></script>
+    <script src="../javascript/switch_style.js"></script>
+    <script src="../javascript/canvas-events.js"></script>
+    <script src="../javascript/modal-events.js"></script>
 
 
 </head>
 <body onload="set_style_from_cookie()">
-	<div class="main-wrapper">
-		<form>
-			<input type="submit" onclick="switch_style('Farm');return false;" name="theme" value="Farm" id="Farm">
-			<input type="submit" onclick="switch_style('Savannah');return false;" name="theme" value="Savannah" id="Savannah">
-		</form>
+<div class="main-wrapper">
+    <form>
+        <input type="submit" onclick="switch_style('Farm');return false;" name="theme" value="Farm" id="Farm">
+        <input type="submit" onclick="switch_style('Savannah');return false;" name="theme" value="Savannah"
+               id="Savannah">
+    </form>
 
-		<div class="bg-layer" >
-			<div class="row">
-				<div class=" col-12">
-					<canvas id="cloudCanvas" width="0" height="200">
-					</canvas>
-				</div>
-			</div>
-		</div>
-		<div class = "obj-layer">
-			<div class="row">
-				<div class=" col-12" style="top:200px;">
-					<canvas id="pigCanvas" width="0" height="300">
-					</canvas>
-				</div>
-				<div class=" col-6" style="top:200px;">
-					<canvas id="horseCanvas" width="0" height="300">
-					</canvas>
-				</div>
-			</div>
-			<div class=" col-3" style="top:200px;">
-				<canvas id="farmerCanvas" width="0" height="300">
-				</canvas>
-			</div>
-		</div>
-	</div>
+    <div class="bg-layer">
+        <div class="row">
+            <div class=" col-12">
+                <canvas id="cloudCanvas" width="0" height="200">
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <div class="obj-layer">
+        <div class="row">
+            <div class=" col-12" style="top:200px;">
+                <canvas id="pigCanvas" width="0" height="300">
+                </canvas>
+            </div>
+            <div class=" col-6" style="top:200px;">
+                <canvas id="horseCanvas" width="0" height="300">
+                </canvas>
+            </div>
+        </div>
+        <div class=" col-3" style="top:200px;">
+            <canvas id="farmerCanvas" width="0" height="300">
+            </canvas>
+        </div>
+    </div>
+</div>
 </div>
 
 <div id="animal" class="modal">
-	<div class="modal-content">
-		<div class="modal-container">
-			<div class="row">
-				<div class="col-12">
-					<span onclick="document.getElementById('animal').style.display='none'" class="modal-closebtn">&times;</span>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-12">
-					<p>Some text. Some text. Some text.</p>
-					<p>Some text. Some text. Some text.</p>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="modal-content">
+        <div class="modal-container">
+            <div class="row">
+                <div class="col-12">
+                    <span onclick="document.getElementById('animal').style.display='none'"
+                          class="modal-closebtn">&times;</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p>Some text. Some text. Some text.</p>
+                    <p>Some text. Some text. Some text.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="farmer" class="modal">
-	<div class="modal-content">
-		<div class="modal-container">
-			<div class="row">
-				<div class="col-3">
-					<span onclick="document.getElementById('farmer').style.display='none'" class="modal-closebtn">&times;</span>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-3">
-					<p>Some text. Some text. Some text.</p>
-					<p>Some text. Some text. Some text.</p>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="modal-content">
+        <div class="modal-container">
+            <div class="row">
+                <div class="col-3">
+                    <span onclick="document.getElementById('farmer').style.display='none'"
+                          class="modal-closebtn">&times;</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <p>Some text. Some text. Some text.</p>
+                    <p>Some text. Some text. Some text.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
