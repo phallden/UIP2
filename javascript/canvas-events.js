@@ -1,8 +1,9 @@
 var spinIt;
 $( document ).ready(function() {
- 
+
 	var pigCanvas = document.getElementById('pigCanvas');
 	var skyCanvas = document.getElementById('cloudCanvas');
+	var farmerCanvas = document.getElementById('farmerCanvas')
 
 	pigCanvas.addEventListener('click', function(e) {
 		console.log(pigs)
@@ -32,6 +33,33 @@ $( document ).ready(function() {
 		}
 	});
 
+	farmerCanvas.addEventListener('click', function(e) {
+		var mousePos = getMousePos(farmerCanvas,e)    
+		if(mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))){
+			
+ $( "#farmertip" ).tooltip({
+      position: {
+        using: function( position, feedback ) {
+          $( this ).css( position );
+          $( "<div>" )
+            .addClass( "arrow" )
+            .addClass( feedback.vertical )
+            .addClass( feedback.horizontal )
+            .appendTo( this );
+        }
+      }
+    });
+
+			$("#farmertip").parent().css({position: 'relative'});
+			$("#farmertip").css({top: farmerObj.y - 70, left: farmerObj.x + 50, position:'absolute'});			
+			$("#farmertip").tooltip({ items: "#farmertip", content: "Hello my name is BOB, it stands for 'Big Ordinary Bob'"});
+			$("#farmertip").tooltip("open");
+		}else{
+			$("#farmertip").tooltip("close");
+		}
+	});
+
+
 	skyCanvas.addEventListener('mousemove', function(e) {
 		var mousePos = getMousePos(skyCanvas,e);
 		if(mousePos.x > sunObj.x && mousePos.x < parseInt(sunObj.x + sunObj.canvas.width() * sunObj.widthFact) && mousePos.y > sunObj.y && mousePos.y < parseInt(sunObj.y + (sunObj.canvas.width() * sunObj.widthFact * sunObj.heightFact))){
@@ -44,13 +72,13 @@ $( document ).ready(function() {
 });
 
 function animateWindmill() {
-    windObj.spin();
+	windObj.spin();
 }
 
 function getMousePos(canvas, evt) {
-    var rect = canvas.getBoundingClientRect();
-    return {
-        x: evt.clientX - rect.left,
-        y: evt.clientY - rect.top
-    };
+	var rect = canvas.getBoundingClientRect();
+	return {
+		x: evt.clientX - rect.left,
+		y: evt.clientY - rect.top
+	};
 }
