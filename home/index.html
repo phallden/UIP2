@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="../css/default.css">
 	<link rel="stylesheet" type="text/css" title="Farm" href="../css/default.css">
 	<link rel="stylesheet" href="../css/modal.css">
 	<link rel="alternate stylesheet" type="text/css" title="Savannah" href="../css/savannah.css">
@@ -14,9 +15,13 @@
 	<script src="../javascript/sun.js"></script>
 	<script src="../javascript/windmill_canvas.js"></script>
 	<script src="../javascript/horse.js"></script>
+	<script src="../javascript/farmer.js"></script>
 	<script src="../javascript/switch_style.js"></script>
 	<script src="../javascript/canvas-events.js"></script>
 	<script src="../javascript/modal-events.js"></script>
+
+	
+
 
 
 
@@ -47,9 +52,14 @@
 					</canvas>
 				</div>
 			</div>
+			<div class=" col-3" style="top:200px;">
+				<canvas id="farmerCanvas" width="0" height="300">
+				</canvas>
+			</div>
 		</div>
 	</div>
 </div>
+
 <div id="animal" class="modal">
 	<div class="modal-content">
 		<div class="modal-container">
@@ -64,9 +74,9 @@
 					<p>Some text. Some text. Some text.</p>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>
+
 </body>
 </html>
