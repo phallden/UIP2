@@ -78,10 +78,9 @@ $( document ).ready(function() {
 	farmerCanvas.addEventListener('click', function(e) {
 		var mousePos = getMousePos(farmerCanvas,e)
 		if(mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))){
-
-
-			$("#farmertip").css({top: farmerObj.y - 70, left: farmerObj.x + 50, position:'absolute'});
-			$("#farmertip").tooltip({ items: "#farmertip", content: "Hello my name is BOB, it stands for 'Big Ordinary Bob'"});
+			$("#farmertip").css({top: farmerObj.y - 140, left: farmerObj.x + 50, position:'absolute'});			
+			$("#farmertip").tooltip({ items: "#farmertip", content: '<p>Hello my name is BOB, it stands for "Big Ordinary Bob" </p>'+
+				'<p> Do you want som exceptionell help? </p><br> <button >Yes Mr. Bob</button> <button>Screw you Bobbsan</button>'});
 			$("#farmertip").tooltip("open");
 		}else{
 			$("#farmertip").tooltip("close");
