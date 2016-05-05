@@ -3,7 +3,8 @@ $( document ).ready(function() {
 	var farmerTipOrg = $("#farmertip").clone();
 	var pigCanvas = document.getElementById('pigCanvas');
 	var skyCanvas = document.getElementById('cloudCanvas');
-	var farmerCanvas = document.getElementById('farmerCanvas')
+	var farmerCanvas = document.getElementById('farmerCanvas');
+	var horseCanvas = document.getElementById('horseCanvas');
 	$( "#farmertip" ).tooltip({
 		position: {
 			using: function( position, feedback ) {
@@ -17,6 +18,7 @@ $( document ).ready(function() {
 		}
 	});
 	$("#farmertip").parent().css({position: 'relative'});
+	
 	pigCanvas.addEventListener('click', function(e) {
 		console.log(pigs)
 		var mousePos = getMousePos(pigCanvas,e)
@@ -26,6 +28,17 @@ $( document ).ready(function() {
 				document.getElementById('animal').style.display='block';
 			}
 		}); 
+
+	});
+
+	horseCanvas.addEventListener('click', function(e) {
+		var mousePos = getMousePos(horseCanvas,e)
+		horse.forEach(function(horse) {
+			if(mousePos.x > horse.x && mousePos.x < parseInt(horse.x + horse.canvas.width() * horse.widthFact) && mousePos.y > horse.y && mousePos.y < parseInt(horse.y + (horse.canvas.width() * horse.widthFact * horse.heightFact))){
+				horseSound.play();
+				document.getElementById('horse').style.display='block';
+			}
+		});
 
 	});
 
