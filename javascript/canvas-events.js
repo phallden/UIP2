@@ -1,3 +1,4 @@
+var spinIt;
 $( document ).ready(function() {
 
 	var pigCanvas = document.getElementById('pigCanvas');
@@ -8,10 +9,26 @@ $( document ).ready(function() {
 		var mousePos = getMousePos(pigCanvas,e)
 		pigs.forEach(function(pig) {       
 			if(mousePos.x > pig.x && mousePos.x < parseInt(pig.x + pig.canvas.width() * pig.widthFact) && mousePos.y > pig.y && mousePos.y < parseInt(pig.y + (pig.canvas.width() * pig.widthFact * pig.heightFact))){
-				console.log("INSIDE");
 				document.getElementById('id01').style.display='block';
 			}
 		}); 
+
+	});
+
+	pigCanvas.addEventListener('mousemove', function(e) {
+		var mousePos = getMousePos(pigCanvas,e)
+		if(mousePos.x > windObj.x && mousePos.x < parseInt(windObj.x + windObj.canvas.width() * windObj.widthFact) && mousePos.y > windObj.y && mousePos.y < parseInt(windObj.y + (windObj.canvas.width() * windObj.widthFact * windObj.heightFact))){
+			if (windObj.running == false) {
+				windObj.running = true;
+				//windObj.spin();
+				spinIt = setInterval(animateWindmill,300);
+				//windObj.raf = window.requestAnimationFrame(windObj.spin());
+			}
+		}
+		else{
+			clearInterval(spinIt);
+			windObj.running = false;
+		}
 	});
 
 	skyCanvas.addEventListener('mousemove', function(e) {
@@ -21,10 +38,12 @@ $( document ).ready(function() {
 		}
 		else
 			sunObj.imageChoice = 1;
-
 	}); 
-
 });
+
+function animateWindmill(){
+	windObj.spin();
+}
 
 function getMousePos(canvas, evt) {
 	var rect = canvas.getBoundingClientRect();
