@@ -3,6 +3,7 @@ $( document ).ready(function() {
  
 	var pigCanvas = document.getElementById('pigCanvas');
 	var skyCanvas = document.getElementById('cloudCanvas');
+	var farmerCanvas = document.getElementById('farmerCanvas')
 
 	pigCanvas.addEventListener('click', function(e) {
 		console.log(pigs)
@@ -14,6 +15,13 @@ $( document ).ready(function() {
 			}
 		}); 
 
+	});
+
+	farmerCanvas.addEventListener('click', function(e) {
+		var mousePos = getMousePos(farmerCanvas,e)
+			if(mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))){
+				document.getElementById('farmer').style.display='block';
+			}
 	});
 
 	pigCanvas.addEventListener('mousemove', function(e) {
