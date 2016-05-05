@@ -45,11 +45,29 @@ $( document ).ready(function() {
         }
     });
 
+    skyCanvas.addEventListener('mouseover',function(e){
+       console.log("MOUSEOVER");
+        if (birdObj.running == false) {
+            birdObj.running = true;
+            //windObj.spin();
+            birdIT = setInterval(animateBird, 0.1);
+            //windObj.raf = window.requestAnimationFrame(windObj.spin());
+        }
+
+    });
+
+    skyCanvas.addEventListener('mouseout',function(e){
+       clearInterval(birdIT);
+        birdObj.running = false;
+    });
+
     skyCanvas.addEventListener('mousemove', function (e) {
         //birdObj.x = e.clientX;
         //birdObj.y = e.clientY;
-        birdObj.clear();
-        birdObj.drawNew(e.clientX, e.clientY);
+        //birdObj.clear();
+        //birdObj.drawNew(e.clientX, e.clientY);
+        birdObj.x = e.clientX;
+        birdObj.y = e.clientY;
         var mousePos = getMousePos(skyCanvas, e);
         if (mousePos.x > sunObj.x && mousePos.x < parseInt(sunObj.x + sunObj.canvas.width() * sunObj.widthFact) && mousePos.y > sunObj.y && mousePos.y < parseInt(sunObj.y + (sunObj.canvas.width() * sunObj.widthFact * sunObj.heightFact))) {
             sunObj.imageChoice = 2;
@@ -84,6 +102,10 @@ $( document ).ready(function() {
 
 function animateWindmill() {
 	windObj.spin();
+}
+
+function animateBird() {
+    birdObj.drawNew();
 }
 
 function getMousePos(canvas, evt) {
