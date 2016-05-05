@@ -4,6 +4,7 @@ $( document ).ready(function() {
 	var pigCanvas = document.getElementById('pigCanvas');
 	var skyCanvas = document.getElementById('cloudCanvas');
 	var farmerCanvas = document.getElementById('farmerCanvas')
+	var horseCanvas = document.getElementById('horseCanvas')
 
 	pigCanvas.addEventListener('click', function(e) {
 		console.log(pigs)
@@ -33,6 +34,17 @@ $( document ).ready(function() {
 		}
 	});
 
+	horseCanvas.addEventListener('click', function(e) {
+		var mousePos = getMousePos(horseCanvas,e)
+		horse.forEach(function(horse) {
+			if(mousePos.x > horse.x && mousePos.x < parseInt(horse.x + horse.canvas.width() * horse.widthFact) && mousePos.y > horse.y && mousePos.y < parseInt(horse.y + (horse.canvas.width() * horse.widthFact * horse.heightFact))){
+				horseSound.play();
+				document.getElementById('animal').style.display='block';
+			}
+		});
+
+	});
+	
 	farmerCanvas.addEventListener('click', function(e) {
 		var mousePos = getMousePos(farmerCanvas,e)    
 		if(mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))){
