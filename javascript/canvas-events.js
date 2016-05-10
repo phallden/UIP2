@@ -3,7 +3,8 @@ $( document ).ready(function() {
 	var farmerTipOrg = $("#farmertip").clone();
 	var pigCanvas = document.getElementById('pigCanvas');
 	var skyCanvas = document.getElementById('cloudCanvas');
-	var farmerCanvas = document.getElementById('farmerCanvas')
+	var farmerCanvas = document.getElementById('farmerCanvas');
+	var horseCanvas = document.getElementById('horseCanvas');
 	$( "#farmertip" ).tooltip({
 		position: {
 			using: function( position, feedback ) {
@@ -17,6 +18,7 @@ $( document ).ready(function() {
 		}
 	});
 	$("#farmertip").parent().css({position: 'relative'});
+	
 	pigCanvas.addEventListener('click', function(e) {
 		console.log(pigs)
 		var mousePos = getMousePos(pigCanvas,e)
@@ -28,23 +30,34 @@ $( document ).ready(function() {
 		}); 
 
     });
+	
+	horseCanvas.addEventListener('click', function(e) {
+		var mousePos = getMousePos(horseCanvas,e)
+		horse.forEach(function(horse) {
+			if(mousePos.x > horse.x && mousePos.x < parseInt(horse.x + horse.canvas.width() * horse.widthFact) && mousePos.y > horse.y && mousePos.y < parseInt(horse.y + (horse.canvas.width() * horse.widthFact * horse.heightFact))){
+				horseSound.play();
+				document.getElementById('horse').style.display='block';
+			}
+		});
 
-    pigCanvas.addEventListener('mousemove', function (e) {
-        var mousePos = getMousePos(pigCanvas, e)
-        if (mousePos.x > windObj.x && mousePos.x < parseInt(windObj.x + windObj.canvas.width() * windObj.widthFact) && mousePos.y > windObj.y && mousePos.y < parseInt(windObj.y + (windObj.canvas.width() * windObj.widthFact * windObj.heightFact))) {
-            if (windObj.running == false) {
-                windObj.running = true;
-                //windObj.spin();
-                spinIt = setInterval(animateWindmill, 300);
-                //windObj.raf = window.requestAnimationFrame(windObj.spin());
-            }
-        }
-        else {
-            clearInterval(spinIt);
-            windObj.running = false;
-        }
-    });
+	});
 
+	pigCanvas.addEventListener('mousemove', function(e) {
+		var mousePos = getMousePos(pigCanvas,e)
+		if(mousePos.x > windObj.x && mousePos.x < parseInt(windObj.x + windObj.canvas.width() * windObj.widthFact) && mousePos.y > windObj.y && mousePos.y < parseInt(windObj.y + (windObj.canvas.width() * windObj.widthFact * windObj.heightFact))){
+			if (windObj.running == false) {
+				windObj.running = true;
+				//windObj.spin();
+				spinIt = setInterval(animateWindmill,300);
+				//windObj.raf = window.requestAnimationFrame(windObj.spin());
+			}
+		}
+		else{
+			clearInterval(spinIt);
+			windObj.running = false;
+		}
+	});
+	
     skyCanvas.addEventListener('mousemove', function (e) {
         //birdObj.x = e.clientX;
         //birdObj.y = e.clientY;
@@ -62,7 +75,7 @@ $( document ).ready(function() {
 		if(mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))){
 			$("#farmertip").css({top: farmerObj.y - 140, left: farmerObj.x + 50, position:'absolute'});			
 			$("#farmertip").tooltip({ items: "#farmertip", content: '<p>Hello my name is BOB, it stands for "Big Ordinary Bob" </p>'+
-				'<p> Do you want som exceptionell help? </p><br> <button >Yes Mr. Bob</button> <button>Screw you Bobbsan</button>'});
+				'<p> Do you want som exceptionell help? </p><br> <button>Yes Mr. Bob</button> <button>Screw you Bobbsan</button>'});
 			$("#farmertip").tooltip("open");
 		}else{
 			$("#farmertip").tooltip("close");
