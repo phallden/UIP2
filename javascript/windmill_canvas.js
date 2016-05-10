@@ -4,10 +4,10 @@ var windmill = function (canvasElem, image, image2, image3, image4, widthFact, h
     $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;
-    this.windmillMain = image;
-    this.wind1 = image2;
-    this.wind2 = image3;
-    this.wind3 = image4;
+    this.imgMain = image;
+    this.img = image2;
+    this.img1 = image3;
+    this.img2 = image4;
     this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);    
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
@@ -28,11 +28,11 @@ var printImage;
 
 windmill.prototype.draw = function (img) {
     if (img == null) {
-        this.ctx.drawImage(this.windmillMain, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
-        this.ctx.drawImage(this.wind1, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+        this.ctx.drawImage(this.imgMain, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+        this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
 
     } else {
-        this.ctx.drawImage(this.windmillMain, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+        this.ctx.drawImage(this.imgMain, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
         this.ctx.drawImage(img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
 
     }
@@ -44,11 +44,11 @@ windmill.prototype.clearWindmill = function () {
 
 windmill.prototype.change = function (i) {
     if (i == 1) {
-        printImage = this.wind1;
+        printImage = this.img;
     } else if (i == 2) {
-        printImage = this.wind2;
+        printImage = this.img1;
     } else {
-        printImage = this.wind3;
+        printImage = this.img2;
     }
 }
 

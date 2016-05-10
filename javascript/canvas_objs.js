@@ -4,7 +4,7 @@ var Cloud = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     //
     this.widthFact = widthFact;
     this.heightFact = heightFact;
-    this.cloudImage = image;
+    this.img = image;
     this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
@@ -19,13 +19,13 @@ var Cloud = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
 Cloud.prototype.start = function () {
     $this = this;
     this.cloudImage.onload = function () {
-        $this.ctx.drawImage($this.cloudImage, $this.x, $this.y, $this.canvas.width() * $this.widthFact, $this.canvas.width() * $this.widthFact * $this.heightFact)
+        $this.ctx.drawImage($this.img, $this.x, $this.y, $this.canvas.width() * $this.widthFact, $this.canvas.width() * $this.widthFact * $this.heightFact)
     };
     // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())
 };
 
 Cloud.prototype.draw = function () {
-    this.ctx.drawImage(this.cloudImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+    this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
 // Adding the tick function. The tick is used to move things (or to provide for other animations).
@@ -46,13 +46,17 @@ Cloud.prototype.clear = function () {
     this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());
 }
 
+/*
 $(window).resize(respondCanvas);
 function respondCanvas() {
-    /*  for (k = 0; k < objects.length; ++k) {
+     for (k = 0; k < objects.length; ++k) {
      objects[k].x = objects[k].canvas.width() * objects[k].xFactor;
      objects[k].canvas.attr('width', $(objects[k].container).width() ); //max width
      objects[k].canvas.attr('height', $(objects[k].container).height() ); //max height
 
-     } */
-};
+     } 
+     for (k = 0; k < objects.length; ++k) {
+      objects[k].draw();
+     }
+}; */
 

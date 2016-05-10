@@ -4,8 +4,8 @@ var Sun = function (canvasElem, image, image2, widthFact, heightFact, xFactor, y
     $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;
-    this.sunImage = image;
-    this.sunImage2 = image2;
+    this.img = image;
+    this.img2 = image2;
     this.imageChoice = 1;
     this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
     this.container = $(this.canvas).parent();
@@ -22,14 +22,14 @@ var Sun = function (canvasElem, image, image2, widthFact, heightFact, xFactor, y
 
 Sun.prototype.draw = function () {
     if (this.imageChoice == 1)
-        this.ctx.drawImage(this.sunImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+        this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
     else
-        this.ctx.drawImage(this.sunImage2, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+        this.ctx.drawImage(this.img2, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
 Sun.prototype.animate = function () {
     console.log("TEST")
-    this.ctx.drawImage(this.sunImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+    this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 
 
 };

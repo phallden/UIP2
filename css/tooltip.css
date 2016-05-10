@@ -15,7 +15,7 @@
     height: 16px;
     overflow: hidden;
     position: absolute;
-    left: 50%;
+    left: 80%;
     margin-left: -35px;
     bottom: -16px;
   }
@@ -28,14 +28,14 @@
   .arrow:after {
     content: "";
     position: absolute;
-    left: 20px;
+    left: 30%;
     top: -10px;
     width: 25px;
     height: 25px;
     box-shadow: 6px 5px 9px -9px black;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
-    transform: rotate(60deg);
+    transform: rotate(30deg);
 
   }
   .arrow.top:after {
