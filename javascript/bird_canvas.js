@@ -27,15 +27,11 @@ bird.prototype.draw = function () {
         this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
-bird.prototype.drawNew = function (x,y) {
-    this.ctx.drawImage(this.img, x, y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+
+bird.prototype.drawNew = function () {
+    this.ctx.clearRect(this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+    this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
-
-bird.prototype.animate = function () {
-
-};
-
-
 
 
 

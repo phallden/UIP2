@@ -7,12 +7,6 @@ $( document ).ready(function() {
 	var overlayCanvas = document.getElementById('overlayCanvas');
 	overlayCanvas.height = window.innerHeight;
 	overlayCanvas.width = window.innerWidth;
-	drawArrow(10, 10, 50, 60, document.getElementById("cloudCanvas"));
-
-	drawArrow(10, 10, 50, 60, document.getElementById("pigCanvas"));
-
-//drawArrow(10, 10, 50, 60, document.getElementById("overlayCanvas"));
-drawArrow(10, 10, 50, 60, document.getElementById("testCanvas"));
 $( "#farmertip" ).tooltip({
 	position: {
 		using: function( position, feedback ) {
@@ -55,6 +49,7 @@ pigCanvas.addEventListener('mousemove', function (e) {
     });
 
 skyCanvas.addEventListener('mousemove', function (e) {
+
         //birdObj.x = e.clientX;
         //birdObj.y = e.clientY;
         birdObj.clear();
@@ -78,6 +73,7 @@ pigCanvas.addEventListener('click', function(e) {
 		$("#farmertip").tooltip("close");
 	}
 });
+
 
 
 skyCanvas.addEventListener('mousemove', function(e) {
