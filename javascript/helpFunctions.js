@@ -30,10 +30,18 @@ function fetchText(ID, object) {
     };
 }
 function myFunction(xml, ID, object) {
+    var node;
+    var prevText;
     var xmlDoc = xml.responseXML;
-    var x = xmlDoc.getElementsByTagName(object)[0];
-    var y = x.childNodes[0];
-    document.getElementById(ID).innerHTML = y.nodeValue;
+    var x = xmlDoc.getElementsByTagName(object);
+    z = document.getElementById(ID);
+    console.log(x[0].childNodes);
+    for (var i=1;i < x[0].childNodes.length; i=i+2){
+        node = x[0].childNodes[i].innerHTML;
+        console.log(node);
+        prevText = z.innerHTML;
+        z.innerHTML =  prevText + '<br>' + node + '</br>';
+    }
 }
 
 

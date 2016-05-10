@@ -1,6 +1,6 @@
 <animal>
     <pig> Name: Pig (Latin: Sus domesticus), often called swine or hog.
-        <p>Length: 0.9 -1.8m </p>
+        Length: 0.9 -1.8m
         Weight: 50 - 350kg adults
         Eats: Omnivore, eats both animals and plants
         Usage for humans: Produces meat called pork
