@@ -11,7 +11,7 @@ var sources = {
     Pig: '../images/pig.png',
     Cloud: '../images/Cloud.png',
     Sun: '../images/sun.png',
-    Sun2: '../images/chicken.png',
+    Sun2: '../images/sun2.png',
     windmill1: '../images/windmill.png',
     snurra: '../images/snurra.png',
     snurra1: '../images/snurra1.png',
