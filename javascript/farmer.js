@@ -7,7 +7,7 @@ var Farmer = function(canvasElem, image, widthFact, heightFact,xFactor ,y) {
     $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;
-    this.FarmerImage = image;
+    this.img = image;
     this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
@@ -29,7 +29,7 @@ Farmer.prototype.start = function () {
 };
 
 Farmer.prototype.draw = function () {
-    this.ctx.drawImage( this.FarmerImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+    this.ctx.drawImage( this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
 // Adding the tick function. The tick is used to move things (or to provide for other animations).

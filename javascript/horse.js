@@ -9,7 +9,7 @@ var Horse = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     //
     this.widthFact = widthFact;
     this.heightFact = heightFact;
-    this.HorseImage = image;
+    this.img = image;
     this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
@@ -20,9 +20,6 @@ var Horse = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.vx = 1;
     this.vy = 0;
     this.nameCanvas = "Horse";
-    $(this.canvas).on("click", function (e) {
-        console.log(e.clientX + ", " + e.clientY + ": Horse")
-    });
 };
 
 Horse.prototype.start = function () {
@@ -34,7 +31,7 @@ Horse.prototype.start = function () {
 };
 
 Horse.prototype.draw = function () {
-    this.ctx.drawImage(this.HorseImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+    this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
 // Adding the tick function. The tick is used to move things (or to provide for other animations).

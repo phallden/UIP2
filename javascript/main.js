@@ -5,6 +5,8 @@ var birdObj;
 var clouds = [];
 var pigs = [];
 var horse = [];
+var objects = [];
+var tutobjects = [];
 var sources = {
     Pig: '../images/pig.png',
     Cloud: '../images/Cloud.png',
@@ -41,18 +43,19 @@ function loadImages(sources, callback) {
 
 function init() {
     loadImages(sources, function (images) {
-        windObj = new windmill("pigCanvas", images.windmill1, images.snurra, images.snurra1, images.snurra2, 0.25, 1.1, 0.70, 20);
-        birdObj = new bird("cloudCanvas", images.birdPic, 0.1, 0.1, 0.2, 5);
-        pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 200);
-        pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 100);
-        pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.20, 150);
-        horse[0] = new Horse("horseCanvas", images.Horse, 0.25, 0.8, 0.50, 30);
-        clouds[0] = new Cloud("cloudCanvas", images.Cloud, 0.1, 1.1, 0.25, 10);
-        clouds[1] = new Cloud("cloudCanvas", images.Cloud, 0.05, 1.1, 0.1, 40);
-        clouds[2] = new Cloud("cloudCanvas", images.Cloud, 0.08, 1.1, 0.4, 30);
-        sunObj = new Sun("cloudCanvas", images.Sun, images.Sun2, 0.1, 1.1, 0.85, 20);
+
+        tutobjects[0] = objects[0] = windObj = new windmill("pigCanvas", images.windmill1, images.snurra, images.snurra1, images.snurra2, 0.15, 1.1, 0.70, 20);
+        objects[1] = birdObj = new bird("cloudCanvas", images.birdPic, 0.1, 0.1, 0.2, 5);
+        tutobjects[1] = objects[2] = pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 200);
+        objects[3] = pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 100);
+        objects[4] = pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.20, 150);
+        tutobjects[2] = objects[5] = horse[0] = new Horse("pigCanvas", images.Horse, 0.1, 0.8, 0.10, 300);
+        objects[6] = clouds[0] = new Cloud("cloudCanvas", images.Cloud, 0.1, 1.1, 0.25, 10);
+        objects[7] = clouds[1] = new Cloud("cloudCanvas", images.Cloud, 0.05, 1.1, 0.1, 40);
+        objects[8] = clouds[2] = new Cloud("cloudCanvas", images.Cloud, 0.08, 1.1, 0.4, 30);
+        tutobjects[3] = objects[9] = sunObj = new Sun("cloudCanvas", images.Sun, images.Sun2, 0.1, 1.1, 0.85, 20);        
+        objects[10] = farmerObj = new Farmer("pigCanvas", images.Farmer, 0.1, 1.2, 0.80, 250);
         sunObj.draw();
-        farmerObj = new Farmer("farmerCanvas", images.Farmer, 0.5, 1.2, 0.20, 20);
         farmerObj.draw()
         for (k = 0; k < pigs.length; k++) {
             pigs[k].draw();

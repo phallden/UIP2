@@ -24,7 +24,7 @@
 	<script src="../javascript/sounds.js"></script>
 	<script src="../javascript/canvas-events.js"></script>
 	<script src="../javascript/modal-events.js"></script>
-    <script src="../javascript/bird_canvas.js"></script>
+	<script src="../javascript/bird_canvas.js"></script>
 
 </head>
 <body onload="set_style_from_cookie()">
@@ -34,6 +34,14 @@
 			<input type="submit" onclick="switch_style('Savannah');return false;" name="theme" value="Savannah"
 			id="Savannah">
 		</form>
+		<div class="over-layer">
+			<div class="row">
+				<div class=" col-12">
+					<canvas id="overlayCanvas" width="300" height="200">
+					</canvas>
+				</div>
+			</div>
+		</div>
 		<div class="obj-layer" >
 			<div class="row">
 				<div class=" col-12">
@@ -41,49 +49,47 @@
 					</canvas>
 				</div>
 			</div>
+			<div id="animalTest"></div>
 			<div class="row" >
 				<div class=" col-12" >
-					<canvas id="pigCanvas" width="0" height="300">
-					</canvas>
-				</div>
-				
-			</div>
-            <div id="animalTest"></div>
-			<div class="row">
-				<div class=" col-6" >
-					<canvas id="horseCanvas" width="0" height="300">
-					</canvas>
-				</div>
-				<div class=" col-3">
-					<canvas id="farmerCanvas" width="0" height="300">
+					<canvas id="pigCanvas" width="0" height="600">
 					</canvas>
 					<div id="farmertip" ></div>
-				<!--	<div class="tooltip" id="farmertip">TOOOOLTIP
-						<span class="tooltiptext">Tooltip text</span>
-					</div> -->
-				</div>
+				</div>				
 			</div>
-		</div>
-	</div>
-</div>
+			<div class="row" >
+				<div class=" col-12" >
+					<canvas id="testCanvas" width="200" height="209">
+					</canvas>
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col-12">
 
-<div id="animal" class="modal">
-	<div class="modal-content">
-		<div class="modal-container">
-			<div class="row">
-				<div class="col-12">
-					<span onclick="document.getElementById('animal').style.display='none'"
-					class="modal-closebtn">&times;</span>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-12">
-					<p>Some text. Some text. Some text.</p>
-					<p>Some text. Some text. Some text.</p>
-				</div>
+
 			</div>
 		</div>
 	</div>
-</div>
+
+	<div id="animal" class="modal">
+		<div class="modal-content">
+			<div class="modal-container">
+				<div class="row">
+					<div class="col-12">
+						<span onclick="document.getElementById('animal').style.display='none'"
+						class="modal-closebtn">&times;</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<p>Some text. Some text. Some text.</p>
+						<p>Some text. Some text. Some text.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
 </body>
 </html>
