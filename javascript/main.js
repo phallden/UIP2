@@ -71,6 +71,7 @@ function init() {
             }
         }, 20);
         windObj.draw();
+        fetchText('animalTest','horse');
     });
 }
 window.onload = function () {
