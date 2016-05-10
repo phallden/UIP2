@@ -1,20 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <animal>
-    <pig> Name: Pig (Latin: Sus domesticus), often called swine or hog.
-        <p>Length: 0.9 -1.8m </p>
-        Weight: 50 - 350kg adults
-        Eats: Omnivore, eats both animals and plants
-        Usage for humans: Produces meat called pork
-        History: Been around since as early as 13,000–12,700 BC. Mostly used for meat, and there hides for shields, bones for tools and bristles for brushes.
+    <pig>
+        <name>Name: Pig (Latin: Sus domesticus), often called swine or hog.</name>
+        <length>Length: 0.9 -1.8m</length>
+       <weight>Weight: 50 - 350kg adults</weight>
+        <eats> Eats: Omnivore, eats both animals and plants </eats>
+        <usage> Usage for humans: Produces meat called pork</usage>
+        <history>History: Been around since as early as 13,000–12,700 BC. Mostly used for meat, and their hides for shields, bones for tools and bristles for brushes. </history>
+        <general>General:</general>
     </pig>
-    <horse>Name: Horse (Latin: Equus ferus caballus)
-        Length: 0.9 -1.8m
-        Height: 140-160 cm
-        Weight: 380 - 550kg adults
-        Eats: Plants
-        Usage for humans: Some species used in sports, others produces meat.
-        History: Been domesticated since 4000 BC. Big impact on our history, used as transportation and very suitable for slow heavy work.
+    <horse>
+        <name>Name: Horse (Latin: Equus ferus caballus)</name>
+            <length> Length: 0.9 -1.8m</length>
+            <height>  Height: 140-160 cm</height>
+            <weight>  Weight: 380 - 550kg adults</weight>
+            <eats>  Eats: Plants</eats>
+            <usage>  Usage for humans: Some species used in sports, others produces meat.</usage>
+            <history>  History: Been domesticated since 4000 BC. Big impact on our history, used as transportation and very suitable for slow heavy work.</history>
+            <general>General:</general>
     </horse>
-    <fisk>
-        test
-    </fisk>
+   <cow>
+       <name>Name: Ko (Latin: Bos taurus)</name>
+       <length>Length: 1.8-2 m </length>
+        <height>Height: 150 cm</height>
+       <weight>Weight: 550-1100 kg</weight>
+        <eats>Eats: Plants</eats>
+       <usage>Usage for humans: Raised for meat called beef and veal, dairy products such as milk and cream</usage>
+       <history>History: Domesticated around 10 000 years ago. Also widely used for heavy work, such as pulling a sled. </history>
+    </cow>-->
 </animal>
