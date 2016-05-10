@@ -76,7 +76,9 @@ pigCanvas.addEventListener('click', function(e) {
 	console.log("HITFaRMER")
 	var mousePos = getMousePos(pigCanvas,e)
 	if(mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))){
-		$("#farmertip").css({top: farmerObj.y - 200, left: farmerObj.x + 50, position:'absolute'});			
+		$("#farmertip").css({top: farmerObj.y - 180 , left: farmerObj.x + 50, position:'absolute'});			
+		//createTutorial();
+
 		$("#farmertip").tooltip({ items: "#farmertip", content: '<p>Hello my name is BOB, it stands for "Big Ordinary Bob" </p>'+
 			'<p> Do you want som exceptionell help? </p><br> <button onclick="testFunc(event)">Yes Mr. Bob</button> <button>Screw you Bobbsan</button>'});
 		$("#farmertip").tooltip("open");
@@ -112,7 +114,7 @@ function testFunc(e){
 			var offset = getOffset(tutobjects[k]);
 			var mousePos = getMousePos(document.getElementById("overlayCanvas"), e)
 			if(mousePos.x > tutobjects[k].x + offset.x + (objects[k].canvas.width() * objects[k].widthFact)){
-					drawArrow(mousePos.x, mousePos.y , tutobjects[k].x + offset.x + (objects[k].canvas.width() * objects[k].widthFact),
+					drawArrow(farmerObj.x, farmerObj.y , tutobjects[k].x + offset.x + (objects[k].canvas.width() * objects[k].widthFact),
 				tutobjects[k].y + offset.y + document.body.scrollTop + ((objects[k].canvas.width() * objects[k].widthFact * objects[k].heightFact)/2),
 				document.getElementById("overlayCanvas"));
 				}else{
