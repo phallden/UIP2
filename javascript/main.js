@@ -4,14 +4,14 @@ var farmerObj;
 var birdObj;
 var clouds = [];
 var pigs = [];
-var horse = [];
+var horses = [];
 var objects = [];
 var tutobjects = [];
 var sources = {
     Pig: '../images/pig.png',
     Cloud: '../images/Cloud.png',
     Sun: '../images/sun.png',
-    Sun2: '../images/chicken.png',
+    Sun2: '../images/sun2.png',
     windmill1: '../images/windmill.png',
     snurra: '../images/snurra.png',
     snurra1: '../images/snurra1.png',
@@ -49,7 +49,7 @@ function init() {
         tutobjects[1] = objects[2] = pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 200);
         objects[3] = pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 100);
         objects[4] = pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.20, 150);
-        tutobjects[2] = objects[5] = horse[0] = new Horse("pigCanvas", images.Horse, 0.1, 0.8, 0.10, 300);
+        tutobjects[2] = objects[5] = horses[0] = new Horse("pigCanvas", images.Horse, 0.1, 0.8, 0.10, 300);
         objects[6] = clouds[0] = new Cloud("cloudCanvas", images.Cloud, 0.1, 1.1, 0.25, 10);
         objects[7] = clouds[1] = new Cloud("cloudCanvas", images.Cloud, 0.05, 1.1, 0.1, 40);
         objects[8] = clouds[2] = new Cloud("cloudCanvas", images.Cloud, 0.08, 1.1, 0.4, 30);
@@ -61,8 +61,8 @@ function init() {
             pigs[k].draw();
             //	objects[k].draw();
         }
-        for (k = 0; k < horse.length; k++) {
-            horse[k].draw();
+        for (k = 0; k < horses.length; k++) {
+            horses[k].draw();
         }
         var loopBG = setInterval(function () {
             clouds[0].clear();
@@ -74,7 +74,6 @@ function init() {
             }
         }, 20);
         windObj.draw();
-        fetchText('animalTest','horse');
     });
 }
 window.onload = function () {
