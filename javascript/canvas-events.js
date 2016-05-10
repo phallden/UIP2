@@ -5,7 +5,7 @@ $( document ).ready(function() {
 	var skyCanvas = document.getElementById('cloudCanvas');
 	//var farmerCanvas = document.getElementById('farmerCanvas');
 	var overlayCanvas = document.getElementById('overlayCanvas');
-	overlayCanvas.height = window.innerHeight;
+	overlayCanvas.height = $( document ).height();
 	overlayCanvas.width = window.innerWidth;
 $( "#farmertip" ).tooltip({
 	position: {
@@ -25,6 +25,17 @@ pigCanvas.addEventListener('click', function(e) {
 	pigs.forEach(function(pig) {       
 		if(mousePos.x > pig.x && mousePos.x < parseInt(pig.x + pig.canvas.width() * pig.widthFact) && mousePos.y > pig.y && mousePos.y < parseInt(pig.y + (pig.canvas.width() * pig.widthFact * pig.heightFact))){
 			pigSound.play();
+			fetchText('animalDesc','pig');
+			$("#animal .modal-content").css( "background-color", "#FFDACF")
+			document.getElementById('animal').style.display='inline-block';
+		}
+	}); 
+
+		horses.forEach(function(horse) {       
+		if(mousePos.x > horse.x && mousePos.x < parseInt(horse.x + horse.canvas.width() * horse.widthFact) && mousePos.y > horse.y && mousePos.y < parseInt(horse.y + (horse.canvas.width() * horse.widthFact * horse.heightFact))){
+			horseSound.play();
+			fetchText('animalDesc','horse');
+			$("#animal .modal-content").css( "background-color", "brown")
 			document.getElementById('animal').style.display='block';
 		}
 	}); 
@@ -100,11 +111,17 @@ function testFunc(e){
 		for (k = 0; k < tutobjects.length; ++k) {
 			var offset = getOffset(tutobjects[k]);
 			var mousePos = getMousePos(document.getElementById("overlayCanvas"), e)
-			drawArrow(mousePos.x, mousePos.y, tutobjects[k].x + offset.x + (objects[k].canvas.width() * objects[k].widthFact)/2,
-				tutobjects[k].y + offset.y + ((objects[k].canvas.width() * objects[k].widthFact * objects[k].heightFact)),
+			if(mousePos.x > tutobjects[k].x + offset.x + (objects[k].canvas.width() * objects[k].widthFact)){
+					drawArrow(mousePos.x, mousePos.y , tutobjects[k].x + offset.x + (objects[k].canvas.width() * objects[k].widthFact),
+				tutobjects[k].y + offset.y + document.body.scrollTop + ((objects[k].canvas.width() * objects[k].widthFact * objects[k].heightFact)/2),
 				document.getElementById("overlayCanvas"));
-//drawArrow(k+10, 10, 50, k+5, document.getElementById("pigCanvas"));
-//drawArrow(k+10, 10, 50, k+5, document.getElementById("testCanvas"));
+				}else{
+						drawArrow(mousePos.x, mousePos.y , tutobjects[k].x + offset.x ,
+				tutobjects[k].y + offset.y + document.body.scrollTop + ((objects[k].canvas.width() * objects[k].widthFact * objects[k].heightFact)/2),
+				document.getElementById("overlayCanvas"));
+				}
+
+		
 
 	/*	console.log(e)
 		    var headlen = 10;   // length of head in pixels
