@@ -1,5 +1,7 @@
 var spinIt;
+var birdIntervall;
 $( document ).ready(function() {
+	openCity('London')
 	var farmerTipOrg = $("#farmertip").clone();
 	var pigCanvas = document.getElementById('pigCanvas');
 	var skyCanvas = document.getElementById('cloudCanvas');
@@ -48,6 +50,7 @@ $( document ).ready(function() {
 		if (mousePos.x > windObj.x && mousePos.x < parseInt(windObj.x + windObj.canvas.width() * windObj.widthFact) && mousePos.y > windObj.y && mousePos.y < parseInt(windObj.y + (windObj.canvas.width() * windObj.widthFact * windObj.heightFact))) {
 			if (windObj.running == false) {
 				windObj.running = true;
+
                 //windObj.spin();
                 spinIt = setInterval(animateWindmill, 300);
                 //windObj.raf = window.requestAnimationFrame(windObj.spin());
@@ -61,10 +64,10 @@ $( document ).ready(function() {
 
 	skyCanvas.addEventListener('mousemove', function (e) {
 
-        //birdObj.x = e.clientX;
-        //birdObj.y = e.clientY;
-        birdObj.clear();
-        birdObj.drawNew(e.clientX, e.clientY);
+        birdObj.x = e.clientX;
+        birdObj.y = e.clientY;
+        //birdObj.clear();
+        //birdObj.drawNew();
         var mousePos = getMousePos(skyCanvas, e);
         if (mousePos.x > sunObj.x && mousePos.x < parseInt(sunObj.x + sunObj.canvas.width() * sunObj.widthFact) && mousePos.y > sunObj.y && mousePos.y < parseInt(sunObj.y + (sunObj.canvas.width() * sunObj.widthFact * sunObj.heightFact))) {
         	sunObj.imageChoice = 2;
@@ -72,12 +75,21 @@ $( document ).ready(function() {
         else
         	sunObj.imageChoice = 1;
     });
-	pigCanvas.addEventListener('click', function(e) {
-		console.log("HITFaRMER")
-		var mousePos = getMousePos(pigCanvas,e)
-		if(mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))){
-			$("#farmertip").css({top: farmerObj.y - 180 , left: farmerObj.x + 50, position:'absolute'});			
-		//createTutorial();
+
+
+	skyCanvas.addEventListener('mouseover', function (e) {
+		birdIntervall = setInterval(animateBird,10);
+	});
+
+	skyCanvas.addEventListener('mouseout', function (e) {
+		clearInterval(birdIntervall);
+	});
+
+pigCanvas.addEventListener('click', function(e) {
+	console.log("HITFaRMER")
+	var mousePos = getMousePos(pigCanvas,e)
+	if(mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))){
+		$("#farmertip").css({top: farmerObj.y - 200, left: farmerObj.x + 50, position:'absolute'});
 
 		$("#farmertip").tooltip({ items: "#farmertip", content: '<p>Hello my name is BOB, it stands for "Big Ordinary Bob" </p>'+
 			'<p> Do you want som exceptionell help? </p><br> <button onclick="focusObj('+"'Horse'"+')">Yes Mr. Bob</button> <button onclick="unfocusObj()"">Screw you Bobbsan</button>'});
@@ -86,17 +98,6 @@ $( document ).ready(function() {
 		$("#farmertip").tooltip("close");
 	}
 });
-
-
-
-	skyCanvas.addEventListener('mousemove', function(e) {
-		var mousePos = getMousePos(skyCanvas,e);
-		if(mousePos.x > sunObj.x && mousePos.x < parseInt(sunObj.x + sunObj.canvas.width() * sunObj.widthFact) && mousePos.y > sunObj.y && mousePos.y < parseInt(sunObj.y + (sunObj.canvas.width() * sunObj.widthFact * sunObj.heightFact))){
-			sunObj.imageChoice = 2;
-		}
-		else
-			sunObj.imageChoice = 1;
-	});
 
 });
 
@@ -178,12 +179,19 @@ function testFunc(e){
 		    overlayCtx.lineTo(objects[k].x-headlen*Math.cos(angle+Math.PI/6),objects[k].y-headlen*Math.sin(angle+Math.PI/6));
 
 		    objects[k].ctx.beginPath();
-		    objects[k].ctx.arc(objects[k].x + (objects[k].canvas.width() * objects[k].widthFact)/2, 
+		    objects[k].ctx.arc(objects[k].x + (objects[k].canvas.width() * objects[k].widthFact)/2,
 		    	parseInt(objects[k].y + (objects[k].canvas.width() * objects[k].widthFact * objects[k].heightFact)/2),objects[k].canvas.width() * objects[k].widthFact * 0.7,0,2*Math.PI);
 objects[k].ctx.stroke();  */
 
 }
-
+function openCity(cityName) {
+	var i;
+	var x = document.getElementsByClassName("city");
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	document.getElementById(cityName).style.display = "block";
+}
 function drawArrow(fromx, fromy, tox, toy, c){
                 //variables to be used when creating the arrow
                 var ctx = c.getContext("2d");
@@ -222,6 +230,9 @@ function drawArrow(fromx, fromy, tox, toy, c){
             function animateWindmill() {
             	windObj.spin();
             }
+			function animateBird(){
+				birdObj.drawNew();
+			}
 
             function getMousePos(canvas, evt) {
             	var rect = canvas.getBoundingClientRect();
