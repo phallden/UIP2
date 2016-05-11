@@ -22,25 +22,27 @@ $( "#farmertip" ).tooltip({
 $("#farmertip").parent().css({position: 'relative'});
 pigCanvas.addEventListener('click', function(e) {
 	var mousePos = getMousePos(pigCanvas,e)
-	pigs.forEach(function(pig) {       
+	pigs.forEach(function(pig) {
 		if(mousePos.x > pig.x && mousePos.x < parseInt(pig.x + pig.canvas.width() * pig.widthFact) && mousePos.y > pig.y && mousePos.y < parseInt(pig.y + (pig.canvas.width() * pig.widthFact * pig.heightFact))){
 			pigSound.play();
 			fetchText('animalDesc','pig');
 			$("#animal .modal-content").css( "background-color", "#FFDACF")
 			document.getElementById('animal').style.display='inline-block';
 		}
-	}); 
+	});
 
-		horses.forEach(function(horse) {       
+		horses.forEach(function(horse) {
 		if(mousePos.x > horse.x && mousePos.x < parseInt(horse.x + horse.canvas.width() * horse.widthFact) && mousePos.y > horse.y && mousePos.y < parseInt(horse.y + (horse.canvas.width() * horse.widthFact * horse.heightFact))){
 			horseSound.play();
 			fetchText('animalDesc','horse');
 			$("#animal .modal-content").css( "background-color", "brown")
 			document.getElementById('animal').style.display='block';
 		}
-	}); 
+	});
 
 });
+
+//openCity("London")
 
 pigCanvas.addEventListener('mousemove', function (e) {
 	console.log("WINDMILLHIT")
@@ -76,7 +78,7 @@ pigCanvas.addEventListener('click', function(e) {
 	console.log("HITFaRMER")
 	var mousePos = getMousePos(pigCanvas,e)
 	if(mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))){
-		$("#farmertip").css({top: farmerObj.y - 200, left: farmerObj.x + 50, position:'absolute'});			
+		$("#farmertip").css({top: farmerObj.y - 200, left: farmerObj.x + 50, position:'absolute'});
 		$("#farmertip").tooltip({ items: "#farmertip", content: '<p>Hello my name is BOB, it stands for "Big Ordinary Bob" </p>'+
 			'<p> Do you want som exceptionell help? </p><br> <button onclick="testFunc(event)">Yes Mr. Bob</button> <button>Screw you Bobbsan</button>'});
 		$("#farmertip").tooltip("open");
@@ -121,7 +123,6 @@ function testFunc(e){
 				document.getElementById("overlayCanvas"));
 				}
 
-		
 
 	/*	console.log(e)
 		    var headlen = 10;   // length of head in pixels
@@ -133,12 +134,21 @@ function testFunc(e){
 		    overlayCtx.lineTo(objects[k].x-headlen*Math.cos(angle+Math.PI/6),objects[k].y-headlen*Math.sin(angle+Math.PI/6));
 
 		    objects[k].ctx.beginPath();
-		    objects[k].ctx.arc(objects[k].x + (objects[k].canvas.width() * objects[k].widthFact)/2, 
+		    objects[k].ctx.arc(objects[k].x + (objects[k].canvas.width() * objects[k].widthFact)/2,
 		    	parseInt(objects[k].y + (objects[k].canvas.width() * objects[k].widthFact * objects[k].heightFact)/2),objects[k].canvas.width() * objects[k].widthFact * 0.7,0,2*Math.PI);
 objects[k].ctx.stroke();  */
 }
 }
-
+$( document ).ready(function() {
+	openCity('London')});
+function openCity(cityName) {
+	var i;
+	var x = document.getElementsByClassName("city");
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	document.getElementById(cityName).style.display = "block";
+}
 function drawArrow(fromx, fromy, tox, toy, c){
                 //variables to be used when creating the arrow
                 var ctx = c.getContext("2d");
