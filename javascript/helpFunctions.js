@@ -44,14 +44,15 @@ counter = 1;
     console.log(x[0].childNodes);
     var table = document.createElement('table');
     table.setAttribute('ID','tempTable');
-    var tableBody = document.createElement('tbody');
-
-    var row = document.createElement('tr');
-    var cell = document.createElement('td');
-    tableBody.appendChild(
-        row.appendChild(
-            cell.appendChild(
-                returnAnimal(object))));
+    var tableBody = document.createElement('tbody'); //body
+    var rowFirst = document.createElement('tr'); //first row
+    var cell1 = document.createElement('td'); //first row
+    var cell2 = document.createElement('td'); // animal cell
+    cell2.setAttribute('ID','animalImage');
+    var nodeAnimal = returnAnimal(object); // animal node
+    cell2.appendChild(nodeAnimal);
+    //row.appendChild(cell);
+    //tableBody.appendChild(row);
 
     for (var i=1;i < x[0].childNodes.length; i=i+2){
         node = document.createTextNode(x[0].childNodes[i].innerHTML);
@@ -61,9 +62,16 @@ counter = 1;
         var row = document.createElement('tr');
         var cell = document.createElement('td');
         cell.appendChild(node);
+        cell.setAttribute('class','modelClass');
         row.appendChild(cell);
-        tableBody.appendChild(row);
+        cell1.appendChild(row);
+
+
+
     }
+    rowFirst.appendChild(cell1);
+    rowFirst.appendChild(cell2);
+    tableBody.appendChild(rowFirst);
     table.appendChild(tableBody);
     z.appendChild(table);
 }

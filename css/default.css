@@ -30,6 +30,21 @@ canvas {
     box-sizing: border-box;
 }
 
+#tempTable{
+    border: dotted;
+    border-width: 2px;
+}
+
+.modelClass{
+    font-family: "Comic Sans MS";
+    font-size: large;
+}
+
+#animalImage{
+    position: relative;
+    float: right;
+}
+
 .main-wrapper {
 	z-index: 1;
     padding-right: 15px;
