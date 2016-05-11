@@ -30,8 +30,7 @@ function fetchText(ID, object) {
     };
 }
 function myFunction(xml, ID, object) {
-counter = 1;
-    if(document.getElementById('tempTable') != null){
+    if (document.getElementById('tempTable') != null) {
         rem = document.getElementById('tempTable');
         div = rem.parentNode;
         div.removeChild(rem);
@@ -43,31 +42,23 @@ counter = 1;
     z = document.getElementById(ID);
     console.log(x[0].childNodes);
     var table = document.createElement('table');
-    table.setAttribute('ID','tempTable');
+    table.setAttribute('ID', 'tempTable');
     var tableBody = document.createElement('tbody'); //body
     var rowFirst = document.createElement('tr'); //first row
     var cell1 = document.createElement('td'); //first row
     var cell2 = document.createElement('td'); // animal cell
-    cell2.setAttribute('ID','animalImage');
+    cell2.setAttribute('ID', 'animalImage');
     var nodeAnimal = returnAnimal(object); // animal node
     cell2.appendChild(nodeAnimal);
-    //row.appendChild(cell);
-    //tableBody.appendChild(row);
 
-    for (var i=1;i < x[0].childNodes.length; i=i+2){
+    for (var i = 1; i < x[0].childNodes.length; i = i + 2) {
         node = document.createTextNode(x[0].childNodes[i].innerHTML);
-        console.log(node);
-        //prevText = z.innerHTML;
-        //z.innerHTML =  prevText + '<br>' + node + '</br>';
         var row = document.createElement('tr');
         var cell = document.createElement('td');
         cell.appendChild(node);
-        cell.setAttribute('class','modelClass');
+        cell.setAttribute('class', 'modelClass');
         row.appendChild(cell);
         cell1.appendChild(row);
-
-
-
     }
     rowFirst.appendChild(cell1);
     rowFirst.appendChild(cell2);
@@ -76,15 +67,15 @@ counter = 1;
     z.appendChild(table);
 }
 
-function returnAnimal(object){
+function returnAnimal(object) {
     var image;
-    if(object == 'horse'){
+    if (object == 'horse') {
         image = document.createElement('img');
         image.src = "../images/horse3.png";
         image.height = 200;
         image.width = 200;
         return image;
-    } else if(object == 'pig')    {
+    } else if (object == 'pig') {
         image = document.createElement('img');
         image.src = "../images/pig.png";
         image.height = 200;
