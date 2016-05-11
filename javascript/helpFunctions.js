@@ -90,6 +90,12 @@ function returnAnimal(object){
         image.height = 200;
         image.width = 200;
         return image;
+    } else if(object == 'cow') {
+        image = document.createElement('img');
+        image.src = "../images/cow.png";
+        image.height = 200;
+        image.width = 200;
+        return image;
     } else {
         return null;
     }

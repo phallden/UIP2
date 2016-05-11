@@ -40,7 +40,16 @@ $( document ).ready(function() {
 				$("#animal .modal-content").css( "background-color", "brown")
 				document.getElementById('animal').style.display='block';
 			}
-		}); 
+		});
+
+		cows.forEach(function(cow) {
+			if(mousePos.x > cow.x && mousePos.x < parseInt(cow.x + cow.canvas.width() * cow.widthFact) && mousePos.y > cow.y && mousePos.y < parseInt(cow.y + (cow.canvas.width() * cow.widthFact * cow.heightFact))){
+				cowSound.play();
+				fetchText('animalDesc','cow');
+				$("#animal .modal-content").css( "background-color", "brown")
+				document.getElementById('animal').style.display='block';
+			}
+		});
 
 	});
 
