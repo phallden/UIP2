@@ -7,6 +7,7 @@ var pigs = [];
 var horses = [];
 var objects = [];
 var tutobjects = [];
+var cows = [];
 var sources = {
     Pig: '../images/pig.png',
     Cloud: '../images/Cloud.png',
@@ -18,7 +19,8 @@ var sources = {
     snurra2: '../images/snurra2.png',
     Horse: '../images/horse3.png',
     Farmer: '../images/farmer.png',
-    birdPic: '../images/birdtest.png'
+    birdPic: '../images/birdtest.png',
+    Cow: '../images/cow.png'
 };
 var sunObj;
 function loadImages(sources, callback) {
@@ -55,6 +57,8 @@ function init() {
         objects[8] = clouds[2] = new Cloud("cloudCanvas", images.Cloud, 0.08, 1.1, 0.4, 30);
         tutobjects[3] = objects[9] = sunObj = new Sun("cloudCanvas", images.Sun, images.Sun2, 0.1, 1.1, 0.85, 20);        
         objects[10] = farmerObj = new Farmer("pigCanvas", images.Farmer, 0.1, 1.2, 0.80, 250);
+        objects[11] = cows[0] = new Cow("pigCanvas", images.Cow, 0.1, 1.1, 0.50, 150 );
+        objects[12] = cows[1] = new Cow("pigCanvas", images.Cow, 0.1, 1.1, 0.60, 300 );
         sunObj.draw();
         farmerObj.draw()
         for (k = 0; k < pigs.length; k++) {
@@ -63,6 +67,9 @@ function init() {
         }
         for (k = 0; k < horses.length; k++) {
             horses[k].draw();
+        }
+        for (k = 0; k < cows.length; k++) {
+            cows[k].draw();
         }
         var loopBG = setInterval(function () {
             clouds[0].clear();

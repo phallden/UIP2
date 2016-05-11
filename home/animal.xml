@@ -19,12 +19,13 @@
             <general>General:</general>
     </horse>
    <cow>
-       <name>Name: Ko (Latin: Bos taurus)</name>
+       <name>Name: Cow (Latin: Bos taurus)</name>
        <length>Length: 1.8-2 m </length>
         <height>Height: 150 cm</height>
        <weight>Weight: 550-1100 kg</weight>
         <eats>Eats: Plants</eats>
        <usage>Usage for humans: Raised for meat called beef and veal, dairy products such as milk and cream</usage>
        <history>History: Domesticated around 10 000 years ago. Also widely used for heavy work, such as pulling a sled. </history>
+       <general>General:A cow has 4 stomachs, the Rumen, the Reticulum, the Omasum, the Abomasum </general>
     </cow>-->
 </animal>

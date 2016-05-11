@@ -36,10 +36,19 @@ $( document ).ready(function() {
 			if(mousePos.x > horse.x && mousePos.x < parseInt(horse.x + horse.canvas.width() * horse.widthFact) && mousePos.y > horse.y && mousePos.y < parseInt(horse.y + (horse.canvas.width() * horse.widthFact * horse.heightFact))){
 				horseSound.play();
 				fetchText('animalDesc','horse');
-				$("#animal .modal-content").css( "background-color", "brown")
+				$("#animal .modal-content").css( "background-color", "#9A6668")
 				document.getElementById('animal').style.display='block';
 			}
-		}); 
+		});
+
+		cows.forEach(function(cow) {
+			if(mousePos.x > cow.x && mousePos.x < parseInt(cow.x + cow.canvas.width() * cow.widthFact) && mousePos.y > cow.y && mousePos.y < parseInt(cow.y + (cow.canvas.width() * cow.widthFact * cow.heightFact))){
+				cowSound.play();
+				fetchText('animalDesc','cow');
+				$("#animal .modal-content").css( "background-color", "#FFDCAC")
+				document.getElementById('animal').style.display='block';
+			}
+		});
 
 	});
 

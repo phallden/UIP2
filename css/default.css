@@ -10,6 +10,7 @@ html {
 
 body {
     margin: 0;
+    padding: 0;
     width: 100%;
 }
 
@@ -41,8 +42,8 @@ canvas {
 }
 
 #animalImage{
-    position: relative;
-    float: right;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .main-wrapper {
