@@ -1,7 +1,6 @@
 var spinIt;
 var birdIntervall;
 $( document ).ready(function() {
-	openCity('London')
 	var farmerTipOrg = $("#farmertip").clone();
 	var pigCanvas = document.getElementById('pigCanvas');
 	var skyCanvas = document.getElementById('cloudCanvas');
@@ -9,7 +8,7 @@ $( document ).ready(function() {
 	var overlayCanvas = document.getElementById('overlayCanvas');
 	overlayCanvas.height = $( document ).height();
 	overlayCanvas.width = window.innerWidth;
-	$( "#farmertip" ).tooltip({
+/*	$( "#farmertip" ).tooltip({
 		position: {
 			using: function( position, feedback ) {
 				$( this ).css( position );
@@ -20,7 +19,7 @@ $( document ).ready(function() {
 				.appendTo( this );
 			}
 		}
-	});
+	}); */
 	$("#farmertip").parent().css({position: 'relative'});
 	pigCanvas.addEventListener('click', function(e) {
 		var mousePos = getMousePos(pigCanvas,e)
@@ -45,7 +44,6 @@ $( document ).ready(function() {
 	});
 
 	pigCanvas.addEventListener('mousemove', function (e) {
-		console.log("WINDMILLHIT")
 		var mousePos = getMousePos(pigCanvas, e)
 		if (mousePos.x > windObj.x && mousePos.x < parseInt(windObj.x + windObj.canvas.width() * windObj.widthFact) && mousePos.y > windObj.y && mousePos.y < parseInt(windObj.y + (windObj.canvas.width() * windObj.widthFact * windObj.heightFact))) {
 			if (windObj.running == false) {
@@ -89,13 +87,19 @@ pigCanvas.addEventListener('click', function(e) {
 	console.log("HITFaRMER")
 	var mousePos = getMousePos(pigCanvas,e)
 	if(mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))){
-		$("#farmertip").css({top: farmerObj.y - 200, left: farmerObj.x + 50, position:'absolute'});
+		$("#farmer-bubble").css({top: farmerObj.y + 300, left: farmerObj.x - 250, position:'absolute'});
+$("#farmer-bubble").show();
+		/*$("#farmertip").css({top: farmerObj.y - 200, left: farmerObj.x + 50, position:'absolute'});
 
 		$("#farmertip").tooltip({ items: "#farmertip", content: '<p>Hello my name is BOB, it stands for "Big Ordinary Bob" </p>'+
 			'<p> Do you want som exceptionell help? </p><br> <button onclick="focusObj('+"'Horse'"+')">Yes Mr. Bob</button> <button onclick="unfocusObj()"">Screw you Bobbsan</button>'});
-		$("#farmertip").tooltip("open");
+		
+$("#farmertip").tooltip({ items: "#farmertip", content: $('#tut-content').html()});
+		
+		$("#farmertip").tooltip("open"); */
 	}else{
-		$("#farmertip").tooltip("close");
+		$("#farmer-bubble").hide();
+		//$("#farmertip").tooltip("close");
 	}
 });
 
@@ -184,14 +188,7 @@ function testFunc(e){
 objects[k].ctx.stroke();  */
 
 }
-function openCity(cityName) {
-	var i;
-	var x = document.getElementsByClassName("city");
-	for (i = 0; i < x.length; i++) {
-		x[i].style.display = "none";
-	}
-	document.getElementById(cityName).style.display = "block";
-}
+
 function drawArrow(fromx, fromy, tox, toy, c){
                 //variables to be used when creating the arrow
                 var ctx = c.getContext("2d");

@@ -46,7 +46,7 @@ canvas {
 }
 
 .main-wrapper {
-	z-index: 1;
+	z-index: -1;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -60,7 +60,7 @@ canvas {
 }
 
 .over-layer {
-    z-index: 2;
+    z-index: 0;
     position: absolute;
     width: 100%;
     margin: 0;
@@ -68,7 +68,7 @@ canvas {
 }
 
 .obj-layer {
-    z-index: 3;
+    z-index: 1;
     position: absolute;
     width: 100%;
 }
@@ -184,4 +184,103 @@ canvas {
 }
 
 
+.tut-navbar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.tut-navbar li {
+    float: left;
+}
+
+.tut-navbar li:last-child {
+    border-right: none;
+}
+
+ .tut-navbar li input[type="radio"] {
+    color: white;
+    text-align: center;
+    margin-left: 5px;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.tut-navbar li input[type="radio"]:hover:not(.active) {
+    background-color: #111;
+}
+
+
+.active {
+    background-color: #4CAF50;
+}
 	
+blockquote {
+  margin:1em 0;
+}
+
+blockquote p {
+  margin:0;
+  font-size:2em;
+}
+
+.triangle-border {
+    display: none;
+    z-index: 5;
+  position:relative;
+  padding:15px;
+  width: 30%;
+  margin:1em 0 3em;
+  border:5px solid #5a8f00;
+  color:#333;
+  background:#fff;
+  /* css3 */
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+.triangle-border:before {
+  content:"";
+  position:absolute;
+  bottom:-20px; /* value = - border-top-width - border-bottom-width */
+  left:40px; /* controls horizontal position */
+  border-width:20px 20px 0;
+  border-style:solid;
+  border-color:#5a8f00 transparent;
+  /* reduce the damage in FF3.0 */
+  display:block;
+  width:0;
+}
+
+/* creates the smaller  triangle */
+.triangle-border:after {
+  content:"";
+  position:absolute;
+  bottom:-13px; /* value = - border-top-width - border-bottom-width */
+  left:47px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+  border-width:13px 13px 0;
+  border-style:solid;
+  border-color:#fff transparent;
+  /* reduce the damage in FF3.0 */
+  display:block;
+  width:0;
+}
+/* creates the larger triangle */
+.triangle-border.top:before {
+  top:-20px; /* value = - border-top-width - border-bottom-width */
+  bottom:auto;
+  left:auto;
+  right:40px; /* controls horizontal position */
+  border-width:0 20px 20px;
+}
+
+/* creates the smaller  triangle */
+.triangle-border.top:after {
+  top:-13px; /* value = - border-top-width - border-bottom-width */
+  bottom:auto;
+  left:auto;
+  right:47px; /* value = (:before right) + (:before border-right) - (:after border-right) */
+  border-width:0 13px 13px;
+}

@@ -1,3 +1,7 @@
+$( document ).ready(function() {
+	openCity('startTut', true)
+});
+
 
 function focusObj(objname){
 	var object;
@@ -8,7 +12,9 @@ function focusObj(objname){
 		}
 	}
 
-	$('.over-layer').css( "zIndex", 4)
+	$('.over-layer').css( "zIndex", 3)
+
+	$('#farmer-bubble').css( "zIndex", 4)
 	var ovrCanvas = document.getElementById("overlayCanvas");
 	var maskCanvas = document.createElement('canvas');
 	var ctx = ovrCanvas.getContext('2d');
@@ -48,5 +54,25 @@ function unfocusObj(){
 	var ovrCanvas = document.getElementById("overlayCanvas");
 	var ctx = ovrCanvas.getContext('2d');
 	ctx.clearRect(0, 0, ovrCanvas.width, ovrCanvas.height);
-	$("#farmertip").tooltip("close");
+	//$("#farmertip").tooltip("close");
 }
+
+
+function openCity(cityName, first) {
+	//
+	
+	var i;
+	var x = document.getElementsByClassName("tut-tab");
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	//$("#tut-content #" + cityName).show();
+	//document.getElementById(cityName).style.display = "block";
+	var test = document.getElementById(cityName);
+	test.style.display = "block";
+	if(first == null){
+		unfocusObj();
+		focusObj(cityName);
+	}
+}
+
