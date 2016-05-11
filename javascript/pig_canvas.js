@@ -15,7 +15,7 @@ var Pig = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.y = y;
     this.vx = 1;
     this.vy = 0;
-    this.nameCanvas = "Pig";
+    this.nameObj = "Pig";
 };
 
 Pig.prototype.start = function () {

@@ -15,7 +15,7 @@ var bird = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.vy = 0;
     this.running = false;
     this.raf = null;
-    this.nameCanvas = "Sky";
+    this.nameObj= "Bird";
 
 };
 

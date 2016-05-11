@@ -16,7 +16,7 @@ var Sun = function (canvasElem, image, image2, widthFact, heightFact, xFactor, y
     this.vx = 1;
     this.vy = 0;
     this.raf = null;
-    this.nameCanvas = "Sky";
+    this.nameObj = "Sun";
 
 };
 

@@ -20,7 +20,7 @@ var windmill = function (canvasElem, image, image2, image3, image4, widthFact, h
     this.y = y;
     this.vx = 0;
     this.vy = 0;
-    this.nameCanvas = "Sky";
+    this.nameObj = "Windmill";
 }
 
 var interVall;

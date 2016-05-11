@@ -14,6 +14,7 @@ var Cloud = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.y = y;
     this.vx = 1;
     this.vy = 0;
+    this.nameObj = "Cloud";
 };
 
 Cloud.prototype.start = function () {

@@ -19,7 +19,7 @@ var Horse = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.y = y;
     this.vx = 1;
     this.vy = 0;
-    this.nameCanvas = "Horse";
+    this.nameObj = "Horse";
 };
 
 Horse.prototype.start = function () {
