@@ -1,5 +1,7 @@
 var spinIt;
+var birdIntervall;
 $( document ).ready(function() {
+
 	var farmerTipOrg = $("#farmertip").clone();
 	var pigCanvas = document.getElementById('pigCanvas');
 	var skyCanvas = document.getElementById('cloudCanvas');
@@ -63,10 +65,10 @@ pigCanvas.addEventListener('mousemove', function (e) {
 
 skyCanvas.addEventListener('mousemove', function (e) {
 
-        //birdObj.x = e.clientX;
-        //birdObj.y = e.clientY;
-        birdObj.clear();
-        birdObj.drawNew(e.clientX, e.clientY);
+        birdObj.x = e.clientX;
+        birdObj.y = e.clientY;
+        //birdObj.clear();
+        //birdObj.drawNew();
         var mousePos = getMousePos(skyCanvas, e);
         if (mousePos.x > sunObj.x && mousePos.x < parseInt(sunObj.x + sunObj.canvas.width() * sunObj.widthFact) && mousePos.y > sunObj.y && mousePos.y < parseInt(sunObj.y + (sunObj.canvas.width() * sunObj.widthFact * sunObj.heightFact))) {
         	sunObj.imageChoice = 2;
@@ -74,6 +76,15 @@ skyCanvas.addEventListener('mousemove', function (e) {
         else
         	sunObj.imageChoice = 1;
     });
+
+	skyCanvas.addEventListener('mouseover', function (e) {
+		birdIntervall = setInterval(animateBird,10);
+	});
+
+	skyCanvas.addEventListener('mouseout', function (e) {
+		clearInterval(birdIntervall);
+	});
+
 pigCanvas.addEventListener('click', function(e) {
 	console.log("HITFaRMER")
 	var mousePos = getMousePos(pigCanvas,e)
@@ -87,16 +98,6 @@ pigCanvas.addEventListener('click', function(e) {
 	}
 });
 
-
-
-skyCanvas.addEventListener('mousemove', function(e) {
-	var mousePos = getMousePos(skyCanvas,e);
-	if(mousePos.x > sunObj.x && mousePos.x < parseInt(sunObj.x + sunObj.canvas.width() * sunObj.widthFact) && mousePos.y > sunObj.y && mousePos.y < parseInt(sunObj.y + (sunObj.canvas.width() * sunObj.widthFact * sunObj.heightFact))){
-		sunObj.imageChoice = 2;
-	}
-	else
-		sunObj.imageChoice = 1;
-});
 
 });
 
@@ -187,6 +188,9 @@ function drawArrow(fromx, fromy, tox, toy, c){
             function animateWindmill() {
             	windObj.spin();
             }
+			function animateBird(){
+				birdObj.drawNew();
+			}
 
             function getMousePos(canvas, evt) {
             	var rect = canvas.getBoundingClientRect();
