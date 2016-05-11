@@ -84,8 +84,8 @@ function returnAnimal(object) {
     } else if(object == 'cow') {
         image = document.createElement('img');
         image.src = "../images/cow.png";
-        image.height = 200;
-        image.width = 200;
+        image.height = 250;
+        image.width = 250;
         return image;
     } else {
         return null;
