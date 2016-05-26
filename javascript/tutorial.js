@@ -1,6 +1,6 @@
 $( document ).ready(function() {
-	openCity('startTut', true)
-});
+	openTut('startTut', true)
+}); 
 
 
 function focusObj(objname){
@@ -50,15 +50,24 @@ function focusObj(objname){
 }
 
 function unfocusObj(){
-	$('.over-layer').css( "zIndex", 2)
+	$('.over-layer').css( "zIndex", 0)
 	var ovrCanvas = document.getElementById("overlayCanvas");
 	var ctx = ovrCanvas.getContext('2d');
 	ctx.clearRect(0, 0, ovrCanvas.width, ovrCanvas.height);
 	//$("#farmertip").tooltip("close");
 }
 
+function startTut(){
+	$(".tut-navbar").show();
+	openTut("Info", true)
+}
 
-function openCity(cityName, first) {
+function endTut(){
+	unfocusObj();
+	$(".tut-navbar").hide();
+	$("#farmer-bubble").hide();
+}
+function openTut(cityName, first) {
 	//
 	
 	var i;
