@@ -1,4 +1,20 @@
-var windmill = function (canvasElem, image, image2, image3, image4, widthFact, heightFact, xFactor, y) {
+var windmill = function (canvasElem, image,
+                         image2,
+                         image3,
+                         image4,
+                         image5,
+                         image6,
+                         image7,
+                         image8,
+                         image9,
+                         image10,
+                         image11,
+                         image12,
+                         image13,
+                         widthFact,
+                         heightFact,
+                         xFactor,
+                         y) {
     // Initial values
     //
     $this = this;
@@ -8,6 +24,15 @@ var windmill = function (canvasElem, image, image2, image3, image4, widthFact, h
     this.img = image2;
     this.img1 = image3;
     this.img2 = image4;
+    this.img3 = image5;
+    this.img4 = image6;
+    this.img5 = image7;
+    this.img6 = image8;
+    this.img7 = image9;
+    this.img8 = image10;
+    this.img9 = image11;
+    this.img10 = image12;
+    this.img11 = image13;
     this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);    
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
@@ -44,16 +69,28 @@ windmill.prototype.clearWindmill = function () {
 
 windmill.prototype.change = function (i) {
     if (i == 1) {
-        printImage = this.img;
+        printImage = this.img3;
     } else if (i == 2) {
-        printImage = this.img1;
-    } else {
-        printImage = this.img2;
+        printImage = this.img4;
+    } else if (i == 3){
+        printImage = this.img5;
+    } else if (i == 4){
+        printImage = this.img6;
+    } else if(i == 5){
+        printImage = this.img7;
+    } else if(i == 6){
+        printImage = this.img8;
+    }else if(i == 7){
+        printImage = this.img9;
+    }else if(i == 8){
+        printImage = this.img10;
+    }else if(i == 9){
+        printImage = this.img11;
     }
 }
 
 windmill.prototype.spin = function () {
-    if (this.imageCount == 4) {
+    if (this.imageCount == 10) {
         this.imageCount = 1;
     }
     //console.log(imageCount);
