@@ -8,6 +8,10 @@ $( document ).ready(function() {
 	var overlayCanvas = document.getElementById('overlayCanvas');
 	overlayCanvas.height = $( document ).height();
 	overlayCanvas.width = window.innerWidth;
+
+	overlayCanvas.addEventListener('click', function(e){
+		endTut();
+	})
 /*	$( "#farmertip" ).tooltip({
 		position: {
 			using: function( position, feedback ) {
@@ -75,6 +79,7 @@ $( document ).ready(function() {
         birdObj.y = e.clientY;
         //birdObj.clear();
         //birdObj.drawNew();
+        //animateBird();
         var mousePos = getMousePos(skyCanvas, e);
         if (mousePos.x > sunObj.x && mousePos.x < parseInt(sunObj.x + sunObj.canvas.width() * sunObj.widthFact) && mousePos.y > sunObj.y && mousePos.y < parseInt(sunObj.y + (sunObj.canvas.width() * sunObj.widthFact * sunObj.heightFact))) {
         	sunObj.imageChoice = 2;
@@ -85,11 +90,11 @@ $( document ).ready(function() {
 
 
 	skyCanvas.addEventListener('mouseover', function (e) {
-		birdIntervall = setInterval(animateBird,10);
+	//	birdIntervall = setInterval(animateBird,1);
 	});
 
 	skyCanvas.addEventListener('mouseout', function (e) {
-		clearInterval(birdIntervall);
+	//	clearInterval(birdIntervall);
 	});
 
 pigCanvas.addEventListener('click', function(e) {

@@ -74,6 +74,7 @@ function init() {
         var loopBG = setInterval(function () {
             clouds[0].clear();
             sunObj.draw();
+            birdObj.drawNew();
 
             for (k = 0; k < clouds.length; ++k) {
                 clouds[k].tick();
