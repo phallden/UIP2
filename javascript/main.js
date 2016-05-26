@@ -47,7 +47,7 @@ function init() {
     loadImages(sources, function (images) {
 
         tutobjects[0] = objects[0] = windObj = new windmill("pigCanvas", images.windmill1, images.snurra, images.snurra1, images.snurra2, 0.15, 1.1, 0.70, 20);
-        objects[1] = birdObj = new bird("cloudCanvas", images.birdPic, 0.1, 0.1, 0.2, 5);
+        objects[1] = birdObj = new bird("cloudCanvas", images.birdPic, 0.07, 0.1, 0.2, 50);
         tutobjects[1] = objects[2] = pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 200);
         objects[3] = pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 100);
         objects[4] = pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.20, 150);

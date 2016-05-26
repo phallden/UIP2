@@ -11,6 +11,7 @@ $( document ).ready(function() {
 
 	overlayCanvas.addEventListener('click', function(e){
 		endTut();
+
 	})
 /*	$( "#farmertip" ).tooltip({
 		position: {
@@ -94,6 +95,8 @@ $( document ).ready(function() {
 	});
 
 	skyCanvas.addEventListener('mouseout', function (e) {
+		birdObj.x = birdObj.canvas.width() * birdObj.xFactor;
+		birdObj.y = 50;
 	//	clearInterval(birdIntervall);
 	});
 

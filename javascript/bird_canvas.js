@@ -4,6 +4,7 @@ var bird = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;
+    this.xFactor = xFactor;
     this.img = image;
     this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
     this.container = $(this.canvas).parent();
