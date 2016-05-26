@@ -63,6 +63,7 @@ function startTut(){
 }
 
 function endTut(){
+	openTut('startTut', true);
 	unfocusObj();
 	$(".tut-navbar").hide();
 	$("#farmer-bubble").hide();
