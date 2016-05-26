@@ -191,6 +191,7 @@ canvas {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    display: none;
 }
 
 .tut-navbar li {

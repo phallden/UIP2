@@ -91,30 +91,34 @@
 						<div class="triangle-border top" id="farmer-bubble">
 						<div id="tut-content">
 							<ul class="tut-navbar">
-								<li><input type="radio" name="tutorial" value="pig" onclick="openCity('Pig')"></li>
-								<li><input type="radio" name="tutorial" value="horse" onclick="openCity('Horse')"></li>
-								<li><input type="radio" name="tutorial" value="windmill" onclick="openCity('Windmill')"></li>
+								<li><input type="radio" name="tutorial" value="pig" onclick="openTut('Pig')"></li>
+								<li><input type="radio" name="tutorial" value="horse" onclick="openTut('Horse')"></li>
+								<li><input type="radio" name="tutorial" value="windmill" onclick="openTut('Windmill')"></li>
 							</ul>
 							<div class="tut-content">
 							<div id="startTut" class="tut-tab">
 									<p>Hello my name is BOB, it stands for "Big Ordinary Bob" </p>
 									<p> Do you want som exceptionell help? </p><br>
-									<button onclick="focusObj('Horse')">Yes Mr. Bob</button>
+									<button onclick="startTut()">Yes Mr. Bob</button>
 									<button onclick="unfocusObj()">Screw you Bobbsan</button>
 
 								</div>
+									<div id="Info" class=" tut-tab">
+									<h2>This is how it work!</h2>
+									<p>By the use of the tab above, I will show different parts of our farm and what you can do.</p>
+								</div>
 								<div id="Pig" class=" tut-tab">
 									<h2>Pig</h2>
-									<p>Here piggypiggy.</p>
+									<p>This is the pig PP ("Pig Pontus"). If you would like to find out more about PP, then you will have to click on him gently. We do not want him to turn into a bacon!.</p>
 								</div>
 								<div id="Horse" class=" tut-tab">
-									<h2>Pig</h2>
-									<p>pighahah.</p>
+									<h2>Horse</h2>
+									<p>This is the horse Big Berit. If you would like more information about BB, just pet(click) her as nicely as you can.</p>
 								</div>
 
 								<div id="Windmill" class="tut-tab">
-									<h2>Paris</h2>
-									<p>Paris is the capital of France.</p>
+									<h2>Windmill</h2>
+									<p>But wait! The windmill doesn't seem to work and we need to produce flour. Try to start it by hovering it with your pointer.</p>
 								</div>
 
 								<div id="Tokyo" class=" tut-tab">

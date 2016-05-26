@@ -4,6 +4,7 @@ var bird = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;
+    this.xFactor = xFactor;
     this.img = image;
     this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
     this.container = $(this.canvas).parent();
@@ -24,13 +25,24 @@ bird.prototype.clear = function (){
 };
 
 bird.prototype.draw = function () {
+
         this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
 
 bird.prototype.drawNew = function () {
-    this.ctx.clearRect(this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
-    this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+
+   /*       this.ctx.beginPath();
+      this.ctx.arc(this.x, this.y, 70, 0, Math.PI, false);
+      this.ctx.closePath();
+      this.ctx.lineWidth = 5;
+      this.ctx.fillStyle = 'red';
+      this.ctx.fill();
+      this.ctx.strokeStyle = '#550000';
+      this.ctx.stroke(); */
+
+    //this.ctx.clearRect(this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
+    this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact) 
 };
 
 

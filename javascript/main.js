@@ -17,15 +17,6 @@ var sources = {
     snurra: '../images/snurra.png',
     snurra1: '../images/snurra1.png',
     snurra2: '../images/snurra2.png',
-    snurra3: '../images/snurra3.png',
-    snurra4: '../images/snurra4.png',
-    snurra5: '../images/snurra5.png',
-    snurra6: '../images/snurra6.png',
-    snurra7: '../images/snurra7.png',
-    snurra8: '../images/snurra8.png',
-    snurra9: '../images/snurra9.png',
-    snurra10: '../images/snurra10.png',
-    snurra11: '../images/snurra11.png',
     Horse: '../images/horse3.png',
     Farmer: '../images/farmer.png',
     birdPic: '../images/birdtest.png',
@@ -70,6 +61,8 @@ function init() {
             images.snurra11,
             0.15, 1.1, 0.70, 20);
         objects[1] = birdObj = new bird("cloudCanvas", images.birdPic, 0.1, 0.1, 0.2, 5);
+        tutobjects[0] = objects[0] = windObj = new windmill("pigCanvas", images.windmill1, images.snurra, images.snurra1, images.snurra2, 0.15, 1.1, 0.70, 20);
+        objects[1] = birdObj = new bird("cloudCanvas", images.birdPic, 0.07, 0.1, 0.2, 50);
         tutobjects[1] = objects[2] = pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 200);
         objects[3] = pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 100);
         objects[4] = pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.20, 150);
@@ -96,6 +89,7 @@ function init() {
         var loopBG = setInterval(function () {
             clouds[0].clear();
             sunObj.draw();
+            birdObj.drawNew();
 
             for (k = 0; k < clouds.length; ++k) {
                 clouds[k].tick();
