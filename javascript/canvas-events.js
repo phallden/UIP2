@@ -121,7 +121,12 @@ $("#farmertip").tooltip({ items: "#farmertip", content: $('#tut-content').html()
 });
 
 });
-
+/**
+ * getOffset
+ * return x and y location of the mouse on canvas.
+ * @param object
+ *      Object = ?
+ * **/
 function getOffset(object){
 	var rect = object.canvas.get(0).getBoundingClientRect();
 	return {
@@ -129,7 +134,11 @@ function getOffset(object){
 		y:  rect.top
 	};
 }
-
+/**
+ * closeTooltop
+ * close tooltip if mouse is clicked.
+ * @param
+ * **/
 function closeTooltip(){
 	$("#farmertip").tooltip("close");
 }

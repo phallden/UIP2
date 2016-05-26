@@ -17,6 +17,13 @@ function createObject(pElement, obj, objId, objClass) {
     return x;
 }
 
+/**
+ * fetchText
+ * Fetch text from .xml file and print it to canvas
+ * @param ID, object
+ *      ID = what id does the object you want to print the text on have
+ *      Object = what animal? (cow,horse,pig..)
+ * **/
 var xhttp = new XMLHttpRequest();
 function fetchText(ID, object) {
     xhttp.open("GET", "animal.xml", true);
@@ -66,7 +73,12 @@ function myFunction(xml, ID, object) {
     table.appendChild(tableBody);
     z.appendChild(table);
 }
-
+/**
+ * returnAnimal
+ * helpfunction for fetchText, return animal image
+ * @param object
+ *      Object = what animal? (cow,horse,pig..)
+ * **/
 function returnAnimal(object) {
     var image;
     if (object == 'horse') {
