@@ -1,8 +1,12 @@
 $( document ).ready(function() {
 	openTut('startTut', true)
-}); 
+});
 
-
+/**
+ * .focusObj
+ * Focus on an object with a keyhole effect, fading out the background leaving only one area in focus
+ * @param objname
+ * **/
 function focusObj(objname){
 	var object;
 	for (k = 0; k < tutobjects.length; ++k){
@@ -52,6 +56,11 @@ function focusObj(objname){
 		ctx.restore();
 }
 
+/**
+ * .unfocusObj
+ * Unfocus the object by changing back to original display
+ * @param
+ * **/
 function unfocusObj(){
 	$('.over-layer').css( "zIndex", 0)
 	var ovrCanvas = document.getElementById("overlayCanvas");
@@ -60,17 +69,33 @@ function unfocusObj(){
 	//$("#farmertip").tooltip("close");
 }
 
+/**
+ * .startTut
+ * Initialise the tutorial
+ * @param
+ * **/
 function startTut(){
 	$(".tut-navbar").show();
 	openTut("Info", true)
 }
 
+/**
+ * .endTut
+ * Close the tutorial
+ * @param
+ * **/
 function endTut(){
 	openTut('startTut', true);
 	unfocusObj();
 	$(".tut-navbar").hide();
 	$("#farmer-bubble").hide();
 }
+
+/**
+ * .openTut
+ * VAD GÖR DEN?
+ * @param
+ * **/
 function openTut(cityName, first) {
 	//
 	

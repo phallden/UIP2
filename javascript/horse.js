@@ -22,13 +22,11 @@ var Horse = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.nameObj = "Horse";
 };
 
-Horse.prototype.start = function () {
-    $this = this;
-    this.HorseImage.onload = function () {
-        $this.ctx.drawImage(this, $this.x, $this.y, $this.canvas.width() * $this.widthFact, $this.canvas.width() * $this.widthFact * $this.heightFact)
-    };
-};
-
+/**
+ * .draw
+ * Used to draw a horse object on the canvas
+ * @param
+ * **/
 Horse.prototype.draw = function () {
     console.log("Horse: "+ this.canvas.width() * this.widthFact * this.heightFact);
     this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
