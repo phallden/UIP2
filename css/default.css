@@ -12,6 +12,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+
 }
 
 canvas {
@@ -30,18 +31,20 @@ canvas {
 }
 
 #tempTable{
-    border: dotted;
-    border-width: 2px;
+    border-style: dotted;
+    border-width: thin;
 }
 
 .modelClass{
     font-family: "Comic Sans MS";
     font-size: large;
+    padding-left: 2px;
 }
 
 #animalImage{
     margin-left: auto;
     margin-right: auto;
+    padding-right: 2%;
 }
 
 .main-wrapper {
@@ -301,9 +304,6 @@ blockquote p {
 }
 
 
-
-
-
 .triangle-border.right:after {
     border-color: rgba(136, 183, 213, 0);
     border-left-color: #fff ;
@@ -315,4 +315,16 @@ blockquote p {
     border-left-color: #5a8f00;
     border-width: 36px;
     margin-top: -36px;
+}
+/* Media queries for IPAD orientation starts here*/
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    html {
+        background: url(../images/savannah.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
 }

@@ -51,6 +51,12 @@ var windmill = function (canvasElem, image,
 var interVall;
 var printImage;
 
+/**
+ * .draw
+ * helpfunction for drawing the windmill on canvas.
+ * @param img
+ *      img = the image that will be printed
+ * **/
 windmill.prototype.draw = function (img) {
     if (img == null) {
         this.ctx.drawImage(this.imgMain, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
@@ -62,11 +68,20 @@ windmill.prototype.draw = function (img) {
 
     }
 };
-
+/**
+ * clearWindmill
+ * helpfunction for removing the windmill from canvas
+ * @param
+ * **/
 windmill.prototype.clearWindmill = function () {
     this.ctx.clearRect(this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
 };
-
+/**
+ * .change
+ * helpfunction for switching between wing images on the windmill
+ * @param i
+ *      i = change between images, where i=1 is the first, and i=10 is the last.
+ * **/
 windmill.prototype.change = function (i) {
     if (i == 1) {
         printImage = this.img3;
@@ -88,7 +103,11 @@ windmill.prototype.change = function (i) {
         printImage = this.img11;
     }
 }
-
+/**
+ * .spin
+ * helpfunction for clearing windmill and drawing windmill
+ * @param
+ * **/
 windmill.prototype.spin = function () {
     if (this.imageCount == 10) {
         this.imageCount = 1;
