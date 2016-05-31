@@ -19,17 +19,29 @@ var bird = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.nameObj= "Bird";
 
 };
-
+/**
+ * .clear
+ * clear bird from canvas.
+ * @param
+ * **/
 bird.prototype.clear = function (){
     this.ctx.clearRect(this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
 };
-
+/**
+ * .draw
+ * draw bird on canvas.
+ * @param
+ * **/
 bird.prototype.draw = function () {
 
         this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
-
+/**
+ * .drawNew
+ * draw new bird on new location.
+ * @param
+ * **/
 bird.prototype.drawNew = function () {
 
    /*       this.ctx.beginPath();

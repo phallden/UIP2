@@ -16,7 +16,11 @@ var Cloud = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.vy = 0;
     this.nameObj = "Cloud";
 };
-
+/**
+ * .start
+ * VAD GÖR DEN?
+ * @param
+ * **/
 Cloud.prototype.start = function () {
     $this = this;
     this.cloudImage.onload = function () {
@@ -24,13 +28,22 @@ Cloud.prototype.start = function () {
     };
     // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())
 };
-
+/**
+ * .draw
+ * VAD GÖR DEN?
+ * @param
+ * **/
 Cloud.prototype.draw = function () {
     this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
 // Adding the tick function. The tick is used to move things (or to provide for other animations).
 //
+/**
+ * .tick
+ * VAD GÖR DEN?
+ * @param
+ * **/
 Cloud.prototype.tick = function () {
     this.x += this.vx;
 
@@ -42,7 +55,11 @@ Cloud.prototype.tick = function () {
         this.x = 0;
     }
 };
-
+/**
+ * .clear
+ * VAD GÖR DEN?
+ * @param
+ * **/
 Cloud.prototype.clear = function () {
     this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());
 }

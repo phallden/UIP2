@@ -17,7 +17,11 @@ var Cow = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.vy = 0;
     this.nameObj = "Cow";
 };
-
+/**
+ * .start
+ * Used to draw the cow on load
+ * @param
+ * **/
 Cow.prototype.start = function () {
     $this = this;
     this.CowImage.onload = function () {
@@ -25,13 +29,22 @@ Cow.prototype.start = function () {
     };
     // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())
 };
-
+/**
+ * .draw
+ * draw cow
+ * @param
+ * **/
 Cow.prototype.draw = function () {
     this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
 // Adding the tick function. The tick is used to move things (or to provide for other animations).
 //
+/**
+ * .tick
+ * VAD GÖR DEN?
+ * @param
+ * **/
 Cow.prototype.tick = function () {
     this.x += this.vx;
 
@@ -43,7 +56,11 @@ Cow.prototype.tick = function () {
         this.x = 0;
     }
 };
-
+/**
+ * .clear
+ * used to clear cow from canvas
+ * @param
+ * **/
 Cow.prototype.clear = function () {
     this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());
 }

@@ -32,6 +32,13 @@ var sources = {
     Cow: '../images/cow.png'
 };
 var sunObj;
+/**
+ * loadImages
+ * VAD GÖR DEN?
+ * @param sources,callback
+ *      sources =
+ *      callback =
+ * **/
 function loadImages(sources, callback) {
     var images = {};
     var loadedImages = 0;
@@ -51,7 +58,10 @@ function loadImages(sources, callback) {
     }
 }
 
-
+/**
+ * init
+ * on bodyload init is initated
+ * **/
 function init() {
     loadImages(sources, function (images) {
 
@@ -106,6 +116,10 @@ function init() {
         windObj.draw();
     });
 }
+/**
+ * onload
+ * used to run init on load
+ * **/
 window.onload = function () {
     init();
 };
