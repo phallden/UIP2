@@ -2,7 +2,6 @@ var Pig = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
 
     // Initial values
     //
-    $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;
     this.img = image;
@@ -23,26 +22,13 @@ Pig.prototype.start = function () {
     this.pigImage.onload = function () {
         $this.ctx.drawImage(this, $this.x, $this.y, $this.canvas.width() * $this.widthFact, $this.canvas.width() * $this.widthFact * $this.heightFact)
     };
-    // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())
 };
 
 Pig.prototype.draw = function () {
+    console.log("Pig: " + this.canvas.width() * this.widthFact * this.heightFact)
     this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
-// Adding the tick function. The tick is used to move things (or to provide for other animations).
-//
-Pig.prototype.tick = function () {
-    this.x += this.vx;
-
-    // Detection of the walls. This is not perfect, so it is left as an exercise to improve it.
-    //
-
-    if (this.x + this.vx > this.canvas.width() || this.x + this.vx < 0) {
-        this.vx = -this.vx;
-        this.x = 0;
-    }
-};
 
 Pig.prototype.clear = function () {
     this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());

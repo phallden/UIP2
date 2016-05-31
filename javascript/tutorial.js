@@ -35,11 +35,14 @@ function focusObj(objname){
 		//maskCtx.globalCompositeOperation = 'xor';
 		maskCtx.globalCompositeOperation = 'destination-out'
 		maskCtx.fillStyle = "rgba(0, 0, 0, 0.9)";
+		console.log("X: " + (object.x + offset.x) + " , MidX: " + (object.x + offset.x + (object.canvas.width() * object.widthFact)/2))
+		console.log("Y: " + (object.y ) + " , MidY: " + (object.y  + document.body.scrollTop + ((object.canvas.width() * object.widthFact * object.heightFact)/2)));
+		
 		maskCtx.moveTo(object.x + offset.x + (object.canvas.width() * object.widthFact)/2,
 			object.y + offset.y + document.body.scrollTop + ((object.canvas.width() * object.widthFact * object.heightFact)/2));
 		
 		maskCtx.arc(object.x + offset.x + (object.canvas.width() * object.widthFact)/2,
-			object.y + offset.y + document.body.scrollTop + ((object.canvas.width() * object.widthFact * object.heightFact)/2),
+			(object.y + offset.y + document.body.scrollTop + ((object.canvas.width() * object.widthFact * object.heightFact)/2)),
 			object.canvas.width() * object.widthFact * 0.9, 0, 2 * Math.PI);
 		maskCtx.fill();
 		

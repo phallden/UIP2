@@ -23,28 +23,21 @@ var Farmer = function(canvasElem, image, widthFact, heightFact,xFactor ,y) {
 Farmer.prototype.start = function () {
     $this = this;
     this.FarmerImage.onload = function() {
-        $this.ctx.drawImage( this, $this.x, $this.y, $this.canvas.width() * $this.widthFact, $this.canvas.width() * $this.widthFact * $this.heightFact)
+        $this.ctx.drawImage( this, $this.x, $this.y, $this.canvas.width() * $this.widthFact, $this.canvas.width() * $this.widthFact * $this.heightFact);
     };
     // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())  
 };
 
 Farmer.prototype.draw = function () {
-    this.ctx.drawImage( this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
+    this.ctx.drawImage( this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
 };
 
-// Adding the tick function. The tick is used to move things (or to provide for other animations).
-//
-Farmer.prototype.tick = function() {
-    this.x += this.vx;
-
-    // Detection of the walls. This is not perfect, so it is left as an exercise to improve it.
-    //
-
-    if (this.x + this.vx > this.canvas.width() || this.x + this.vx < 0) {
-        this.vx = -this.vx;
-        this.x = 0;
-    }
+Farmer.prototype.positionBubble = function () {
+    $("#farmertip").parent().css({position: 'relative'});
+    $("#farmer-bubble").css({top: farmerObj.y + 150, left: farmerObj.x - 400, position:'absolute'});
+    $("#farmer-bubble").show();
 };
+
 
 Farmer.prototype.clear = function(){
     this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());

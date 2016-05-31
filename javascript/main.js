@@ -68,21 +68,22 @@ function init() {
             images.snurra9,
             images.snurra10,
             images.snurra11,
-            0.15, 1.1, 0.70, 20);
+            0.15, 1.1, 0.80, 5);
         objects[1] = birdObj = new bird("cloudCanvas", images.birdPic, 0.07, 0.1, 0.2, 50);
-        tutobjects[1] = objects[2] = pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 200);
-        objects[3] = pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 100);
-        objects[4] = pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.20, 150);
-        tutobjects[2] = objects[5] = horses[0] = new Horse("pigCanvas", images.Horse, 0.25, 0.8, 0.10, 300);
+        tutobjects[1] = objects[2] = pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 70);
+        objects[3] = pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 75);
+        objects[4] = pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.15, 150);
+        tutobjects[2] = objects[5] = horses[0] = new Horse("pigCanvas", images.Horse, 0.20, 0.5, 0.20, 250);
         objects[6] = clouds[0] = new Cloud("cloudCanvas", images.Cloud, 0.1, 1.1, 0.25, 10);
         objects[7] = clouds[1] = new Cloud("cloudCanvas", images.Cloud, 0.05, 1.1, 0.1, 40);
         objects[8] = clouds[2] = new Cloud("cloudCanvas", images.Cloud, 0.08, 1.1, 0.4, 30);
         tutobjects[3] = objects[9] = sunObj = new Sun("cloudCanvas", images.Sun, images.Sun2, 0.1, 1.1, 0.85, 20);        
-        objects[10] = farmerObj = new Farmer("pigCanvas", images.Farmer, 0.1, 1.2, 0.80, 250);
-        objects[11] = cows[0] = new Cow("pigCanvas", images.Cow, 0.1, 1.1, 0.50, 150 );
-        objects[12] = cows[1] = new Cow("pigCanvas", images.Cow, 0.1, 1.1, 0.60, 300 );
+        objects[10] = farmerObj = new Farmer("pigCanvas", images.Farmer, 0.1, 1.2, 0.80, 230);
+        objects[11] = cows[0] = new Cow("pigCanvas", images.Cow, 0.08, 0.7, 0.40, 50 );
+        objects[12] = cows[1] = new Cow("pigCanvas", images.Cow, 0.08, 0.7, 0.50, 100 );
         sunObj.draw();
-        farmerObj.draw()
+        farmerObj.draw();
+        farmerObj.positionBubble();
         for (k = 0; k < pigs.length; k++) {
             pigs[k].draw();
             //	objects[k].draw();

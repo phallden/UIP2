@@ -9,23 +9,13 @@ $( document ).ready(function() {
 	overlayCanvas.height = $( document ).height();
 	overlayCanvas.width = window.innerWidth;
 
+
+
+
 	overlayCanvas.addEventListener('click', function(e){
 		endTut();
 
-	})
-/*	$( "#farmertip" ).tooltip({
-		position: {
-			using: function( position, feedback ) {
-				$( this ).css( position );
-				$( "<div>" )
-				.addClass( "arrow" )
-				.addClass( feedback.vertical )
-				.addClass( feedback.horizontal )
-				.appendTo( this );
-			}
-		}
-	}); */
-	$("#farmertip").parent().css({position: 'relative'});
+	});
 	pigCanvas.addEventListener('click', function(e) {
 		var mousePos = getMousePos(pigCanvas,e)
 		pigs.forEach(function(pig) {       
@@ -57,11 +47,12 @@ $( document ).ready(function() {
 
 	});
 
-	pigCanvas.addEventListener('mousemove', function (e) {
-		var mousePos = getMousePos(pigCanvas, e)
-		if (mousePos.x > windObj.x && mousePos.x < parseInt(windObj.x + windObj.canvas.width() * windObj.widthFact) && mousePos.y > windObj.y && mousePos.y < parseInt(windObj.y + (windObj.canvas.width() * windObj.widthFact * windObj.heightFact))) {
-			if (windObj.running == false) {
-				windObj.running = true;
+pigCanvas.addEventListener('mousemove', function (e) {
+	var mousePos = getMousePos(pigCanvas, e)
+	console.log("X: " + mousePos.x + " , Y: " + mousePos.y)
+	if (mousePos.x > windObj.x && mousePos.x < parseInt(windObj.x + windObj.canvas.width() * windObj.widthFact) && mousePos.y > windObj.y && mousePos.y < parseInt(windObj.y + (windObj.canvas.width() * windObj.widthFact * windObj.heightFact))) {
+		if (windObj.running == false) {
+			windObj.running = true;
 
                 //windObj.spin();
                 spinIt = setInterval(animateWindmill, 300);
@@ -74,10 +65,10 @@ $( document ).ready(function() {
         }
     });
 
-	skyCanvas.addEventListener('mousemove', function (e) {
+skyCanvas.addEventListener('mousemove', function (e) {
 
-        birdObj.x = e.clientX;
-        birdObj.y = e.clientY;
+	birdObj.x = e.clientX;
+	birdObj.y = e.clientY;
         //birdObj.clear();
         //birdObj.drawNew();
         //animateBird();
@@ -90,36 +81,26 @@ $( document ).ready(function() {
     });
 
 
-	skyCanvas.addEventListener('mouseover', function (e) {
-	//	birdIntervall = setInterval(animateBird,1);
-	});
+skyCanvas.addEventListener('click', function (e) {
+	$("#farmer-bubble").hide();
+});
 
-	skyCanvas.addEventListener('mouseout', function (e) {
-		birdObj.x = birdObj.canvas.width() * birdObj.xFactor;
-		birdObj.y = 50;
+skyCanvas.addEventListener('mouseout', function (e) {
+	birdObj.x = birdObj.canvas.width() * birdObj.xFactor;
+	birdObj.y = 50;
 	//	clearInterval(birdIntervall);
-	});
+});
 
 pigCanvas.addEventListener('click', function(e) {
 	console.log("HITFaRMER")
 	var mousePos = getMousePos(pigCanvas,e)
 	if(mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))){
-		$("#farmer-bubble").css({top: farmerObj.y + 300, left: farmerObj.x - 250, position:'absolute'});
-$("#farmer-bubble").show();
-		/*$("#farmertip").css({top: farmerObj.y - 200, left: farmerObj.x + 50, position:'absolute'});
-
-		$("#farmertip").tooltip({ items: "#farmertip", content: '<p>Hello my name is BOB, it stands for "Big Ordinary Bob" </p>'+
-			'<p> Do you want som exceptionell help? </p><br> <button onclick="focusObj('+"'Horse'"+')">Yes Mr. Bob</button> <button onclick="unfocusObj()"">Screw you Bobbsan</button>'});
-		
-$("#farmertip").tooltip({ items: "#farmertip", content: $('#tut-content').html()});
-		
-		$("#farmertip").tooltip("open"); */
+		//$("#farmer-bubble").css({top: farmerObj.y + 150, left: farmerObj.x - 400, position:'absolute'});
+		$("#farmer-bubble").show();
 	}else{
 		$("#farmer-bubble").hide();
-		//$("#farmertip").tooltip("close");
 	}
 });
-
 });
 
 function getOffset(object){
@@ -175,7 +156,7 @@ function testFunc(e){
 		maskCtx.restore();
 		ctx.restore(); 
 
-		}*/
+	}*/
 
 	/*	
 		if(mousePos.x > tutobjects[k].x + offset.x + (objects[k].canvas.width() * objects[k].widthFact)){
@@ -244,9 +225,9 @@ function drawArrow(fromx, fromy, tox, toy, c){
             function animateWindmill() {
             	windObj.spin();
             }
-			function animateBird(){
-				birdObj.drawNew();
-			}
+            function animateBird(){
+            	birdObj.drawNew();
+            }
 
             function getMousePos(canvas, evt) {
             	var rect = canvas.getBoundingClientRect();
