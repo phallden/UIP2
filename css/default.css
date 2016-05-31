@@ -33,18 +33,20 @@ canvas {
 }
 
 #tempTable{
-    border: dotted;
-    border-width: 2px;
+    border-style: dotted;
+    border-width: thin;
 }
 
 .modelClass{
     font-family: "Comic Sans MS";
     font-size: large;
+    padding-left: 2px;
 }
 
 #animalImage{
     margin-left: auto;
     margin-right: auto;
+    padding-right: 2%;
 }
 
 .main-wrapper {
