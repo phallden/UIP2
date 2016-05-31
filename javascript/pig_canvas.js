@@ -17,22 +17,25 @@ var Pig = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.nameObj = "Pig";
 };
 
-Pig.prototype.start = function () {
-    $this = this;
-    this.pigImage.onload = function () {
-        $this.ctx.drawImage(this, $this.x, $this.y, $this.canvas.width() * $this.widthFact, $this.canvas.width() * $this.widthFact * $this.heightFact)
-    };
-};
-
+/**
+ * .draw
+ * Used to draw pig object on the canvas
+ * @param
+ * **/
 Pig.prototype.draw = function () {
     console.log("Pig: " + this.canvas.width() * this.widthFact * this.heightFact)
     this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
-
+/**
+ * .clear
+ * Empty the canvas
+ * @param
+ * **/
 Pig.prototype.clear = function () {
     this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());
 }
+
 
 
 
