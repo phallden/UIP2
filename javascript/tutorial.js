@@ -1,36 +1,40 @@
 $( document ).ready(function() {
 	openTut('startTut', true)
-}); 
+});
 
+/**
+ * .focusObj
+ * Focus on an object with a keyhole effect, fading out the background leaving only one area in focus
+ * @param objname
+ * **/
+ function focusObj(objname){
+ 	var object;
+ 	for (k = 0; k < tutobjects.length; ++k){
+ 		if (tutobjects[k].nameObj === objname) {
+ 			object = tutobjects[k];
+ 			break;
+ 		}
+ 	}
 
-function focusObj(objname){
-	var object;
-	for (k = 0; k < tutobjects.length; ++k){
-		if (tutobjects[k].nameObj === objname) {
-			object = tutobjects[k];
-			break;
-		}
-	}
+ 	$('.over-layer').css( "zIndex", 3)
 
-	$('.over-layer').css( "zIndex", 3)
+ 	$('#farmer-bubble').css( "zIndex", 4)
+ 	var ovrCanvas = document.getElementById("overlayCanvas");
+ 	var maskCanvas = document.createElement('canvas');
+ 	var ctx = ovrCanvas.getContext('2d');
+ 	maskCanvas.width = ovrCanvas.width;
+ 	maskCanvas.height = ovrCanvas.height;
+ 	var maskCtx = maskCanvas.getContext('2d');
 
-	$('#farmer-bubble').css( "zIndex", 4)
-	var ovrCanvas = document.getElementById("overlayCanvas");
-	var maskCanvas = document.createElement('canvas');
-	var ctx = ovrCanvas.getContext('2d');
-	maskCanvas.width = ovrCanvas.width;
-	maskCanvas.height = ovrCanvas.height;
-	var maskCtx = maskCanvas.getContext('2d');
+ 	ctx.save();
 
-	ctx.save();
+ 	maskCtx.save();
 
-	maskCtx.save();
+ 	var offset = getOffset(object);
 
-	var offset = getOffset(object);
-
-	ctx.drawImage(maskCanvas, 0, 0);
-	maskCtx.fillStyle = "rgba(0, 0, 0, 0.5)";
-	maskCtx.fillRect(0, 0, maskCanvas.width, maskCanvas.height);
+ 	ctx.drawImage(maskCanvas, 0, 0);
+ 	maskCtx.fillStyle = "rgba(0, 0, 0, 0.5)";
+ 	maskCtx.fillRect(0, 0, maskCanvas.width, maskCanvas.height);
 
 		//maskCtx.globalCompositeOperation = 'xor';
 
@@ -57,26 +61,43 @@ function focusObj(objname){
 		ctx.restore();
 	}
 
+
 	function unfocusObj(){
 		$('.over-layer').css( "zIndex", 0)
 		var ovrCanvas = document.getElementById("overlayCanvas");
 		var ctx = ovrCanvas.getContext('2d');
 		ctx.clearRect(0, 0, ovrCanvas.width, ovrCanvas.height);
-	//$("#farmertip").tooltip("close");
-}
 
-function startTut(){
-	$(".tut-navbar").show();
-	openTut("Info", true)
-}
+	}
 
-function endTut(){
-	openTut('startTut', true);
-	unfocusObj();
-	$(".tut-navbar").hide();
-	$("#farmer-bubble").hide();
-}
-function openTut(cityName, first) {
+/**
+ * .startTut
+ * Initialise the tutorial
+ * @param
+ * **/
+ function startTut(){
+ 	$(".tut-navbar").show();
+ 	openTut("Info", true)
+ }
+
+/**
+ * .endTut
+ * Close the tutorial
+ * @param
+ * **/
+ function endTut(){
+ 	openTut('startTut', true);
+ 	unfocusObj();
+ 	$(".tut-navbar").hide();
+ 	$("#farmer-bubble").hide();
+ }
+
+/**
+ * .openTut
+ * VAD GÖR DEN?
+ * @param
+ * **/
+ function openTut(cityName, first) {
 	//
 	
 	var i;

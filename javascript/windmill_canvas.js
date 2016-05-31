@@ -112,34 +112,11 @@ windmill.prototype.spin = function () {
     if (this.imageCount == 10) {
         this.imageCount = 1;
     }
-    //console.log(imageCount);
     this.change(this.imageCount);
     this.imageCount = this.imageCount + 1;
-    //this.ctx.clearRect(this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
     this.clearWindmill();
-    //this.ctx.drawImage(printImage, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
     this.draw(printImage);
-    //this.raf = window.requestAnimationFrame(this.spin());
 }
-
-/*
- this.addEventListener('mouseover', function () {
- if (this.running == false) {
- this.running = true;
- console.log(this.running);
- interVall = window.requestAnimationFrame(windObj.spin);
- }
- }
- , false);
-
- this.canvas.on("mouseout", function (e) {
- console.log("mouesout");
- window.cancelAnimationFrame(interVall);
- this.running = false;
- console.log(this.running);
- });
-
- */
 
 
 
