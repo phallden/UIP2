@@ -32,7 +32,11 @@ Horse.prototype.draw = function () {
     this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
-
+/**
+ * .clear
+ * Clear a horse object off the canvas
+ * @param
+ * **/
 Horse.prototype.clear = function () {
     this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());
 }

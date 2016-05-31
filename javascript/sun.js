@@ -22,7 +22,7 @@ var Sun = function (canvasElem, image, image2, widthFact, heightFact, xFactor, y
 
 /**
  * .draw
- * VAD GÖR DEN?
+ * Draw the sun image on the canvas
  * @param
  * **/
 Sun.prototype.draw = function () {
@@ -34,7 +34,7 @@ Sun.prototype.draw = function () {
 
 /**
  * .animate
- * VAD GÖR DEN?
+ * Perform a custom animation of a set of CSS properties.
  * @param
  * **/
 Sun.prototype.animate = function () {
