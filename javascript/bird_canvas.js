@@ -5,7 +5,7 @@ var Bird = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.heightFact = heightFact;
     this.xFactor = xFactor;
     this.img = image;
-    this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
+    this.canvas = $('#' + canvasElem);
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
     this.canvas.attr('width', $(this.container).width()); //max width
