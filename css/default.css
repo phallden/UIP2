@@ -12,6 +12,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+
 }
 
 canvas {
@@ -285,4 +286,18 @@ blockquote p {
   left:auto;
   right:47px; /* value = (:before right) + (:before border-right) - (:after border-right) */
   border-width:0 13px 13px;
+}
+
+
+/* Media queries for IPAD orientation starts here*/
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    html {
+        background: url(../images/savannah.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
 }
