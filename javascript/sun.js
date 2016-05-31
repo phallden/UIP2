@@ -1,6 +1,5 @@
 var Sun = function (canvasElem, image, image2, widthFact, heightFact, xFactor, y) {
     // Initial values
-    //
     $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;

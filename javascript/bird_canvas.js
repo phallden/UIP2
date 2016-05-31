@@ -1,6 +1,5 @@
-var bird = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
+var Bird = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     // Initial values
-    //
     $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;
@@ -24,7 +23,7 @@ var bird = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
  * clear bird from canvas.
  * @param
  * **/
-bird.prototype.clear = function (){
+Bird.prototype.clear = function (){
     this.ctx.clearRect(this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
 };
 /**
@@ -32,7 +31,7 @@ bird.prototype.clear = function (){
  * draw bird on canvas.
  * @param
  * **/
-bird.prototype.draw = function () {
+Bird.prototype.draw = function () {
 
         this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
@@ -42,7 +41,7 @@ bird.prototype.draw = function () {
  * draw new bird on new location.
  * @param
  * **/
-bird.prototype.drawNew = function () {
+Bird.prototype.drawNew = function () {
 
    /*       this.ctx.beginPath();
       this.ctx.arc(this.x, this.y, 70, 0, Math.PI, false);

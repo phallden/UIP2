@@ -1,8 +1,3 @@
-/**
- * Created by pontushallden on 2016-05-04.
- */
-
-
 var Horse = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
 
     // Initial values

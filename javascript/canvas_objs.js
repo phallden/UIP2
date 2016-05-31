@@ -18,7 +18,7 @@ var Cloud = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
 };
 /**
  * .start
- * VAD GÖR DEN?
+ * Start the animation
  * @param
  * **/
 Cloud.prototype.start = function () {

@@ -79,7 +79,7 @@ function init() {
             images.snurra10,
             images.snurra11,
             0.15, 1.1, 0.80, 5);
-        tutobjects[1] = objects[1] = birdObj = new bird("cloudCanvas", images.birdPic, 0.07, 0.1, 0.2, 50);
+        tutobjects[1] = objects[1] = birdObj = new Bird("cloudCanvas", images.birdPic, 0.07, 0.1, 0.2, 50);
         tutobjects[2] = objects[2] = pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 70);
         objects[3] = pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 75);
         objects[4] = pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.15, 150);

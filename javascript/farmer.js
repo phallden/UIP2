@@ -20,25 +20,32 @@ var Farmer = function(canvasElem, image, widthFact, heightFact,xFactor ,y) {
     this.nameObj = "Farmer";
 };
 
-Farmer.prototype.start = function () {
-    $this = this;
-    this.FarmerImage.onload = function() {
-        $this.ctx.drawImage( this, $this.x, $this.y, $this.canvas.width() * $this.widthFact, $this.canvas.width() * $this.widthFact * $this.heightFact);
-    };
-    // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())  
-};
 
+/**
+ * .draw
+ * Draw the farmer on the canvas
+ * @param
+ * **/
 Farmer.prototype.draw = function () {
     this.ctx.drawImage( this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
 };
 
+/**
+ * .positionBubble
+ * Position the bubble correctly on the farmer
+ * @param
+ * **/
 Farmer.prototype.positionBubble = function () {
     $("#farmertip").parent().css({position: 'relative'});
     $("#farmer-bubble").css({top: farmerObj.y + 180, left: farmerObj.x - 400, position:'absolute'});
     $("#farmer-bubble").show();
 };
 
-
+/**
+ * .clear
+ * Clear canvas of farmer
+ * @param
+ * **/
 Farmer.prototype.clear = function(){
     this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());
 }
