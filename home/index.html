@@ -30,11 +30,11 @@
 </head>
 <body onload="set_style_from_cookie()">
 	<div class="main-wrapper">
-		<form>
+	<!--	<form>
 			<input type="submit" onclick="switch_style('Farm');return false;" name="theme" value="Farm" id="Farm">
 			<input type="submit" onclick="switch_style('Savannah');return false;" name="theme" value="Savannah"
 			id="Savannah">
-		</form>
+		</form> -->
 		<div class="over-layer">
 			<div class="row">
 				<div class=" col-12">
@@ -92,7 +92,10 @@
 							<ul class="tut-navbar">
 								<li><input type="radio" name="tutorial" value="pig" onclick="openTut('Pig')"></li>
 								<li><input type="radio" name="tutorial" value="horse" onclick="openTut('Horse')"></li>
+								<li><input type="radio" name="tutorial" value="sun" onclick="openTut('Cow')"></li>
 								<li><input type="radio" name="tutorial" value="windmill" onclick="openTut('Windmill')"></li>
+								<li><input type="radio" name="tutorial" value="sun" onclick="openTut('Sun')"></li>
+								<li><input type="radio" name="tutorial" value="sun" onclick="openTut('Bird')"></li>
 							</ul>
 							<div class="tut-content">
 							<div id="startTut" class="tut-tab">
@@ -112,17 +115,24 @@
 								</div>
 								<div id="Horse" class=" tut-tab">
 									<h2>Horse</h2>
-									<p>This is the horse Big Berit. If you would like more information about BB, just pet(click) her as nicely as you can.</p>
+									<p>This is the horse Big Berit. If you would like more information about BB, just pet (a.k.a click) her as nicely as you can.</p>
 								</div>
 
 								<div id="Windmill" class="tut-tab">
 									<h2>Windmill</h2>
 									<p>But wait! The windmill doesn't seem to work and we need to produce flour. Try to start it by hovering it with your pointer.</p>
 								</div>
-
-								<div id="Tokyo" class=" tut-tab">
-									<h2>Tokyo</h2>
-									<p>Tokyo is the capital of Japan.</p>
+								<div id="Sun" class="tut-tab">
+									<h2>Sun</h2>
+									<p>Boy! The sun is shining bright, ooh if it was some way it could shine a little bit less...</p>
+								</div>
+								<div id="Bird" class="tut-tab">
+									<h2>Bird</h2>
+									<p>The bird seems to have eaten a bit to much bread. I think it need som exercise!</p>
+								</div>
+								<div id="Cow" class="tut-tab">
+									<h2>Cow</h2>
+									<p>Does the cow realy say "Quack".. hmmm.. why don't you find out!</p>
 								</div>
 							</div>
 						</div>

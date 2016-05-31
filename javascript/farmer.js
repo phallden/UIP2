@@ -34,7 +34,7 @@ Farmer.prototype.draw = function () {
 
 Farmer.prototype.positionBubble = function () {
     $("#farmertip").parent().css({position: 'relative'});
-    $("#farmer-bubble").css({top: farmerObj.y + 150, left: farmerObj.x - 400, position:'absolute'});
+    $("#farmer-bubble").css({top: farmerObj.y + 180, left: farmerObj.x - 400, position:'absolute'});
     $("#farmer-bubble").show();
 };
 
