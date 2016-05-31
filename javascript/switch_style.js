@@ -1,17 +1,16 @@
-// *** TO BE CUSTOMISED ***
 
 var style_cookie_name = "style" ;
 var style_cookie_duration = 30 ;
-var style_domain = "phallden.com" ;
+var style_domain = "uip.com" ;
 
-// *** END OF CUSTOMISABLE SECTION ***
-// You do not need to customise anything below this line
 
+/**
+ * .switch_style
+ * Toggle through link tags to match with css_title to switch between stylesheets/themes
+ * @param css_title
+ * **/
 function switch_style ( css_title )
 {
-// You may use this script on your site free of charge provided
-// you do not remove this notice or the URL below. Script from
-// http://www.thesitewizard.com/javascripts/change-style-sheets.shtml
     var i, link_tag ;
     for (i = 0, link_tag = document.getElementsByTagName("link") ;
          i < link_tag.length ; i++ ) {
@@ -26,6 +25,12 @@ function switch_style ( css_title )
             style_cookie_duration, style_domain );
     }
 }
+
+/**
+ * .set_cookie
+ * Checks for the style-setting cookie, and if present, switches the style sheets accordingly. Otherwise, it does nothing.
+ * @param
+ * **/
 function set_style_from_cookie()
 {
     var css_title = get_cookie( style_cookie_name );
@@ -33,6 +38,13 @@ function set_style_from_cookie()
         switch_style( css_title );
     }
 }
+
+/**
+ * .set_cookie
+ * Assign your string to the cookie
+ * @param cookie_name, cookie_value,
+ lifespan_in_days, valid_domain
+ * **/
 function set_cookie ( cookie_name, cookie_value,
                       lifespan_in_days, valid_domain )
 {
@@ -44,6 +56,12 @@ function set_cookie ( cookie_name, cookie_value,
         24 * lifespan_in_days +
         "; path=/" + domain_string ;
 }
+
+/**
+ * .get_cookie
+ * Fetch the current cookie and read it
+ * @param cookie_name
+ * **/
 function get_cookie ( cookie_name )
 {
    

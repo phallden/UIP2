@@ -20,6 +20,11 @@ var Sun = function (canvasElem, image, image2, widthFact, heightFact, xFactor, y
 
 };
 
+/**
+ * .draw
+ * VAD GÖR DEN?
+ * @param
+ * **/
 Sun.prototype.draw = function () {
     if (this.imageChoice == 1)
         this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
@@ -27,8 +32,12 @@ Sun.prototype.draw = function () {
         this.ctx.drawImage(this.img2, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
+/**
+ * .animate
+ * VAD GÖR DEN?
+ * @param
+ * **/
 Sun.prototype.animate = function () {
-    console.log("TEST")
     this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 
 
