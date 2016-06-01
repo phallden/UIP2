@@ -36,7 +36,6 @@ $( document ).ready(function() {
  	maskCtx.fillStyle = "rgba(0, 0, 0, 0.5)";
  	maskCtx.fillRect(0, 0, maskCanvas.width, maskCanvas.height);
 
-		//maskCtx.globalCompositeOperation = 'xor';
 
 		maskCtx.globalCompositeOperation = 'destination-out'
 		maskCtx.fillStyle = "rgba(0, 0, 0, 0.9)";
@@ -105,8 +104,6 @@ $( document ).ready(function() {
 	for (i = 0; i < x.length; i++) {
 		x[i].style.display = "none";
 	}
-	//$("#tut-content #" + cityName).show();
-	//document.getElementById(cityName).style.display = "block";
 	var test = document.getElementById(cityName);
 	test.style.display = "block";
 	if(first == null){

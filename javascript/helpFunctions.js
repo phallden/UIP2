@@ -43,7 +43,6 @@ function myFunction(xml, ID, object) {
         div.removeChild(rem);
     }
     var node;
-    var prevText;
     var xmlDoc = xml.responseXML;
     var x = xmlDoc.getElementsByTagName(object);
     z = document.getElementById(ID);
@@ -73,7 +72,7 @@ function myFunction(xml, ID, object) {
     table.appendChild(tableBody);
     z.appendChild(table);
 }
-/** 
+/**
  * returnAnimal
  * helpfunction for fetchText, return animal image
  * @param object

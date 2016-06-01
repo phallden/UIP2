@@ -47,7 +47,6 @@ var windmill = function (canvasElem, image,
     this.nameObj = "Windmill";
 }
 
-var interVall;
 var printImage;
 
 /**
