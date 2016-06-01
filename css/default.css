@@ -76,7 +76,7 @@ canvas {
     width: 100%;
 }
 
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+.col-1, .col-sm-1, .col-2, .col-sm-2, .col-3, .col-sm-3, .col-4, .col-sm-4, .col-5, .col-sm-5, .col-6, .col-sm-6, .col-7, .col-sm-7, .col-8, .col-sm-8, .col-9, .col-sm-9, .col-10, .col-sm-10, .col-11, .col-sm-11, .col-12, .col-sm-12 {
     float: left;
     position: relative;
     min-height: 1px;
@@ -86,105 +86,186 @@ canvas {
     padding-left: 15px; */
 }
 
-.col-12 {
+@media (min-width: 768px) {
+.col-sm-12 {
     width: 100%;
 }
-
-.col-11 {
+.col-sm-11 {
     width: 91.66666667%;
 }
-
-.col-10 {
+.col-sm-10 {
     width: 83.33333333%;
 }
-
-.col-9 {
+.col-sm-9 {
     width: 75%;
 }
-
-.col-8 {
+.col-sm-8 {
     width: 66.66666667%;
 }
-
-.col-7 {
+.col-sm-7 {
     width: 58.33333333%;
 }
-
-.col-6 {
+.col-sm-6 {
     width: 50%;
 }
-
-.col-5 {
+.col-sm-5 {
     width: 41.66666667%;
 }
-
-.col-4 {
+.col-sm-4 {
     width: 33.33333333%;
 }
-
-.col-3 {
+.col-sm-3 {
     width: 25%;
 }
-
-.col-2 {
+.col-sm-2 {
     width: 16.66666667%;
 }
-
-.col-1 {
+.col-sm-1 {
     width: 8.33333333%;
 }
-
-.col-offset-12 {
+.col-sm-offset-12 {
     margin-left: 100%;
 }
-
-.col-offset-11 {
+.col-sm-offset-11 {
     margin-left: 91.66666667%;
 }
-
-.col-offset-10 {
+.col-sm-offset-10 {
     margin-left: 83.33333333%;
 }
-
-.col-offset-9 {
+.col-sm-offset-9 {
     margin-left: 75%;
 }
-
-.col-offset-8 {
+.col-sm-offset-8 {
     margin-left: 66.66666667%;
 }
-
-.col-offset-7 {
+.col-sm-offset-7 {
     margin-left: 58.33333333%;
 }
-
-.col-offset-6 {
+.col-sm-offset-6 {
     margin-left: 50%;
 }
-
-.col-offset-5 {
+.col-sm-offset-5 {
     margin-left: 41.66666667%;
 }
-
-.col-offset-4 {
+.col-sm-offset-4 {
     margin-left: 33.33333333%;
 }
-
-.col-offset-3 {
+.col-sm-offset-3 {
     margin-left: 25%;
 }
-
-.col-offset-2 {
+.col-sm-offset-2 {
     margin-left: 16.66666667%;
 }
-
-.col-offset-1 {
+.col-sm-offset-1 {
     margin-left: 8.33333333%;
 }
-
-.col-offset-0 {
+.col-sm-offset-0 {
     margin-left: 0;
 }
+}
+
+@media (min-width: 992px) {
+    .col-12 {
+        width: 100%;
+    }
+
+    .col-11 {
+        width: 91.66666667%;
+    }
+
+    .col-10 {
+        width: 83.33333333%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-8 {
+        width: 66.66666667%;
+    }
+
+    .col-7 {
+        width: 58.33333333%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-5 {
+        width: 41.66666667%;
+    }
+
+    .col-4 {
+        width: 33.33333333%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-2 {
+        width: 16.66666667%;
+    }
+
+    .col-1 {
+        width: 8.33333333%;
+    }
+
+    .col-offset-12 {
+        margin-left: 100%;
+    }
+
+    .col-offset-11 {
+        margin-left: 91.66666667%;
+    }
+
+    .col-offset-10 {
+        margin-left: 83.33333333%;
+    }
+
+    .col-offset-9 {
+        margin-left: 75%;
+    }
+
+    .col-offset-8 {
+        margin-left: 66.66666667%;
+    }
+
+    .col-offset-7 {
+        margin-left: 58.33333333%;
+    }
+
+    .col-offset-6 {
+        margin-left: 50%;
+    }
+
+    .col-offset-5 {
+        margin-left: 41.66666667%;
+    }
+
+    .col-offset-4 {
+        margin-left: 33.33333333%;
+    }
+
+    .col-offset-3 {
+        margin-left: 25%;
+    }
+
+    .col-offset-2 {
+        margin-left: 16.66666667%;
+    }
+
+    .col-offset-1 {
+        margin-left: 8.33333333%;
+    }
+
+    .col-offset-0 {
+        margin-left: 0;
+    }
+}
+
 
 
 .tut-navbar{
@@ -319,7 +400,7 @@ blockquote p {
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     html {
-        background: url(../images/savannah.jpg) no-repeat center center fixed;
+        background: url(../images/background_2.png) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;

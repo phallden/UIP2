@@ -30,16 +30,22 @@ Farmer.prototype.draw = function () {
     this.ctx.drawImage( this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
 };
 
+
+
 /**
  * .positionBubble
  * Position the bubble correctly on the farmer
  * @param
  * **/
-Farmer.prototype.positionBubble = function () {
+Farmer.prototype.positionBubble = function (fullWidth) {
     $("#farmertip").parent().css({position: 'relative'});
-    $("#farmer-bubble").css({top: farmerObj.y + 180, left: farmerObj.x - 400, position:'absolute'});
+    if (fullWidth)
+        $("#farmer-bubble").css({top: farmerObj.y + 180, left: farmerObj.x + 250, position:'absolute'});
+    else 
+        $("#farmer-bubble").css({top: farmerObj.y + 480, left: farmerObj.x - 250, position:'absolute'});
     $("#farmer-bubble").show();
-};
+
+}
 
 /**
  * .clear

@@ -2,8 +2,10 @@ var spinIt;
 var birdIntervall;
 $(document).ready(function () {
     var farmerTipOrg = $("#farmertip").clone();
-    var pigCanvas = document.getElementById('pigCanvas');
+    var Cvs1 = document.getElementById('1groundCanvas');
+    var Cvs2 = document.getElementById('2groundCanvas');
     var skyCanvas = document.getElementById('cloudCanvas');
+    //var farmerCanvas = document.getElementById('farmerCanvas');
     var overlayCanvas = document.getElementById('overlayCanvas');
     overlayCanvas.height = $(document).height();
     overlayCanvas.width = window.innerWidth;
@@ -13,8 +15,8 @@ $(document).ready(function () {
         endTut();
 
     });
-    pigCanvas.addEventListener('click', function (e) {
-        var mousePos = getMousePos(pigCanvas, e)
+    Cvs1.addEventListener('click', function (e) {
+        var mousePos = getMousePos(Cvs1, e)
         pigs.forEach(function (pig) {
             if (mousePos.x > pig.x && mousePos.x < parseInt(pig.x + pig.canvas.width() * pig.widthFact) && mousePos.y > pig.y && mousePos.y < parseInt(pig.y + (pig.canvas.width() * pig.widthFact * pig.heightFact))) {
                 pigSound.play();
@@ -44,8 +46,9 @@ $(document).ready(function () {
 
     });
 
-    pigCanvas.addEventListener('mousemove', function (e) {
-        var mousePos = getMousePos(pigCanvas, e)
+    Cvs2.addEventListener('mousemove', function (e) {
+        var mousePos = getMousePos(Cvs2, e)
+        console.log("X: " + mousePos.x + " , Y: " + mousePos.y)
         if (mousePos.x > windObj.x && mousePos.x < parseInt(windObj.x + windObj.canvas.width() * windObj.widthFact) && mousePos.y > windObj.y && mousePos.y < parseInt(windObj.y + (windObj.canvas.width() * windObj.widthFact * windObj.heightFact))) {
             if (windObj.running == false) {
                 windObj.running = true;
@@ -62,6 +65,9 @@ $(document).ready(function () {
 
         birdObj.x = e.clientX;
         birdObj.y = e.clientY;
+        //birdObj.clear();
+        //birdObj.drawNew();
+        //animateBird();
         var mousePos = getMousePos(skyCanvas, e);
         if (mousePos.x > sunObj.x && mousePos.x < parseInt(sunObj.x + sunObj.canvas.width() * sunObj.widthFact) && mousePos.y > sunObj.y && mousePos.y < parseInt(sunObj.y + (sunObj.canvas.width() * sunObj.widthFact * sunObj.heightFact))) {
             sunObj.imageChoice = 2;
@@ -80,9 +86,11 @@ $(document).ready(function () {
         birdObj.y = 50;
     });
 
-    pigCanvas.addEventListener('click', function (e) {
-        var mousePos = getMousePos(pigCanvas, e)
+    Cvs2.addEventListener('click', function (e) {
+        console.log("HITFaRMER")
+        var mousePos = getMousePos(Cvs2, e)
         if (mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))) {
+            //$("#farmer-bubble").css({top: farmerObj.y + 150, left: farmerObj.x - 400, position:'absolute'});
             $("#farmer-bubble").show();
         } else {
             $("#farmer-bubble").hide();
