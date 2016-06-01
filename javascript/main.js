@@ -39,7 +39,7 @@ var sunObj;
  *      sources =
  *      callback =
  * **/
-function loadImages(sources, callback) {
+ function loadImages(sources, callback) {
     var images = {};
     var loadedImages = 0;
     var numImages = 0;
@@ -62,10 +62,10 @@ function loadImages(sources, callback) {
  * init
  * on bodyload init is initated
  * **/
-function init() {
+ function init() {
     loadImages(sources, function (images) {
 
-        tutobjects[0] = objects[0] = windObj = new windmill("pigCanvas", images.windmill1,
+        tutobjects[0] = objects[0] = windObj = new windmill("2groundCanvas", images.windmill1,
             images.snurra,
             images.snurra1,
             images.snurra2,
@@ -78,22 +78,21 @@ function init() {
             images.snurra9,
             images.snurra10,
             images.snurra11,
-            0.15, 1.1, 0.80, 5);
+            0.30, 1.1, 0.10, 0);
         tutobjects[1] = objects[1] = birdObj = new bird("cloudCanvas", images.birdPic, 0.07, 0.1, 0.2, 50);
-        tutobjects[2] = objects[2] = pigs[0] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.25, 70);
-        objects[3] = pigs[1] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.10, 75);
-        objects[4] = pigs[2] = new Pig("pigCanvas", images.Pig, 0.05, 1.1, 0.15, 150);
-        tutobjects[3] = objects[5] = horses[0] = new Horse("pigCanvas", images.Horse, 0.20, 0.5, 0.20, 250);
+        tutobjects[2] = objects[2] = pigs[0] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.3, 70);
+        objects[3] = pigs[1] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.10, 75);
+        objects[4] = pigs[2] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.25, 150);
+        tutobjects[3] = objects[5] = horses[0] = new Horse("1groundCanvas", images.Horse, 0.40, 0.5, 0.20, 250);
         objects[6] = clouds[0] = new Cloud("cloudCanvas", images.Cloud, 0.1, 1.1, 0.25, 10);
         objects[7] = clouds[1] = new Cloud("cloudCanvas", images.Cloud, 0.05, 1.1, 0.1, 40);
         objects[8] = clouds[2] = new Cloud("cloudCanvas", images.Cloud, 0.08, 1.1, 0.4, 30);
         tutobjects[4] = objects[9] = sunObj = new Sun("cloudCanvas", images.Sun, images.Sun2, 0.1, 1.1, 0.85, 20);        
-        objects[10] = farmerObj = new Farmer("pigCanvas", images.Farmer, 0.1, 1.2, 0.80, 230);
-        tutobjects[5] = objects[11] = cows[0] = new Cow("pigCanvas", images.Cow,  0.06, 1.1, 0.40, 50 );
-        objects[12] = cows[1] = new Cow("pigCanvas", images.Cow, 0.06, 1.1, 0.50, 100 );
+        objects[10] = farmerObj = new Farmer("2groundCanvas", images.Farmer, 0.2, 1.2, 0.75, 250);
+        tutobjects[5] = objects[11] = cows[0] = new Cow("1groundCanvas", images.Cow,  0.15, 1.1, 0.50, 50 );
+        objects[12] = cows[1] = new Cow("1groundCanvas", images.Cow, 0.15, 1.1, 0.70, 100 );
         sunObj.draw();
         farmerObj.draw();
-        farmerObj.positionBubble();
         for (k = 0; k < pigs.length; k++) {
             pigs[k].draw();
             //	objects[k].draw();
@@ -115,12 +114,31 @@ function init() {
             }
         }, 20);
         windObj.draw();
-    });
+
+
+        if (matchMedia) {
+          var mq = window.matchMedia("(min-width: 800px)");
+          mq.addListener(WidthChange);
+          WidthChange(mq);
+      }
+  });
 }
 /**
  * onload
  * used to run init on load
  * **/
-window.onload = function () {
+ window.onload = function () {
     init();
 };
+
+
+function WidthChange(mq) {
+        var overlayCanvas = document.getElementById('overlayCanvas');
+    overlayCanvas.height = $(document).height();
+    overlayCanvas.width = window.innerWidth;
+  if (mq.matches) {
+    farmerObj.positionBubble(true);
+} else {
+    farmerObj.positionBubble(false);
+}
+}
