@@ -1,7 +1,6 @@
 var Horse = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
 
     // Initial values
-    //
     this.widthFact = widthFact;
     this.heightFact = heightFact;
     this.img = image;
@@ -23,7 +22,6 @@ var Horse = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
  * @param
  * **/
 Horse.prototype.draw = function () {
-    console.log("Horse: "+ this.canvas.width() * this.widthFact * this.heightFact);
     this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
