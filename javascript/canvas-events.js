@@ -5,7 +5,6 @@ $(document).ready(function () {
     var Cvs1 = document.getElementById('1groundCanvas');
     var Cvs2 = document.getElementById('2groundCanvas');
     var skyCanvas = document.getElementById('cloudCanvas');
-    //var farmerCanvas = document.getElementById('farmerCanvas');
     var overlayCanvas = document.getElementById('overlayCanvas');
     overlayCanvas.height = $(document).height();
     overlayCanvas.width = window.innerWidth;
@@ -65,9 +64,6 @@ $(document).ready(function () {
 
         birdObj.x = e.clientX;
         birdObj.y = e.clientY;
-        //birdObj.clear();
-        //birdObj.drawNew();
-        //animateBird();
         var mousePos = getMousePos(skyCanvas, e);
         if (mousePos.x > sunObj.x && mousePos.x < parseInt(sunObj.x + sunObj.canvas.width() * sunObj.widthFact) && mousePos.y > sunObj.y && mousePos.y < parseInt(sunObj.y + (sunObj.canvas.width() * sunObj.widthFact * sunObj.heightFact))) {
             sunObj.imageChoice = 2;
@@ -90,7 +86,6 @@ $(document).ready(function () {
         console.log("HITFaRMER")
         var mousePos = getMousePos(Cvs2, e)
         if (mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))) {
-            //$("#farmer-bubble").css({top: farmerObj.y + 150, left: farmerObj.x - 400, position:'absolute'});
             $("#farmer-bubble").show();
         } else {
             $("#farmer-bubble").hide();
@@ -109,14 +104,6 @@ function getOffset(object) {
         x: rect.left,
         y: rect.top
     };
-}
-/**
- * closeTooltop
- * close tooltip if mouse is clicked.
- * @param
- * **/
-function closeTooltip() {
-    $("#farmertip").tooltip("close");
 }
 /**
  * animateWindmill

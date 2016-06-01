@@ -1,9 +1,6 @@
-
-
 var Farmer = function(canvasElem, image, widthFact, heightFact,xFactor ,y) {
 
     // Initial values
-    //
     $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;

@@ -89,7 +89,7 @@ var sunObj;
         objects[7] = clouds[1] = new Cloud("cloudCanvas", images.Cloud, 0.05, 1.1, 0.1, 40);
         objects[8] = clouds[2] = new Cloud("cloudCanvas", images.Cloud, 0.08, 1.1, 0.4, 30);
         tutobjects[4] = objects[9] = sunObj = new Sun("cloudCanvas", images.Sun, images.Sun2, 0.1, 1.1, 0.85, 20);        
-        objects[10] = farmerObj = new Farmer("2groundCanvas", images.Farmer, 0.2, 1.2, 0.75, 250);
+        objects[10] = farmerObj = new Farmer("2groundCanvas", images.Farmer, 0.2, 1.2, 0.55, 220);
         tutobjects[5] = objects[11] = cows[0] = new Cow("1groundCanvas", images.Cow,  0.15, 1.1, 0.50, 50 );
         objects[12] = cows[1] = new Cow("1groundCanvas", images.Cow, 0.15, 1.1, 0.70, 100 );
         sunObj.draw();

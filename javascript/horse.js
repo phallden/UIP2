@@ -1,7 +1,6 @@
 var Horse = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
 
     // Initial values
-    //
     this.widthFact = widthFact;
     this.heightFact = heightFact;
     this.img = image;
