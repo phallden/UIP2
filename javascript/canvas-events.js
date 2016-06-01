@@ -48,7 +48,7 @@ $(document).ready(function () {
 
     Cvs2.addEventListener('mousemove', function (e) {
         var mousePos = getMousePos(Cvs2, e)
-        console.log("X: " + mousePos.x + " , Y: " + mousePos.y)
+      //  console.log("X: " + mousePos.x + " , Y: " + mousePos.y)
         if (mousePos.x > windObj.x && mousePos.x < parseInt(windObj.x + windObj.canvas.width() * windObj.widthFact) && mousePos.y > windObj.y && mousePos.y < parseInt(windObj.y + (windObj.canvas.width() * windObj.widthFact * windObj.heightFact))) {
             if (windObj.running == false) {
                 windObj.running = true;
@@ -87,7 +87,7 @@ $(document).ready(function () {
     });
 
     Cvs2.addEventListener('click', function (e) {
-        console.log("HITFaRMER")
+        //console.log("HITFaRMER")
         var mousePos = getMousePos(Cvs2, e)
         if (mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))) {
             //$("#farmer-bubble").css({top: farmerObj.y + 150, left: farmerObj.x - 400, position:'absolute'});

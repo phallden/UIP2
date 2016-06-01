@@ -7,7 +7,7 @@ var Pig = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.canvas = $('#' + canvasElem);
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
-    this.canvas.attr('width', $(this.container).width()); //max width
+    //this.canvas.attr('width', $(this.container).width()); //max width
     this.xFactor = xFactor;
     this.x = this.canvas.width() * xFactor;
     this.y = y;
@@ -35,6 +35,13 @@ Pig.prototype.clear = function () {
     this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());
 }
 
+Pig.prototype.resetWidth = function(){
+    this.canvas.attr('width', $(this.container).width());
+}
+
+Pig.prototype.setX = function(){
+    this.x = this.canvas.width() * this.xFactor;
+}
 
 
 

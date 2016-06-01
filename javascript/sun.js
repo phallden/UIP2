@@ -1,6 +1,7 @@
 var Sun = function (canvasElem, image, image2, widthFact, heightFact, xFactor, y) {
     // Initial values
     $this = this;
+    this.xFactor = xFactor;
     this.widthFact = widthFact;
     this.heightFact = heightFact;
     this.img = image;
@@ -9,7 +10,7 @@ var Sun = function (canvasElem, image, image2, widthFact, heightFact, xFactor, y
     this.canvas = $('#' + canvasElem);
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
-    this.canvas.attr('width', $(this.container).width()); //max width
+  //  this.canvas.attr('width', $(this.container).width()); //max width
     this.x = this.canvas.width() * xFactor;
     this.y = y;
     this.vx = 1;
@@ -41,5 +42,9 @@ Sun.prototype.animate = function () {
 
 
 };
+
+Sun.prototype.setX = function(){
+    this.x = this.canvas.width() * this.xFactor;
+}
 
 

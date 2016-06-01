@@ -63,6 +63,7 @@ var sunObj;
  * on bodyload init is initated
  * **/
  function init() {
+    setCvsWidth(true);
     loadImages(sources, function (images) {
 
         tutobjects[0] = objects[0] = windObj = new windmill("2groundCanvas", images.windmill1,
@@ -81,7 +82,7 @@ var sunObj;
             0.30, 1.1, 0.10, 0);
         tutobjects[1] = objects[1] = birdObj = new Bird("cloudCanvas", images.birdPic, 0.07, 0.1, 0.2, 50);
         tutobjects[2] = objects[2] = pigs[0] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.3, 70);
-        objects[3] = pigs[1] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.10, 75);
+        objects[3] = pigs[1] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.10, 105);
         objects[4] = pigs[2] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.25, 150);
         tutobjects[3] = objects[5] = horses[0] = new Horse("1groundCanvas", images.Horse, 0.40, 0.5, 0.20, 250);
 
@@ -92,18 +93,7 @@ var sunObj;
         objects[10] = farmerObj = new Farmer("2groundCanvas", images.Farmer, 0.2, 1.2, 0.75, 250);
         tutobjects[5] = objects[11] = cows[0] = new Cow("1groundCanvas", images.Cow,  0.15, 1.1, 0.50, 50 );
         objects[12] = cows[1] = new Cow("1groundCanvas", images.Cow, 0.15, 1.1, 0.70, 100 );
-        sunObj.draw();
-        farmerObj.draw();
-        for (k = 0; k < pigs.length; k++) {
-            pigs[k].draw();
-            //	objects[k].draw();
-        }
-        for (k = 0; k < horses.length; k++) {
-            horses[k].draw();
-        }
-        for (k = 0; k < cows.length; k++) {
-            cows[k].draw();
-        }
+        drawAll(true);
         var loopBG = setInterval(function () {
             clouds[0].clear();
             sunObj.draw();
@@ -114,7 +104,6 @@ var sunObj;
                 clouds[k].draw();
             }
         }, 20);
-        windObj.draw();
 
 
         if (matchMedia) {
@@ -132,14 +121,63 @@ var sunObj;
     init();
 };
 
+function resetCanvas(){
+
+   for (k = 0; k < pigs.length; k++) {
+    pigs[k].resetWidth();
+            //  objects[k].draw();
+        }
+        windObj.resetWidth();
+  /*  for (k = 0; k < objects.length; ++k){
+       objects[k].canvas.attr('width', $(objects[k].container).width());
+   } */
+    /*
+$( "canvas" ).each(function( index ) {
+    var parent = $(this).parent()
+    var newWidth = parent.width();
+    $(this).attr('width', newWidth);
+}); */
+}
+
+function drawAll(first){
+
+   for (k = 0; k < objects.length; k++) {
+    objects[k].setX();
+}
+
+
+for (k = 0; k < pigs.length; k++) {
+    pigs[k].draw();
+}
+for (k = 0; k < horses.length; k++) {
+    horses[k].draw();
+}
+for (k = 0; k < cows.length; k++) {
+    cows[k].draw();
+}
+farmerObj.draw();
+windObj.draw();
+}
+
+function setCvsWidth(first){
+ $( "canvas" ).each(function( index ) {
+    var parent = $(this).parent()
+    var newWidth = parent.width();
+    $(this).attr('width', newWidth);
+}); 
+ if(!first)
+    drawAll(first);
+}
+
 
 function WidthChange(mq) {
-        var overlayCanvas = document.getElementById('overlayCanvas');
-    overlayCanvas.height = $(document).height();
-    overlayCanvas.width = window.innerWidth;
-  if (mq.matches) {
-    farmerObj.positionBubble(true);
-} else {
-    farmerObj.positionBubble(false);
-}
+    //resetCanvas();
+    setCvsWidth(false);
+    if (mq.matches) {
+        farmerObj.positionBubble(true);
+
+    } else {
+        farmerObj.positionBubble(false);
+
+    }
 }

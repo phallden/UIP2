@@ -76,6 +76,9 @@ $( document ).ready(function() {
  * @param
  * **/
  function startTut(){
+ 	var overlayCanvas = document.getElementById('overlayCanvas');
+ 	overlayCanvas.height = $(window).height();
+ 	overlayCanvas.width = window.innerWidth;
  	$(".tut-navbar").show();
  	openTut("Info", true)
  }
