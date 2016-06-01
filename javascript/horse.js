@@ -23,7 +23,6 @@ var Horse = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
  * @param
  * **/
 Horse.prototype.draw = function () {
-    console.log("Horse: "+ this.canvas.width() * this.widthFact * this.heightFact);
     this.ctx.drawImage(this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact)
 };
 
