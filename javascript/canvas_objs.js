@@ -5,7 +5,7 @@ var Cloud = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
     this.widthFact = widthFact;
     this.heightFact = heightFact;
     this.img = image;
-    this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
+    this.canvas = $('#' + canvasElem);
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
     this.canvas.attr('width', $(this.container).width()); //max width
@@ -18,7 +18,7 @@ var Cloud = function (canvasElem, image, widthFact, heightFact, xFactor, y) {
 };
 /**
  * .start
- * VAD GÖR DEN?
+ * Start the animation
  * @param
  * **/
 Cloud.prototype.start = function () {
@@ -26,7 +26,6 @@ Cloud.prototype.start = function () {
     this.cloudImage.onload = function () {
         $this.ctx.drawImage($this.img, $this.x, $this.y, $this.canvas.width() * $this.widthFact, $this.canvas.width() * $this.widthFact * $this.heightFact)
     };
-    // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())
 };
 /**
  * .draw

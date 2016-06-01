@@ -16,7 +16,6 @@ var windmill = function (canvasElem, image,
                          xFactor,
                          y) {
     // Initial values
-    //
     $this = this;
     this.widthFact = widthFact;
     this.heightFact = heightFact;
@@ -33,7 +32,7 @@ var windmill = function (canvasElem, image,
     this.img9 = image11;
     this.img10 = image12;
     this.img11 = image13;
-    this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);    
+    this.canvas = $('#' + canvasElem);
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
     this.canvas.attr('width', $(this.container).width()); //max width

@@ -79,11 +79,12 @@ var sunObj;
             images.snurra10,
             images.snurra11,
             0.30, 1.1, 0.10, 0);
-        tutobjects[1] = objects[1] = birdObj = new bird("cloudCanvas", images.birdPic, 0.07, 0.1, 0.2, 50);
+        tutobjects[1] = objects[1] = birdObj = new Bird("cloudCanvas", images.birdPic, 0.07, 0.1, 0.2, 50);
         tutobjects[2] = objects[2] = pigs[0] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.3, 70);
         objects[3] = pigs[1] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.10, 75);
         objects[4] = pigs[2] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.25, 150);
         tutobjects[3] = objects[5] = horses[0] = new Horse("1groundCanvas", images.Horse, 0.40, 0.5, 0.20, 250);
+
         objects[6] = clouds[0] = new Cloud("cloudCanvas", images.Cloud, 0.1, 1.1, 0.25, 10);
         objects[7] = clouds[1] = new Cloud("cloudCanvas", images.Cloud, 0.05, 1.1, 0.1, 40);
         objects[8] = clouds[2] = new Cloud("cloudCanvas", images.Cloud, 0.08, 1.1, 0.4, 30);

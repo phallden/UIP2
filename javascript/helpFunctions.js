@@ -73,7 +73,7 @@ function myFunction(xml, ID, object) {
     table.appendChild(tableBody);
     z.appendChild(table);
 }
-/**
+/** 
  * returnAnimal
  * helpfunction for fetchText, return animal image
  * @param object

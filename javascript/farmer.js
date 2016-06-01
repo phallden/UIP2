@@ -8,7 +8,7 @@ var Farmer = function(canvasElem, image, widthFact, heightFact,xFactor ,y) {
     this.widthFact = widthFact;
     this.heightFact = heightFact;
     this.img = image;
-    this.canvas = $('#' + canvasElem);//document.getElementById(canvasElem);
+    this.canvas = $('#' + canvasElem);
     this.container = $(this.canvas).parent();
     this.ctx = this.canvas.get(0).getContext('2d');
     this.canvas.attr('width', $(this.container).width()); //max width
@@ -20,20 +20,24 @@ var Farmer = function(canvasElem, image, widthFact, heightFact,xFactor ,y) {
     this.nameObj = "Farmer";
 };
 
-Farmer.prototype.start = function () {
-    $this = this;
-    this.FarmerImage.onload = function() {
-        $this.ctx.drawImage( this, $this.x, $this.y, $this.canvas.width() * $this.widthFact, $this.canvas.width() * $this.widthFact * $this.heightFact);
-    };
-    // this.ctx.drawImage( this.cloudImage, this.x, this.y, this.canvas.width(), this.canvas.height())  
-};
 
+/**
+ * .draw
+ * Draw the farmer on the canvas
+ * @param
+ * **/
 Farmer.prototype.draw = function () {
     this.ctx.drawImage( this.img, this.x, this.y, this.canvas.width() * this.widthFact, this.canvas.width() * this.widthFact * this.heightFact);
 };
 
-Farmer.prototype.positionBubble = function (fullWidth) {
 
+
+/**
+ * .positionBubble
+ * Position the bubble correctly on the farmer
+ * @param
+ * **/
+Farmer.prototype.positionBubble = function (fullWidth) {
     $("#farmertip").parent().css({position: 'relative'});
     if (fullWidth)
         $("#farmer-bubble").css({top: farmerObj.y + 180, left: farmerObj.x + 250, position:'absolute'});
@@ -43,7 +47,11 @@ Farmer.prototype.positionBubble = function (fullWidth) {
 
 }
 
-
+/**
+ * .clear
+ * Clear canvas of farmer
+ * @param
+ * **/
 Farmer.prototype.clear = function(){
     this.ctx.clearRect(0, 0, this.canvas.width(), this.canvas.height());
 }
