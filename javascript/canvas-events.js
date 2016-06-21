@@ -1,6 +1,8 @@
 var spinIt;
 var birdIntervall;
+// Needed for EventListeners.
 $(document).ready(function () {
+    //load canvas
     var farmerTipOrg = $("#farmertip").clone();
     var Cvs1 = document.getElementById('1groundCanvas');
     var Cvs2 = document.getElementById('2groundCanvas');
@@ -24,7 +26,7 @@ $(document).ready(function () {
                 document.getElementById('animal').style.display = 'inline-block';
             }
         });
-
+        //Used for tutorial and to play sound horse.
         horses.forEach(function (horse) {
             if (mousePos.x > horse.x && mousePos.x < parseInt(horse.x + horse.canvas.width() * horse.widthFact) && mousePos.y > horse.y && mousePos.y < parseInt(horse.y + (horse.canvas.width() * horse.widthFact * horse.heightFact))) {
                 horseSound.play();
@@ -33,7 +35,7 @@ $(document).ready(function () {
                 document.getElementById('animal').style.display = 'block';
             }
         });
-
+        //Used for tutorial and to play sound cow.
         cows.forEach(function (cow) {
             if (mousePos.x > cow.x && mousePos.x < parseInt(cow.x + cow.canvas.width() * cow.widthFact) && mousePos.y > cow.y && mousePos.y < parseInt(cow.y + (cow.canvas.width() * cow.widthFact * cow.heightFact))) {
                 cowSound.play();
@@ -44,7 +46,7 @@ $(document).ready(function () {
         });
 
     });
-
+    //Create spinning windmill
     Cvs2.addEventListener('mousemove', function (e) {
         var mousePos = getMousePos(Cvs2, e)
       //  console.log("X: " + mousePos.x + " , Y: " + mousePos.y)
@@ -59,7 +61,7 @@ $(document).ready(function () {
             windObj.running = false;
         }
     });
-
+    //changing image on sun
     skyCanvas.addEventListener('mousemove', function (e) {
 
         birdObj.x = e.clientX;
@@ -72,7 +74,7 @@ $(document).ready(function () {
             sunObj.imageChoice = 1;
     });
 
-
+    //Leave tutorial.
     skyCanvas.addEventListener('click', function (e) {
         $("#farmer-bubble").hide();
     });
@@ -82,6 +84,7 @@ $(document).ready(function () {
         birdObj.y = 50;
     });
 
+    //Farmer pressed? Used for tutorial.
     Cvs2.addEventListener('click', function (e) {
         //console.log("HITFaRMER")
         var mousePos = getMousePos(Cvs2, e)

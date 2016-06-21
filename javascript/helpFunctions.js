@@ -1,23 +1,4 @@
 /**
- * createObject
- * create object obj with id = objId, class (if wanted) objClass
- * @param element,obj,odObject,objClass
- *      pElement = parentElement
- *      obj = what kind of element, CANVAS, div, etc...
- *      objId = wanted object ID
- *      objClass = (alternativ) wanted object class
- * **/
-function createObject(pElement, obj, objId, objClass) {
-    var object = document.getElementById(pElement);
-    var x = object.createElement(obj);
-    x.id = objId;
-    if (objClass != null) {
-        x.className = objClass;
-    }
-    return x;
-}
-
-/**
  * fetchText
  * Fetch text from .xml file and print it to canvas
  * @param ID, object
@@ -36,12 +17,21 @@ function fetchText(ID, object) {
         }
     };
 }
+/**
+ * myFunction
+ * Create the table for text when animal is pressed
+ * @param ID, object, xml
+ *      ID = what id does the object you want to print the text on have
+ *      Object = what animal? (cow,horse,pig..)
+ *      xml = variable with xml file loaded.
+ * **/
 function myFunction(xml, ID, object) {
     if (document.getElementById('tempTable') != null) {
         rem = document.getElementById('tempTable');
         div = rem.parentNode;
         div.removeChild(rem);
     }
+    //initial values, creating the table for the text.
     var node;
     var xmlDoc = xml.responseXML;
     var x = xmlDoc.getElementsByTagName(object);
@@ -57,6 +47,7 @@ function myFunction(xml, ID, object) {
     var nodeAnimal = returnAnimal(object); // animal node
     cell2.appendChild(nodeAnimal);
 
+    //Find the text from the xml file.
     for (var i = 1; i < x[0].childNodes.length; i = i + 2) {
         node = document.createTextNode(x[0].childNodes[i].innerHTML);
         var row = document.createElement('tr');
@@ -66,6 +57,7 @@ function myFunction(xml, ID, object) {
         row.appendChild(cell);
         cell1.appendChild(row);
     }
+    //Append text to cell.
     rowFirst.appendChild(cell1);
     rowFirst.appendChild(cell2);
     tableBody.appendChild(rowFirst);
