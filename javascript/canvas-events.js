@@ -1,6 +1,6 @@
 var spinIt;
 var birdIntervall;
-// Needed for EventListeners.
+// Initialise EventListeners.
 $(document).ready(function () {
     //load canvas
     var farmerTipOrg = $("#farmertip").clone();
@@ -16,7 +16,12 @@ $(document).ready(function () {
         endTut();
 
     });
+    // Initialise the click event listener for the first canvas layer
+    //
     Cvs1.addEventListener('click', function (e) {
+        // If the mouse event is on the pig object and clicked, play the corresponding sound of the object,
+        // fetch the information of that animal from the XML-file and paste it into a modal window and display it.
+        //
         var mousePos = getMousePos(Cvs1, e)
         pigs.forEach(function (pig) {
             if (mousePos.x > pig.x && mousePos.x < parseInt(pig.x + pig.canvas.width() * pig.widthFact) && mousePos.y > pig.y && mousePos.y < parseInt(pig.y + (pig.canvas.width() * pig.widthFact * pig.heightFact))) {
@@ -26,7 +31,9 @@ $(document).ready(function () {
                 document.getElementById('animal').style.display = 'inline-block';
             }
         });
-        //Used for tutorial and to play sound horse.
+        // If the mouse event is on the horse object and clicked, play the corresponding sound of the object,
+        // fetch the information of that animal from the XML-file and paste it into a modal window and display it.
+        //
         horses.forEach(function (horse) {
             if (mousePos.x > horse.x && mousePos.x < parseInt(horse.x + horse.canvas.width() * horse.widthFact) && mousePos.y > horse.y && mousePos.y < parseInt(horse.y + (horse.canvas.width() * horse.widthFact * horse.heightFact))) {
                 horseSound.play();
@@ -35,7 +42,9 @@ $(document).ready(function () {
                 document.getElementById('animal').style.display = 'block';
             }
         });
-        //Used for tutorial and to play sound cow.
+        // If the mouse event is on the cow object and clicked, play the corresponding sound of the object,
+        // fetch the information of that animal from the XML-file and paste it into a modal window and display it.
+        //
         cows.forEach(function (cow) {
             if (mousePos.x > cow.x && mousePos.x < parseInt(cow.x + cow.canvas.width() * cow.widthFact) && mousePos.y > cow.y && mousePos.y < parseInt(cow.y + (cow.canvas.width() * cow.widthFact * cow.heightFact))) {
                 cowSound.play();
@@ -46,10 +55,11 @@ $(document).ready(function () {
         });
 
     });
-    //Create spinning windmill
+    // Initialise the event listener for the second ground layer, check if the mouse position is on the windmill,
+    // and if so start a sprite animation of the windmill.
+    //
     Cvs2.addEventListener('mousemove', function (e) {
         var mousePos = getMousePos(Cvs2, e)
-      //  console.log("X: " + mousePos.x + " , Y: " + mousePos.y)
         if (mousePos.x > windObj.x && mousePos.x < parseInt(windObj.x + windObj.canvas.width() * windObj.widthFact) && mousePos.y > windObj.y && mousePos.y < parseInt(windObj.y + (windObj.canvas.width() * windObj.widthFact * windObj.heightFact))) {
             if (windObj.running == false) {
                 windObj.running = true;
@@ -61,7 +71,9 @@ $(document).ready(function () {
             windObj.running = false;
         }
     });
-    //changing image on sun
+    // Initialise the event listener for the background layer and check if the position of the mouse is on the sun,
+    // if so start a sprite animation of it by toggling between two images.
+    //
     skyCanvas.addEventListener('mousemove', function (e) {
 
         birdObj.x = e.clientX;
@@ -79,14 +91,16 @@ $(document).ready(function () {
         $("#farmer-bubble").hide();
     });
 
+    // Initialise an event listener for the background canvas to see if the position of the mouse is on it and if so
+    // calculate the position of the mouse to enable the drawing of a bird on the correct position
     skyCanvas.addEventListener('mouseout', function (e) {
         birdObj.x = birdObj.canvas.width() * birdObj.xFactor;
         birdObj.y = 50;
     });
 
-    //Farmer pressed? Used for tutorial.
+    // Initialise an event listener for the second foreground canvas to see which of the farmers option is clicked, if the first option is clicked
+    // start the tutorial and the if the second option is clicked close the tutorial.
     Cvs2.addEventListener('click', function (e) {
-        //console.log("HITFaRMER")
         var mousePos = getMousePos(Cvs2, e)
         if (mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))) {
             $("#farmer-bubble").show();
