@@ -9,7 +9,7 @@ var objects = [];
 var tutobjects = [];
 var cows = [];
 var sources = {
-   //initiate images for canvas.
+   //Initialise the  images.
     Pig: '../images/pig.png',
     Cloud: '../images/Cloud.png',
     Sun: '../images/sun.png',
@@ -81,26 +81,26 @@ var sunObj;
             images.snurra10,
             images.snurra11,
             0.30, 1.1, 0.10, 0);
-        //create birds.
+        // Create a bird object and store it in arrays.
         tutobjects[1] = objects[1] = birdObj = new Bird("cloudCanvas", images.birdPic, 0.07, 0.1, 0.2, 50);
-        //create pigs.
+        // Create pig objects and store it in arrays.
         tutobjects[2] = objects[2] = pigs[0] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.3, 70);
         objects[3] = pigs[1] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.10, 105);
         objects[4] = pigs[2] = new Pig("1groundCanvas", images.Pig, 0.1, 1.1, 0.25, 150);
-        //create horses.
+        // Crate horse objects and store it in arrays
         tutobjects[3] = objects[5] = horses[0] = new Horse("1groundCanvas", images.Horse, 0.40, 0.5, 0.20, 250);
-        //create clouds.
+        // Create cloud objects and store it in arrays.
         objects[6] = clouds[0] = new Cloud("cloudCanvas", images.Cloud, 0.1, 1.1, 0.25, 10);
         objects[7] = clouds[1] = new Cloud("cloudCanvas", images.Cloud, 0.05, 1.1, 0.1, 40);
         objects[8] = clouds[2] = new Cloud("cloudCanvas", images.Cloud, 0.08, 1.1, 0.4, 30);
-        //create sun.
+        // Create a sun object  and store it in arrays.
         tutobjects[4] = objects[9] = sunObj = new Sun("cloudCanvas", images.Sun, images.Sun2, 0.1, 1.1, 0.85, 20);
-        //create farmer.
+        // Create a farmer object  and store it in arrays.
         objects[10] = farmerObj = new Farmer("2groundCanvas", images.Farmer, 0.2, 1.2, 0.55, 220);
-        //create cows.
+        // Create cow objects on the second ground canvas and store it in arrays.
         tutobjects[5] = objects[11] = cows[0] = new Cow("1groundCanvas", images.Cow,  0.15, 1.1, 0.50, 50 );
         objects[12] = cows[1] = new Cow("1groundCanvas", images.Cow, 0.15, 1.1, 0.70, 100 );
-        drawAll(true); //draw all animals.
+        drawAll(true); // Draw all animals.
         //Loop, used to create moving clouds and bird.
         var loopBG = setInterval(function () {
             clouds[0].clear();
