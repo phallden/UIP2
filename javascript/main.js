@@ -133,18 +133,8 @@ function resetCanvas(){
 
    for (k = 0; k < pigs.length; k++) {
     pigs[k].resetWidth();
-            //  objects[k].draw();
         }
         windObj.resetWidth();
-  /*  for (k = 0; k < objects.length; ++k){
-       objects[k].canvas.attr('width', $(objects[k].container).width());
-   } */
-    /*
-$( "canvas" ).each(function( index ) {
-    var parent = $(this).parent()
-    var newWidth = parent.width();
-    $(this).attr('width', newWidth);
-}); */
 }
 
 
