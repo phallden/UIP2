@@ -62,11 +62,13 @@ $(document).ready(function () {
         var mousePos = getMousePos(Cvs2, e)
         if (mousePos.x > windObj.x && mousePos.x < parseInt(windObj.x + windObj.canvas.width() * windObj.widthFact) && mousePos.y > windObj.y && mousePos.y < parseInt(windObj.y + (windObj.canvas.width() * windObj.widthFact * windObj.heightFact))) {
             if (windObj.running == false) {
+                // Start the animation of the windmill.
                 windObj.running = true;
                 spinIt = setInterval(animateWindmill, 300);
             }
         }
         else {
+            // Stop the animation of the windmill.
             clearInterval(spinIt);
             windObj.running = false;
         }
@@ -75,7 +77,7 @@ $(document).ready(function () {
     // if so start a sprite animation of it by toggling between two images.
     //
     skyCanvas.addEventListener('mousemove', function (e) {
-
+        // Set the birds x and y coordinate to the mouses x and y coordinate. 
         birdObj.x = e.clientX;
         birdObj.y = e.clientY;
         var mousePos = getMousePos(skyCanvas, e);
@@ -86,7 +88,7 @@ $(document).ready(function () {
             sunObj.imageChoice = 1;
     });
 
-    //Leave tutorial.
+    // Hides the farmer conversation bubble.
     skyCanvas.addEventListener('click', function (e) {
         $("#farmer-bubble").hide();
     });
@@ -98,8 +100,8 @@ $(document).ready(function () {
         birdObj.y = 50;
     });
 
-    // Initialise an event listener for the second foreground canvas to see which of the farmers option is clicked, if the first option is clicked
-    // start the tutorial and the if the second option is clicked close the tutorial.
+    // Initialise an event listener for the second foreground canvas to see if the mouse event is a click on the farmer.
+    // If so, opens up the conversation bubble or closes it if not.
     Cvs2.addEventListener('click', function (e) {
         var mousePos = getMousePos(Cvs2, e)
         if (mousePos.x > farmerObj.x && mousePos.x < parseInt(farmerObj.x + farmerObj.canvas.width() * farmerObj.widthFact) && mousePos.y > farmerObj.y && mousePos.y < parseInt(farmerObj.y + (farmerObj.canvas.width() * farmerObj.widthFact * farmerObj.heightFact))) {
@@ -111,7 +113,7 @@ $(document).ready(function () {
 });
 /**
  * getOffset
- * return x and y location of the mouse on canvas.
+ * return the position {x,y} of the object relative to the viewport.
  * @param object
  *      Object = ?
  * **/
@@ -124,7 +126,7 @@ function getOffset(object) {
 }
 /**
  * animateWindmill
- * to create the spinning effect of the windmill
+ * create the spinning effect of the windmill
  * @param
  * **/
 function animateWindmill() {
@@ -133,7 +135,7 @@ function animateWindmill() {
 
 /**
  * getMousePos
- * store mouse positions over the canvas.
+ * store mouse positions over the canvas relative to the viewport.
  * @param canvas, evt
  *      canvas = the wanted canvas
  *      evt = mouse
